@@ -1,0 +1,37 @@
+$main: #5c0431;
+
+
+.footer{
+    margin-top: 12rem;
+    >.row{
+        .col{
+            img{
+                width: 100px;
+            }
+            >p{
+                font-size: 1rem;
+                width: 75%;
+                margin-top: 1.5rem;
+            }
+            >.btn-outline-primary{
+                margin-top: 1.5rem;
+                background: none;
+                color: $main;
+                border: $main 1px solid;
+            }
+            .btn-outline-primary:hover{
+                background: $main;
+                color: white;
+            }
+            h4{
+
+            }
+            a{text-decoration: none;
+                p{
+                    color: grey;
+                }
+            }
+
+        }
+    }
+}

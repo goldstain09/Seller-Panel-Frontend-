@@ -1,0 +1,39 @@
+$main: #5c0431;
+
+
+.Headerr{
+    .container{
+        >.d-flex{
+            >a{
+                img{
+                    height: 40px;
+                }
+            }
+            >ul{
+                li{
+                    .active{
+                        color: $main!important;
+                    }
+                }
+            }
+            >.text-end{
+                gap: 1rem;
+                display: flex;
+                .btn-outline-primary{
+                    background: none;
+                    color: $main;
+                    border: $main 1px solid;
+                }
+                .btn-outline-primary:hover{
+                    background: $main;
+                    color: white;
+                }
+                .btn-primary{
+                    background: $main;
+                    border: $main 1px solid;
+                    color: white;
+                }
+            }
+        }
+    }
+}
