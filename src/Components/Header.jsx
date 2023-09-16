@@ -6,7 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 export default function Header() {
   return (
     <>
-      <header className="p-3 mb-3 border-bottom fixed-top Headerr">
+      <header className="p-3 mb-3  fixed-top Headerr">
         <div className="container">
           <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a

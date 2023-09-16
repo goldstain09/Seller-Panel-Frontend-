@@ -1,12 +1,51 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import "./SCSS/GrowBusiness.scss";
+import { Link } from "react-router-dom";
+import SupplySupport from "./SupplySupport";
+import SellProductsOnline from "./SellProductsOnline";
 
 export default function GrowBusiness() {
   return (
     <>
-    <Header />
-    <Footer />
+      <Header />
+      <div className="container-fluid growbusiness">
+        <div className="row d-flex">
+          <div className="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <h1>
+              Grow Your Business with <span>Seesho</span>
+            </h1>
+            <h1>
+              Sell your products online and reach{" "}
+              <span>crores of customers</span> through Seesho’s selling tools
+              for suppliers.
+            </h1>
+            <Link className="btn btn-outline-danger">Start Selling</Link>
+          </div>{" "}
+          <div className="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+        </div>
+      </div>
+
+      <div className="container growyourbusiness">
+        <div className="row d-flex">
+          <div className="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <h1>Grow Your Business With Meesho</h1>
+          </div>
+          <div className="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <div className="row d-flex">
+              <div className="col col-6">dfsd</div>
+              <div className="col col-6">sdfdsf</div>
+              <div className="col col-6">sdfdsf</div>
+              <div className="col col-6">sdfds</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <SellProductsOnline />
+      <SupplySupport />
+      <Footer />
     </>
-  )
+  );
 }

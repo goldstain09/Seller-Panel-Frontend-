@@ -1,0 +1,80 @@
+$main: #5c0431;
+
+.pricingandcommission {
+  height: 45rem;
+  background: url("./MediaSCSS/pricingandComissionTopbg.jpg");
+  background-size: 100% 100%;
+
+  > .row {
+    > .col {
+      padding: 16rem 0 7rem 10rem;
+
+      h1:first-child {
+        font-weight: 500;
+        font-size: 3rem;
+        color: black;
+      }
+      h1:nth-child(2) {
+        font-weight: 500;
+        font-size: 1.3rem;
+        margin-top: 2rem;
+        color: rgb(0, 0, 0);
+        span {
+          color: red;
+        }
+      }
+      .btn {
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+.pricingCardTop {
+  margin-top: 4rem;
+  > .row {
+    > .col {
+      > div {
+        border-radius: 15px;
+        background: #b1919129;
+        padding: 1.5rem;
+        height: fit-content;
+
+        h5 {
+          margin-top: 1rem;
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+.paymentcycle {
+  margin-top: 8rem;
+  background: #00000021;
+  > .container {
+    > .row {
+      > .col:first-child {
+        padding: 13.5rem 0;
+        p{
+          width: 80%;
+        }
+      }
+      > .col:last-child {
+          padding: 10rem 0;
+          >.row{
+            border: solid 2px rgba(0, 0, 0, 0.037);
+            >.col-6{
+            
+            background: #ffffffbf;
+            padding: 2rem;
+            h5{
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

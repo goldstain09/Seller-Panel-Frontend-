@@ -1,0 +1,57 @@
+$main: #5c0431;
+
+
+.growbusiness{
+    height: 45rem;
+    background: url('./MediaSCSS/growBusinessTopbg.jpg');
+    background-size: 100% 100%;
+
+    
+  > .row {
+    > .col {
+      padding: 16rem 0 7rem 10rem;
+
+      h1:first-child {
+        font-weight: 500;
+        font-size: 3rem;
+        color: black;
+        span{
+          color: red;
+        }
+      }
+      h1:nth-child(2) {
+        font-weight: 500;
+        font-size:1.3rem;
+        margin-top: 2rem;
+        color: rgb(0, 0, 0);
+        span{
+          color: red;
+        }
+      }
+      .btn {
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+.growyourbusiness{
+  margin-top: 8rem;
+  margin-bottom: 4rem;
+  >.row{
+    >.col{
+      h1{
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+      >.row{
+
+        >.col:first-child{}
+        >.col:nth-child(2){}
+        >.col:nth-child(3){}
+        >.col:last-child{}
+      }
+    }
+  }
+}

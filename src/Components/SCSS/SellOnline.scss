@@ -1,0 +1,52 @@
+$main: #5c0431;
+
+.sellonline {
+  height: 45rem;
+  background: url("./MediaSCSS/sellOnlineTopbg.jpg");
+  background-size: 100% 100%;
+
+  > .row {
+    > .col {
+      padding: 16rem 0 7rem 10rem;
+
+      h1:first-child {
+        font-weight: 500;
+        font-size: 1.8rem;
+        color: black;
+      }
+      h1:nth-child(2) {
+        margin-top: 1rem;
+        font-weight: 500;
+        font-size: 2.4rem;
+        color: rgb(0, 0, 0);
+        span{
+          color: red;
+        }
+      }
+     
+      .btn {
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+.SellOnlineCartTop{
+  margin-top: 4rem;
+  > .row {
+    > .col {
+      > div {
+        background: #b1919129;
+        padding: 1.5rem;
+        height: fit-content;
+        h1 {
+          color: red;
+        }
+        h5 {
+          color: black;
+        }
+      }
+    }
+  }
+}

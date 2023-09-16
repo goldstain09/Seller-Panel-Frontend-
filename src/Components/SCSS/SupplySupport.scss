@@ -1,0 +1,29 @@
+$main: #5c0431;
+
+.support {
+  background: #0000000a;
+  > .container {
+    > .row {
+      > .col {
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        > .row {
+          .col-1 {
+            i {
+              font-size: 3rem;
+              color: red;
+            }
+          }
+          .col-4 {
+            padding-top: .9rem;
+            span{
+                color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+}

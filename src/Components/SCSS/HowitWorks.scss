@@ -1,0 +1,60 @@
+$main: #5c0431;
+
+.howitworks {
+  height: 45rem;
+  background: url("./MediaSCSS/howItWorksTopbg.jpg");
+  background-size: 100% 100%;
+
+  > .row {
+    > .col {
+      padding: 16rem 0 7rem 10rem;
+
+      h1:first-child {
+        font-weight: 500;
+        font-size: 3rem;
+        color: black;
+      }
+      h1:nth-child(2) {
+        font-weight: 500;
+        font-size: 1.3rem;
+        margin-top: 2rem;
+        color: rgb(0, 0, 0);
+        span {
+          color: red;
+        }
+      }
+
+      .btn {
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+.howItWorksCartTop {
+  margin-top: 4rem;
+  > .row {
+    > .col {
+      > div {
+        background: #b1919129;
+        padding: 1.5rem;
+        height: fit-content;
+        h1 {
+          color: red;
+          position: relative;
+          top: 0rem;
+          i{
+            position: relative;
+          top: 1.1rem;
+          }
+        }
+        h5 {
+          
+          margin-top: 2.7rem;
+          color: black;
+        }
+      }
+    }
+  }
+}

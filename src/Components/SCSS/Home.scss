@@ -1,0 +1,75 @@
+$main: #5c0431;
+
+.homePage {
+  height: 45rem;
+  background: url("./MediaSCSS/homeTopbg.jpg");
+  background-size: 100% 100%;
+
+  > .row {
+    > .col {
+      padding: 16rem 0 7rem 10rem;
+
+      h1:first-child {
+        font-weight: 500;
+        font-size: 3rem;
+        color: black;
+      }
+      h1:nth-child(2) {
+        font-weight: 500;
+        font-size: 3rem;
+        color: rgb(255, 0, 0);
+      }
+      p {
+        font-size: 1.3rem;
+        color: black;
+        margin-top: 2rem;
+      }
+      .btn {
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+.HomeCardTop {
+    margin-top: 8rem;
+  > .row {
+    > .col {
+      > div {
+        background: #b1919129;
+        padding: 1.5rem;
+        height: 11rem;
+        h1 {
+          color: red;
+        }
+        h5 {
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+.WhySuppliersLoveSeesho{
+    margin-top: 7rem;
+    >.row{
+        >.col:first-child{
+            padding-top: 13rem;
+            height: 35rem;
+            padding-left: 2rem;
+            h1{
+                font-size: 1.7rem;
+                font-weight: 700;
+            }
+            p{
+                width: 70%;
+            }
+        }
+        >.col:last-child{
+            border: 2px solid rgba(128, 128, 128, 0.193);
+            height: 37rem;
+            border-radius: 10px;
+
+        }
+    }
+}
