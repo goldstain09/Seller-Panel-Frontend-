@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                 <img src={logo} alt="Logo" />
                 <p>Sell your products to crores of customers on Meesho at 0% commission</p>
-                <Link to={''} className='btn btn-outline-primary'>Sell Now</Link>
+                <Link to={'/sellerpanel'} className='btn btn-outline-primary'>Sell Now</Link>
             </div>
             <div className="col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                 <h4 className='h4 text-dark'>Sell on Seesho</h4>

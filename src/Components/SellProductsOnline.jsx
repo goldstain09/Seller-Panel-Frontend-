@@ -19,7 +19,7 @@ export default function SellProductsOnline() {
                 Join the fastest growing e-commerce platform in India and sell
                 to crores of users and grow your business
               </p>
-              <Link className="btn btn-outline-danger">Start Selling</Link>
+              <Link to={'/sellerpanel'} className="btn btn-outline-danger">Start Selling</Link>
             </div>
           </div>
         </div>

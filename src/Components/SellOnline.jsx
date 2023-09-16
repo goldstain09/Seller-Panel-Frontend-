@@ -17,7 +17,7 @@ export default function SellOnline() {
               Become a Seesho seller to start{" "}
               <span>selling your products online</span> at 0% commission
             </h1>
-            <Link className="btn btn-outline-danger">Start Selling</Link>
+            <Link to={'/sellerpanel'} className="btn btn-outline-danger">Start Selling</Link>
           </div>
           <div className="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
         </div>

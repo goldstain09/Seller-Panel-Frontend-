@@ -21,7 +21,7 @@ export default function ShippingAndReturns() {
               Get your products delivered to crores of customers with the{" "}
               <span>lowest shipping charges.</span>
             </h1>
-            <Link className="btn btn-outline-danger">Start Selling</Link>
+            <Link to={'/sellerpanel'} className="btn btn-outline-danger">Start Selling</Link>
           </div>
           <div className="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
         </div>

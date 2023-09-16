@@ -45,10 +45,10 @@ export default function Header() {
             </ul>
 
             <div className="text-end">
-              <Link to={"/"} className="btn btn-outline-primary">
+              <Link to={"/sellerpanel"} className="btn btn-outline-primary">
                 Login
               </Link>
-              <Link to={"/"} className="btn btn-primary">
+              <Link to={"/sellerpanel"} className="btn btn-primary">
                 Create Account
               </Link>
             </div>
