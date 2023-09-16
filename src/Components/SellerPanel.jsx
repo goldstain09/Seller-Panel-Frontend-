@@ -1,7 +1,10 @@
 import React from 'react'
+import Login from './Login'
 
 export default function SellerPanel() {
   return (
-    <div>SellerPanel</div>
+    <>
+    <Login />
+    </>
   )
 }
