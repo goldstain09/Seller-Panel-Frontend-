@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createSellerStart } from "../Redux/Actions";
 
 export default function Signup() {
+  const dispatch = useDispatch();
   const initialSignup = {
     ownerName: "",
     shopName: "",
@@ -42,7 +45,7 @@ export default function Signup() {
           if (password1.length > 8 || password1.length === 8) {
             if (password1 === password) {
               // ---------
-              console.log(signupData);
+              dispatch(createSellerStart(signupData));
             } else {
               setPswrdDoesntMatching(true);
             }
