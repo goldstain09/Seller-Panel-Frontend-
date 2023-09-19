@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createSellerStart } from "../Redux/Actions";
 
-export default function Signup() {
+export default function Signup({setShowLogin}) {
   const dispatch = useDispatch();
   const initialSignup = {
     ownerName: "",
@@ -80,7 +80,7 @@ export default function Signup() {
       </div>
 
       {/* form */}
-      <form className="container mt-5 pt-5" onSubmit={SignUp}>
+      <form className="container mt-5" onSubmit={SignUp}>
         <div className="row d-flex justify-content-center">
           <div className="mb-3 col-4 ">
             <input
@@ -179,6 +179,16 @@ export default function Signup() {
           </div>
         </div>
       </form>
+      <div className="container mt-5 pt-5" id="login__">
+        <div className="row justify-content-center">
+          <div className="col-6 text-center">
+            <p className="text-secondary">Already have account? <button onClick={()=>{
+              setShowLogin(true);
+              document.getElementById('login__').remove();
+            }} className="btn btn-outline-primary">Login</button></p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

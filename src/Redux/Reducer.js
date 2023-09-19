@@ -1,10 +1,20 @@
-import { CREATE_SELLER_SUCCESS } from "./Constants";
+import { CREATE_SELLER_ERROR, CREATE_SELLER_SUCCESS } from "./Constants";
 
-const Reducerr = (state, action) => {
+const initialData = {
+  createSellerResponse:{}
+}
+
+const Reducerr = (state = initialData, action) => {
   switch (action.type) {
     case CREATE_SELLER_SUCCESS:
-      return {
-        
+      return{
+        ...state,
+        createSellerResponse:action.payload
+      }
+    case CREATE_SELLER_ERROR:
+      return{
+        ...state,
+        createSellerResponse:action.payload
       }
 
     default:

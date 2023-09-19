@@ -3,8 +3,13 @@ import Login from "./Login";
 import Signup from "./Signup";
 import { Link } from "react-router-dom";
 import CardForPanel from "./CardForPanel";
+import { useSelector } from "react-redux";
 
 export default function SellerPanel() {
+
+  const createSellerResponse = useSelector((state) => state.createSellerResponse);
+  console.log(createSellerResponse);
+
   const [notHasSellerToken, setNotHasSellerToken] = useState(false);
 
   useEffect(() => {
@@ -15,11 +20,18 @@ export default function SellerPanel() {
     }
   }, []);
 
+
+
+  //for showing Login--
+  const [showLogin, setShowLogin] = useState(false);
   if (notHasSellerToken) {
     return (
       <>
-        <Signup />
-        <Login />
+        <Signup setShowLogin={setShowLogin}/>
+        {
+          showLogin && <Login />
+        }
+        
       </>
     );
   }
