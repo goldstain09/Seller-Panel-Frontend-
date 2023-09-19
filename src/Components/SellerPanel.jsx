@@ -3,9 +3,13 @@ import Login from "./Login";
 import Signup from "./Signup";
 import { Link } from "react-router-dom";
 import CardForPanel from "./CardForPanel";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { verifySellerStart } from "../Redux/Actions";
 
 export default function SellerPanel() {
+
+  const dispatch = useDispatch();
+
 
   const createSellerResponse = useSelector((state) => state.createSellerResponse);
   console.log(createSellerResponse);
@@ -15,6 +19,8 @@ export default function SellerPanel() {
   useEffect(() => {
     const sellerToken = JSON.parse(localStorage.getItem("sellerToken"));
     if (sellerToken) {
+      dispatch(verifySellerStart(sellerToken));
+      console.log('sd');
     } else {
       setNotHasSellerToken(true);
     }

@@ -11,7 +11,7 @@ export const createSeller = async (data) => {
 
 export const verifySeller = async (data) => {
   try {
-    const ress = await axios.get("http://localhost:8081/seller/create", {
+    const ress = await axios.get("http://localhost:8081/seller/verify", {
       headers: {
         Authorization: `Bearer ${data}`,
       },

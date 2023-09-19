@@ -1,7 +1,7 @@
 import { put, takeLatest } from "redux-saga/effects";
 import { CREATE_SELLER_START, VERIFY_SELLER_START } from "./Constants";
 import { createSellerError, createSellerSuccess } from "./Actions";
-import { createSeller } from "./Service";
+import { createSeller, verifySeller } from "./Service";
 
 function* createSellerSaga({ payload }) {
   try {
@@ -23,9 +23,10 @@ function* createSellerSaga({ payload }) {
   }
 }
 
-function* verifySellerSaga(){
+function* verifySellerSaga({payload}){
     try {
-        
+        const res = yield verifySeller(payload);
+        console.log(res);
     } catch (error) {
         
     }
