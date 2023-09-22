@@ -7,6 +7,7 @@ import PricingAndCommission from "./Components/PricingAndCommission";
 import ShippingAndReturns from "./Components/ShippingAndReturns";
 import GrowBusiness from "./Components/GrowBusiness";
 import SellerPanel from "./Components/SellerPanel";
+import EditSeller from "./Components/EditSeller";
 
 export default function Router() {
   return (
@@ -19,7 +20,10 @@ export default function Router() {
           <Route element={<PricingAndCommission />} path="/pricingandcommission" />
           <Route element={<ShippingAndReturns/>} path="/shippingandreturns" />
           <Route element={<GrowBusiness />} path="/growbusiness" />
-          <Route element={<SellerPanel />} path="/sellerpanel" />
+          <Route path="/sellerpanel">
+            <Route index={true} element={<SellerPanel />} />
+            <Route element={<EditSeller/>} path="/sellerpanel/edit"/>
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

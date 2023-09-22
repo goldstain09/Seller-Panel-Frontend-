@@ -1,8 +1,31 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { createSellerStart } from "../Redux/Actions";
+import { useNavigate } from "react-router-dom";
 
-export default function Signup({setShowLogin}) {
+export default function Signup({ setShowLogin }) {
+  const navigate = useNavigate();
+  const createSellerResponse = useSelector(
+    (state) => state.createSellerResponse
+  );
+  // console.log(createSellerResponse);
+  useEffect(() => {
+    if (createSellerResponse) {
+      if (createSellerResponse.emailAlreadyinUse) {
+        setAlreadyUsedEmailError(true);
+      }else if(createSellerResponse.userCreated){
+        alert('Congratulations! Your Seller Account is Ready...');
+        setPassword1("");
+        setSignupData(initialSignup);
+        setInterval(() => {
+          navigate('/sellerpanel');
+          window.location.reload();
+        }, 30);
+        clearInterval();
+      }
+    }
+  }, [createSellerResponse]);
+
   const dispatch = useDispatch();
   const initialSignup = {
     ownerName: "",
@@ -23,6 +46,8 @@ export default function Signup({setShowLogin}) {
   const [emptyEmailError, setEmptyEmailError] = useState(false);
   const [emptyPasswordError, setEmptyPasswordError] = useState(false);
   const [pswrdDosntMatching, setPswrdDoesntMatching] = useState(false);
+  // email is already in use error
+  const [alreadyUsedEmailError, setAlreadyUsedEmailError] = useState(false);
 
   const inputChange = (e) => {
     e.preventDefault();
@@ -86,7 +111,8 @@ export default function Signup({setShowLogin}) {
             <input
               type="text"
               value={ownerName}
-              onChange={inputChange}onInput={()=>{
+              onChange={inputChange}
+              onInput={() => {
                 setEmptyOwnerNameError(false);
               }}
               name="ownerName"
@@ -103,7 +129,8 @@ export default function Signup({setShowLogin}) {
             <input
               type="text"
               value={shopName}
-              onChange={inputChange}onInput={()=>{
+              onChange={inputChange}
+              onInput={() => {
                 setEmptyShopNameError(false);
               }}
               name="shopName"
@@ -120,8 +147,10 @@ export default function Signup({setShowLogin}) {
             <input
               type="email"
               value={sellerEmail}
-              onChange={inputChange}onInput={()=>{
+              onChange={inputChange}
+              onInput={() => {
                 setEmptyEmailError(false);
+                setAlreadyUsedEmailError(false);
               }}
               name="sellerEmail"
               className="form-control"
@@ -130,15 +159,23 @@ export default function Signup({setShowLogin}) {
             {emptyEmailError && (
               <p className="text-danger">Please enter a Valid Email Address</p>
             )}
+            {alreadyUsedEmailError && (
+              <p className="text-danger">
+                Email is already in use, if it's you Please Login or change the
+                email
+              </p>
+            )}
           </div>
         </div>
         <div className="row d-flex justify-content-center">
           <div className="mb-3 col-4 ">
             <input
+            value={password1}
               type="password"
               onChange={(e) => {
                 setPassword1(e.target.value);
-              }}onInput={()=>{
+              }}
+              onInput={() => {
                 setEmptyPasswordError(false);
               }}
               className="form-control"
@@ -156,7 +193,8 @@ export default function Signup({setShowLogin}) {
             <input
               type="password"
               value={password}
-              onChange={inputChange}onInput={()=>{
+              onChange={inputChange}
+              onInput={() => {
                 setPswrdDoesntMatching(false);
               }}
               name="password"
@@ -182,10 +220,18 @@ export default function Signup({setShowLogin}) {
       <div className="container mt-5 pt-5" id="login__">
         <div className="row justify-content-center">
           <div className="col-6 text-center">
-            <p className="text-secondary">Already have account? <button onClick={()=>{
-              setShowLogin(true);
-              document.getElementById('login__').remove();
-            }} className="btn btn-outline-primary">Login</button></p>
+            <p className="text-secondary">
+              Already have account?{" "}
+              <button
+                onClick={() => {
+                  setShowLogin(true);
+                  document.getElementById("login__").remove();
+                }}
+                className="btn btn-outline-primary"
+              >
+                Login
+              </button>
+            </p>
           </div>
         </div>
       </div>
