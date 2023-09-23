@@ -8,6 +8,7 @@ import ShippingAndReturns from "./Components/ShippingAndReturns";
 import GrowBusiness from "./Components/GrowBusiness";
 import SellerPanel from "./Components/SellerPanel";
 import EditSeller from "./Components/EditSeller";
+import AddProduct from "./Components/AddProduct";
 
 export default function Router() {
   return (
@@ -23,6 +24,7 @@ export default function Router() {
           <Route path="/sellerpanel">
             <Route index={true} element={<SellerPanel />} />
             <Route element={<EditSeller/>} path="/sellerpanel/edit"/>
+            <Route element={<AddProduct/>} path="/sellerpanel/addproduct"/>
           </Route>
         </Routes>
       </BrowserRouter>

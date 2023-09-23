@@ -74,12 +74,11 @@ export default function SellerPanel() {
             </div>
             <div className="row d-flex mt-3 border-bottom py-4">
               <h4 className="h3 col-10">Your Products</h4>
-              <Link className="col-2 btn btn-primary">Add a new Product</Link>
+              <Link to={'/sellerpanel/addproduct'} className="col-2 btn btn-primary">Add a new Product</Link>
             </div>
             <div className="row d-flex mt-3 border-bottom py-4">
               {/* {
-              verifySellerResponse.products.length > 0 ? verifySellerResponse.products.map((item,index)=>(
-<></>
+              verifySellerResponse.products.length > 0 ? verifySellerResponse.products.map((item,index)=>(<></>
               )) : (<>
               </>)
             }
