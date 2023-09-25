@@ -1,11 +1,14 @@
 import { put, takeLatest } from "redux-saga/effects";
 import {
+  ADD_PRODUCT_START,
   CREATE_SELLER_START,
   EDIT_SELLER_START,
   LOGIN_SELLER_START,
   VERIFY_SELLER_START,
 } from "./Constants";
 import {
+  addProductError,
+  addProductSuccess,
   createSellerError,
   createSellerSuccess,
   editSellerError,
@@ -15,7 +18,13 @@ import {
   verifySellerError,
   verifySellerSuccess,
 } from "./Actions";
-import { createSeller, editSeller, loginSeller, verifySeller } from "./Service";
+import {
+  addProduct,
+  createSeller,
+  editSeller,
+  loginSeller,
+  verifySeller,
+} from "./Service";
 
 function* createSellerSaga({ payload }) {
   try {
@@ -112,11 +121,34 @@ function* editSellerSaga({ payload }) {
   }
 }
 
+//product
+function* addProductSaga({ payload }) {
+  try {
+    const res = yield addProduct(payload);
+    if (res.hasOwnProperty("itemSavedSuccessfully")) {
+      switch (res.itemSavedSuccessfully) {
+        case true:
+          yield put(addProductSuccess(res));
+          break;
+        case false:
+          throw Error(
+            "Something went wrong while adding your Product, Please try again later"
+          );
+      }
+    }
+  } catch (error) {
+    yield put(addProductError(error.message));
+  }
+}
+
 function* Saga() {
+  //seller
   yield takeLatest(CREATE_SELLER_START, createSellerSaga);
   yield takeLatest(VERIFY_SELLER_START, verifySellerSaga);
   yield takeLatest(LOGIN_SELLER_START, loginSellerSaga);
   yield takeLatest(EDIT_SELLER_START, editSellerSaga);
+  //product
+  yield takeLatest(ADD_PRODUCT_START, addProductSaga);
 }
 
 export default Saga;

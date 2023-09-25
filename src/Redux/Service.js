@@ -1,5 +1,7 @@
 import axios from "axios";
 
+
+//seller
 export const createSeller = async (data) => {
   try {
     const ress = await axios.post("http://localhost:8081/seller/create", data);
@@ -42,5 +44,16 @@ export const editSeller = async (data) => {
     return ress.data;
   } catch (error) {
     return error;
+  }
+}
+
+//product
+
+export const addProduct = async (data) => {
+  try {
+    const ress  = await axios.post('http://localhost:8081/api/addproduct', data);
+    return ress.data;
+  } catch (error) {
+    return error
   }
 }

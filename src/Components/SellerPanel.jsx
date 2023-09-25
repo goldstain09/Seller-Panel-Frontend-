@@ -59,33 +59,48 @@ export default function SellerPanel() {
             <div className="row d-flex gap-4 border-top border-bottom py-4">
               <h4 className="h4 col-4">{verifySellerResponse.shopName}</h4>
               <h5 className="h4 col-5">{verifySellerResponse.ownerName}</h5>
-              <Link to={'/sellerpanel/edit'} className="col-1 btn btn-outline-secondary">
+              <Link
+                to={"/sellerpanel/edit"}
+                className="col-1 btn btn-outline-secondary"
+              >
                 Edit Details
               </Link>
-              <button onClick={()=>{
-                localStorage.removeItem("sellerToken");
-                setInterval(() => {
-                  window.location.reload();
-                }, 10);
-                clearInterval();
-              }} className="col-1 btn btn-danger">
+              <button
+                onClick={() => {
+                  localStorage.removeItem("sellerToken");
+                  setInterval(() => {
+                    window.location.reload();
+                  }, 10);
+                  clearInterval();
+                }}
+                className="col-1 btn btn-danger"
+              >
                 Log Out
               </button>
             </div>
             <div className="row d-flex mt-3 border-bottom py-4">
               <h4 className="h3 col-10">Your Products</h4>
-              <Link to={'/sellerpanel/addproduct'} className="col-2 btn btn-primary">Add a new Product</Link>
+              <Link
+                to={"/sellerpanel/addproduct"}
+                className="col-2 btn btn-primary"
+              >
+                Add a new Product
+              </Link>
             </div>
             <div className="row d-flex mt-3 border-bottom py-4">
-              {/* {
-              verifySellerResponse.products.length > 0 ? verifySellerResponse.products.map((item,index)=>(<></>
-              )) : (<>
-              </>)
-            }
-             */}
-              <h1 className="h1 text-primary mt-5 pt-5">
-                No Products Added...
-              </h1>
+              {verifySellerResponse.products.length > 0 ? (
+                verifySellerResponse.products.map((item, index) => (
+                  <>
+                    <CardForPanel key={index} item={item} />
+                  </>
+                ))
+              ) : (
+                <>
+                  <h1 className="h1 text-primary mt-5 pt-5">
+                    No Products Added...
+                  </h1>
+                </>
+              )}
 
               {/* <CardForPanel />
             <CardForPanel />
@@ -98,12 +113,12 @@ export default function SellerPanel() {
           </div>
         </>
       );
-      default: {
-        return (
-          <h1 className="text-center h1 text-primary mt-5 pt-5">
-            Unable to fetch data, Please try again Later
-          </h1>
-        );
+    default: {
+      return (
+        <h1 className="text-center h1 text-primary mt-5 pt-5">
+          Unable to fetch data, Please try again Later
+        </h1>
+      );
     }
   }
 }
