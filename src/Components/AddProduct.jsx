@@ -350,7 +350,7 @@ export default function AddProduct() {
                   value={item}
                   className="form-control mt-1 "
                   placeholder="Product's Image Links"
-                  onChange={(e) => {
+                  onInput={(e) => {
                     const values = [...imagesLink];
                     values[index] = e.target.value;
                     setImagesLink(values);

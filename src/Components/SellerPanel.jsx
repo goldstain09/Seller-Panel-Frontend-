@@ -89,10 +89,8 @@ export default function SellerPanel() {
             </div>
             <div className="row d-flex mt-3 border-bottom py-4">
               {verifySellerResponse.products.length > 0 ? (
-                verifySellerResponse.products.map((item, index) => (
-                  <>
-                    <CardForPanel key={index} item={item} />
-                  </>
+                verifySellerResponse.products.map((item) => (
+                  <CardForPanel key={item._id} item={item} />
                 ))
               ) : (
                 <>
@@ -101,18 +99,11 @@ export default function SellerPanel() {
                   </h1>
                 </>
               )}
-
-              {/* <CardForPanel />
-            <CardForPanel />
-            <CardForPanel />
-            <CardForPanel />
-            <CardForPanel />
-            <CardForPanel />
-            <CardForPanel /> */}
             </div>
           </div>
         </>
       );
+
     default: {
       return (
         <h1 className="text-center h1 text-primary mt-5 pt-5">

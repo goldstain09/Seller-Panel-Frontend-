@@ -6,6 +6,10 @@ import { useNavigate } from "react-router-dom";
 export default function EditSeller() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const verifySellerResponse = useSelector(
+    (state) => state.verifySellerResponse
+  );
   const editSellerResponse = useSelector((state) => state.editSellerResponse);
   useEffect(() => {
     // if(editSellerResponse.res){  // both are usable conditions here and for future i have to see myself what to put there like situation properly
@@ -37,11 +41,7 @@ export default function EditSeller() {
     }
   }, [verifySellerResponse]);
 
-  const verifySellerResponse = useSelector(
-    (state) => state.verifySellerResponse
-  );
   const { ownerName, sellerEmail, shopName } = verifySellerResponse;
-
   //initialEditData
   const initialEditData = {
     ownerName: ownerName,
