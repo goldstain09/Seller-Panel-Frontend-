@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createSellerStart } from "../Redux/Actions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Signup({ setShowLogin }) {
   const navigate = useNavigate();
@@ -92,6 +92,7 @@ export default function Signup({ setShowLogin }) {
     <>
       {/* header */}
       <div className="container pt-3">
+      <Link to={'/'} className="btn btn-outline-dark" style={{position:"absolute",top:'1rem',left:'1rem'}}>Back to Home</Link>
         <div className="row justify-content-center">
           <div className="col col-12">
             <h3
@@ -225,7 +226,7 @@ export default function Signup({ setShowLogin }) {
               <button
                 onClick={() => {
                   setShowLogin(true);
-                  document.getElementById("login__").remove();
+                  document.getElementById("login__").style.display='none';
                 }}
                 className="btn btn-outline-primary"
               >

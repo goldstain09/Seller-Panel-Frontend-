@@ -44,6 +44,7 @@ export default function SellerPanel() {
         <>
           {/* header */}
           <div className="container pt-3">
+        <Link to={'/'} className="btn btn-outline-dark" style={{position:"absolute",top:'1rem',left:'1rem'}}>Back to Home</Link>
             <div className="row justify-content-center">
               <div className="col col-12">
                 <h3

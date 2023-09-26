@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../Media/logo.png";
 import "./SCSS/Header.scss";
 import { Link, NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { verifySellerStart } from "../Redux/Actions";
 
 export default function Header() {
+  const dispatch = useDispatch();
+  
+  const verifySellerResponse = useSelector(
+    (state) => state.verifySellerResponse
+  );
+  useEffect(() => {
+    const sellerToken = JSON.parse(localStorage.getItem("sellerToken"));
+    if (sellerToken) {
+      dispatch(verifySellerStart(sellerToken));
+    } else {
+      setLoginned(false);
+    }
+  }, []);
+  useEffect(()=>{
+    if(verifySellerResponse.hasOwnProperty('verificationSuccess')){
+      if(verifySellerResponse.verificationSuccess){
+        setLoginned(true);
+      }else{
+        setLoginned(false);
+      }
+    }
+  },[verifySellerResponse])
+
+  const [loginned,setLoginned] = useState(false);
+
+
+  
   return (
     <>
       <header className="p-3 mb-3  fixed-top Headerr">
@@ -45,12 +74,21 @@ export default function Header() {
             </ul>
 
             <div className="text-end">
-              <Link to={"/sellerpanel"} className="btn btn-outline-primary">
-                Login
-              </Link>
-              <Link to={"/sellerpanel"} className="btn btn-primary">
-                Create Account
-              </Link>
+              {
+                loginned ? (<>
+                <Link to={"/sellerpanel"} className="btn btn-outline-primary">
+                  Your Panel
+                </Link>
+                </>) : (
+                  <><Link to={"/sellerpanel"} className="btn btn-outline-primary">
+                  Login
+                </Link>
+                <Link to={"/sellerpanel"} className="btn btn-primary">
+                  Create Account
+                </Link></>
+                )
+              }
+              
             </div>
           </div>
         </div>

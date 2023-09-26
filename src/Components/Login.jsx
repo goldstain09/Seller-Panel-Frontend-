@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSellerStart } from "../Redux/Actions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
 // abcd@gmail.com
@@ -67,6 +67,7 @@ export default function Login() {
     <>
       {/* header */}
       <div className="container pt-5 mt-5">
+      <Link to={'/'} className="btn btn-outline-dark" style={{position:"absolute",top:'1rem',left:'1rem'}}>Back to Home</Link>
         <div className="row justify-content-center ">
           <div className="col col-12">
             <h3
