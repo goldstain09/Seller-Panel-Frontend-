@@ -120,7 +120,6 @@ export default function AddProduct() {
                       },
                       sellerAuthInfo:{
                         sellerToken:sellerToken,
-                        sellerEmail:verifySellerResponse.sellerEmail,
                         sellerId:productData.sellerId
                       }
                     }

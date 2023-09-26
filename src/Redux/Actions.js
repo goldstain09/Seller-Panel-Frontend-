@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_ERROR, ADD_PRODUCT_START, ADD_PRODUCT_SUCCESS, CREATE_SELLER_ERROR, CREATE_SELLER_START, CREATE_SELLER_SUCCESS, EDIT_SELLER_ERROR, EDIT_SELLER_START, EDIT_SELLER_SUCCESS, LOGIN_SELLER_ERROR, LOGIN_SELLER_START, LOGIN_SELLER_SUCCESS, VERIFY_SELLER_ERROR, VERIFY_SELLER_START, VERIFY_SELLER_SUCCESS } from "./Constants";
+import { ADD_PRODUCT_ERROR, ADD_PRODUCT_START, ADD_PRODUCT_SUCCESS, CREATE_SELLER_ERROR, CREATE_SELLER_START, CREATE_SELLER_SUCCESS, DELETE_PRODUCT_ERROR, DELETE_PRODUCT_START, DELETE_PRODUCT_SUCCESS, EDIT_PRODUCT_ERROR, EDIT_PRODUCT_START, EDIT_PRODUCT_SUCCESS, EDIT_SELLER_ERROR, EDIT_SELLER_START, EDIT_SELLER_SUCCESS, LOGIN_SELLER_ERROR, LOGIN_SELLER_START, LOGIN_SELLER_SUCCESS, VERIFY_SELLER_ERROR, VERIFY_SELLER_START, VERIFY_SELLER_SUCCESS } from "./Constants";
 
 
 //seller
@@ -69,5 +69,33 @@ export const addProductSuccess = (data) => ({
 })
 export const addProductError = (error) => ({
     type:ADD_PRODUCT_ERROR,
+    payload:error
+})
+
+
+export const editProductStart = (data) => ({
+    type:EDIT_PRODUCT_START,
+    payload:data
+})
+export const editProductSuccess = (data) => ({
+    type:EDIT_PRODUCT_SUCCESS,
+    payload:data
+})
+export const editProductError = (error) => ({
+    type:EDIT_PRODUCT_ERROR,
+    payload:error
+})
+
+
+export const deleteProductStart = (data) => ({
+    type:DELETE_PRODUCT_START,
+    payload:data
+})
+export const deleteProductSuccess = (data) => ({
+    type:DELETE_PRODUCT_SUCCESS,
+    payload:data
+})
+export const deleteProductError = (error) => ({
+    type:DELETE_PRODUCT_ERROR,
     payload:error
 })

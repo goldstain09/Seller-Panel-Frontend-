@@ -2,6 +2,8 @@ import { put, takeLatest } from "redux-saga/effects";
 import {
   ADD_PRODUCT_START,
   CREATE_SELLER_START,
+  DELETE_PRODUCT_START,
+  EDIT_PRODUCT_START,
   EDIT_SELLER_START,
   LOGIN_SELLER_START,
   VERIFY_SELLER_START,
@@ -11,6 +13,10 @@ import {
   addProductSuccess,
   createSellerError,
   createSellerSuccess,
+  deleteProductError,
+  deleteProductSuccess,
+  editProductError,
+  editProductSuccess,
   editSellerError,
   editSellerSuccess,
   loginSellerError,
@@ -21,6 +27,8 @@ import {
 import {
   addProduct,
   createSeller,
+  deleteProduct,
+  editProduct,
   editSeller,
   loginSeller,
   verifySeller,
@@ -141,6 +149,45 @@ function* addProductSaga({ payload }) {
   }
 }
 
+function* editProductSaga({payload}){
+   try {
+    const res = yield editProduct(payload);
+    if(res.hasOwnProperty('productUpdated')){
+      switch (res.productUpdated) {
+        case true:
+          yield put(editProductSuccess(res));
+          break;
+        case false:
+          throw Error("Something went wrong while editing your Product, Please try again later");
+      }
+    }
+   } catch (error) {
+    yield put(editProductError(error.message));
+   }
+}
+
+function* deleteProductSaga({payload}){
+  try {
+    const res = yield deleteProduct(payload);
+    if(res.hasOwnProperty('productDeleted')){
+      switch (res.productDeleted) {
+        case true:
+          yield put(deleteProductSuccess(res));
+          break;
+        case false:
+          throw Error("Something went wrong while deleting your Product, Please try again later");
+      }
+    }
+  } catch (error) {
+    yield put(deleteProductError(error.message));
+  }
+}
+
+
+
+
+
+
 function* Saga() {
   //seller
   yield takeLatest(CREATE_SELLER_START, createSellerSaga);
@@ -149,6 +196,8 @@ function* Saga() {
   yield takeLatest(EDIT_SELLER_START, editSellerSaga);
   //product
   yield takeLatest(ADD_PRODUCT_START, addProductSaga);
+  yield takeLatest(EDIT_PRODUCT_START, editProductSaga);
+  yield takeLatest(DELETE_PRODUCT_START, deleteProductSaga);
 }
 
 export default Saga;

@@ -57,3 +57,21 @@ export const addProduct = async (data) => {
     return error
   }
 }
+
+export const editProduct = async (data) => {
+  try {
+    const ress = await axios.post('http://localhost:8081/api/editproduct',data);
+    return ress.data;
+  } catch (error) {
+    return error
+  }
+}
+
+export const deleteProduct = async (data) => {
+  try {
+    const ress = await axios.post('http://localhost:8081/api/deleteproduct', data);
+    return ress.data;
+  } catch (error) {
+    return error
+  }
+}

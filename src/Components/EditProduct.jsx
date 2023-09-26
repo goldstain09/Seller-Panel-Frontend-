@@ -1,13 +1,44 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { deleteProductStart, editProductStart } from "../Redux/Actions";
 
 export default function EditProduct() {
   const params = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const verifySellerResponse = useSelector(
     (state) => state.verifySellerResponse
   );
+  const editProductResponse = useSelector((state) => state.editProductResponse);
+  const editProductError = useSelector((state) => state.editProductError);
+  const deleteProductResponse = useSelector((state) => state.deleteProductResponse);
+  const deleteProductError = useSelector((state) => state.deleteProductError);
+
+  useEffect(() => {
+    if (editProductResponse.hasOwnProperty("productUpdated")) {
+      if (editProductResponse.productUpdated) {
+        alert("Your Product is Updated Successfully");
+        setInterval(() => {
+          navigate("/sellerpanel");
+          window.location.reload();
+        }, 30);
+        clearInterval();
+      }
+    }
+  }, [editProductResponse]);
+  useEffect(() => {
+    if (deleteProductResponse.hasOwnProperty("productDeleted")) {
+      if (deleteProductResponse.productDeleted) {
+        alert("Your Product is Deleted Successfully");
+        setInterval(() => {
+          navigate("/sellerpanel");
+          window.location.reload();
+        }, 30);
+        clearInterval();
+      }
+    }
+  }, [deleteProductResponse]);
 
   const [productforEdit, setProductForEdit] = useState({});
   const [imagesLink, setImagesLink] = useState([""]);
@@ -19,7 +50,7 @@ export default function EditProduct() {
       const editingProduct = verifySellerResponse.products.find(
         (item) => item._id === params.id
       );
-      console.log(editingProduct);
+      //   console.log(editingProduct);
       setProductForEdit(editingProduct);
       setImagesLink(editingProduct.productImages);
     } else {
@@ -74,6 +105,19 @@ export default function EditProduct() {
                   )
                 ) {
                   // -----------------------------------
+                  const sellerToken = JSON.parse(
+                    localStorage.getItem("sellerToken")
+                  );
+                  const final_Data = {
+                    updatedProduct: {
+                      ...productforEdit,
+                    },
+                    sellerAuthInfo: {
+                      sellerToken: sellerToken,
+                      sellerId: productforEdit.sellerId,
+                    },
+                  };
+                  dispatch(editProductStart(final_Data));
                 } else {
                   setlinksAreNotValid(true);
                 }
@@ -99,8 +143,44 @@ export default function EditProduct() {
 
   const deleteF = (e) => {
     e.preventDefault();
+    const sellerToken = JSON.parse(
+        localStorage.getItem("sellerToken")
+      );
+    dispatch(
+      deleteProductStart({
+        id: params.id,
+        sellerAuthInfo: {
+          sellerToken: sellerToken,
+          sellerId: productforEdit.sellerId,
+        },
+      })
+    );
   };
 
+  if (editProductError !== "") {
+    setInterval(() => {
+      navigate("/sellerPanel");
+      window.location.reload();
+    }, 4000);
+    clearInterval();
+    return (
+      <>
+        <h1>{editProductError} Redirecting to Your Panel in 4 seconds</h1>
+      </>
+    );
+  }
+  if (deleteProductError !== "") {
+    setInterval(() => {
+      navigate("/sellerPanel");
+      window.location.reload();
+    }, 4000);
+    clearInterval();
+    return (
+      <>
+        <h1>{deleteProductError} Redirecting to Your Panel in 4 seconds</h1>
+      </>
+    );
+  }
   return (
     <>
       <div
@@ -293,9 +373,9 @@ export default function EditProduct() {
                 )}
               </div>
             ))}
-            {
-                linksAreNotValid && <p className="text-danger">Images Links are not Valid</p>
-            }
+            {linksAreNotValid && (
+              <p className="text-danger">Images Links are not Valid</p>
+            )}
             {removeBtn && (
               <button
                 id="addmore"
