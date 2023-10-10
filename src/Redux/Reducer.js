@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_ERROR, ADD_PRODUCT_SUCCESS, CREATE_SELLER_ERROR, CREATE_SELLER_SUCCESS, DELETE_PRODUCT_ERROR, DELETE_PRODUCT_SUCCESS, EDIT_PRODUCT_ERROR, EDIT_PRODUCT_SUCCESS, EDIT_SELLER_SUCCESS, LOGIN_SELLER_SUCCESS, VERIFY_SELLER_ERROR, VERIFY_SELLER_SUCCESS } from "./Constants";
+import { ADD_PRODUCT_ERROR, ADD_PRODUCT_SUCCESS, CREATE_SELLER_ERROR, CREATE_SELLER_SUCCESS, DELETE_PRODUCT_ERROR, DELETE_PRODUCT_SUCCESS, EDIT_PRODUCT_ERROR, EDIT_PRODUCT_SUCCESS, EDIT_SELLER_SUCCESS, LOGIN_SELLER_SUCCESS, UPDATE_ORDER_STATUS_SUCCESS, VERIFY_SELLER_ERROR, VERIFY_SELLER_SUCCESS } from "./Constants";
 
 const initialData = {
   createSellerResponse:{},
@@ -10,7 +10,10 @@ const initialData = {
   editProductResponse:{},
   editProductError:'',
   deleteProductResponse:{},
-  deleteProductError:''
+  deleteProductError:'',
+
+  //order status updation response
+  orderStatusUpdationResponse:{}
 }
 // errors bhi set krne hai 
 
@@ -82,6 +85,12 @@ const Reducerr = (state = initialData, action) => {
       return {
         ...state,
         deleteProductError:action.payload
+      }
+
+    case UPDATE_ORDER_STATUS_SUCCESS:
+      return {
+        ...state,
+        orderStatusUpdationResponse:action.payload
       }
 
     default:

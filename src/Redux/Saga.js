@@ -6,6 +6,7 @@ import {
   EDIT_PRODUCT_START,
   EDIT_SELLER_START,
   LOGIN_SELLER_START,
+  UPDATE_ORDER_STATUS_START,
   VERIFY_SELLER_START,
 } from "./Constants";
 import {
@@ -21,6 +22,8 @@ import {
   editSellerSuccess,
   loginSellerError,
   loginSellerSuccess,
+  updateOrderStatusError,
+  updateOrderStatusSuccess,
   verifySellerError,
   verifySellerSuccess,
 } from "./Actions";
@@ -31,6 +34,7 @@ import {
   editProduct,
   editSeller,
   loginSeller,
+  updateOrderStatus,
   verifySeller,
 } from "./Service";
 
@@ -185,6 +189,29 @@ function* deleteProductSaga({payload}){
 
 
 
+function* updateOrderStatusSaga({payload}){
+  try {
+    const res = yield updateOrderStatus(payload);
+    if(res.hasOwnProperty('statusUpdated')){
+      switch (res.statusUpdated) {
+        case true:
+         yield put(updateOrderStatusSuccess(res))
+          break;
+        case false:
+          if(res.hasOwnProperty('someOtherErrorOccured')){
+            throw Error('Something went wrong while updating order status... Please try again after sometime.');
+          }else{
+            throw Error('Something went wrong while updating order status... Please try again after sometime.');
+          }
+        }
+      }else{
+      throw Error('Something went wrong while updating order status... Please try again after sometime.');
+    }
+  } catch (error) {
+    yield put(updateOrderStatusError(error.message));
+  }
+}
+
 
 
 
@@ -198,6 +225,9 @@ function* Saga() {
   yield takeLatest(ADD_PRODUCT_START, addProductSaga);
   yield takeLatest(EDIT_PRODUCT_START, editProductSaga);
   yield takeLatest(DELETE_PRODUCT_START, deleteProductSaga);
+
+  //update order status
+  yield takeLatest(UPDATE_ORDER_STATUS_START,updateOrderStatusSaga);
 }
 
 export default Saga;
