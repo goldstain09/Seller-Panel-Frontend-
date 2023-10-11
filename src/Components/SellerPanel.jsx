@@ -97,6 +97,15 @@ export default function SellerPanel() {
                 See here
               </Link>
             </div>
+            <div className="row d-flex py-4">
+              <h4 className="h4 col-10">Your Followers</h4>
+              <Link
+                to={"/sellerpanel/followers"}
+                className="col-2 btn btn-outline-primary"
+              >
+                See here
+              </Link>
+            </div>
             <div className="row d-flex mt-3 border-bottom py-4">
               <h4 className="h3 col-10">Your Products</h4>
               <Link

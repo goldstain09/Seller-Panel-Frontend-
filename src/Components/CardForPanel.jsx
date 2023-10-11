@@ -14,7 +14,7 @@ export default function CardForPanel({ item }) {
             alt="sads"
             className="w-75 card-top-image"
           />
-          <h1 className="card-title">{item.productTitle}</h1>
+          <h1 className="card-title">{item.productTitle.split(" ").slice(0, 6).join(" ")} ...</h1>
           <Link
             className="btn col-12 btn-warning"
             to={`/sellerpanel/editproduct/${item._id}`}

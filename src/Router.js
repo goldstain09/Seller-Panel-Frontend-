@@ -12,6 +12,7 @@ import AddProduct from "./Components/AddProduct";
 import EditProduct from "./Components/EditProduct";
 import ActiveOrders from "./Components/ActiveOrders";
 import CompletedOrders from "./Components/CompletedOrders";
+import Followers from "./Components/Followers";
 
 export default function Router() {
   return (
@@ -29,6 +30,7 @@ export default function Router() {
             <Route element={<EditSeller/>} path="/sellerpanel/edit"/>
             <Route element={<ActiveOrders/>} path="/sellerpanel/activeOrders"/>
             <Route element={<CompletedOrders/>} path="/sellerpanel/completedOrders"/>
+            <Route element={<Followers/>} path="/sellerpanel/followers"/>
             <Route element={<AddProduct/>} path="/sellerpanel/addproduct"/>
             <Route element={<EditProduct/>} path="/sellerpanel/editproduct/:id"/>
           </Route>

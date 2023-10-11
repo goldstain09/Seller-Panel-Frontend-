@@ -76,7 +76,7 @@ export default function CompletedOrders() {
                     className="w-75 card-top-image"
                   />
                   <h1 className="card-title">
-                    {item.product.productTitle.split(" ").slice(0, 6).join(" ")}
+                    {item.product.productTitle.split(" ").slice(0, 6).join(" ")} ...
                   </h1>
                   <button
                     className="btn btn-outline-secondary"
@@ -139,7 +139,7 @@ export default function CompletedOrders() {
                     {currentOrder.product.productTitle
                       .split(" ")
                       .slice(0, 6)
-                      .join(" ")}
+                      .join(" ")} ...
                   </h5>
                   <h5 className="modal-title" id="staticBackdropLabel">
                     Quantity: {currentOrder.quantity}
