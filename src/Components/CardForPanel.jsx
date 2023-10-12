@@ -15,8 +15,9 @@ export default function CardForPanel({ item }) {
             className="w-75 card-top-image"
           />
           <h1 className="card-title">{item.productTitle.split(" ").slice(0, 6).join(" ")} ...</h1>
+          <a href={`http://localhost:3000/product/${item._id}`} className="btn col-6 btn-outline-primary">View on website</a>
           <Link
-            className="btn col-12 btn-warning"
+            className="btn col-6 btn-warning"
             to={`/sellerpanel/editproduct/${item._id}`}
           >
             Edit
