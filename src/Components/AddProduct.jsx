@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addProductStart } from "../Redux/Actions";
+import Loading from "./Loading";
 
 export default function AddProduct() {
   const navigate = useNavigate();
@@ -9,12 +10,11 @@ export default function AddProduct() {
   const verifySellerResponse = useSelector(
     (state) => state.verifySellerResponse
   );
-  const addProductResponse = useSelector(
-    (state) => state.addProductResponse
+  const addProductResponse = useSelector((state) => state.addProductResponse);
+  const addProductResponseLoading = useSelector(
+    (state) => state.addProductResponseLoading
   );
-  const addproductError = useSelector(
-    (state) => state.addproductError
-  );
+  const addproductError = useSelector((state) => state.addproductError);
 
   useEffect(() => {
     if (verifySellerResponse.hasOwnProperty("ownerName")) {
@@ -23,18 +23,18 @@ export default function AddProduct() {
     }
   }, [verifySellerResponse]);
 
-  useEffect(()=>{
-    if(addProductResponse.hasOwnProperty('itemSavedSuccessfully')){
-      if(addProductResponse.itemSavedSuccessfully){
+  useEffect(() => {
+    if (addProductResponse.hasOwnProperty("itemSavedSuccessfully")) {
+      if (addProductResponse.itemSavedSuccessfully) {
         alert("Your Product is added Successfully");
         setInterval(() => {
-          navigate('/sellerpanel');
+          navigate("/sellerpanel");
           window.location.reload();
         }, 30);
         clearInterval();
       }
     }
-  },[addProductResponse])
+  }, [addProductResponse]);
   //   --------------------------
 
   const initialProductData = {
@@ -64,7 +64,8 @@ export default function AddProduct() {
   // errors
   const [emptyProductTitle, setEmptyProductTitle] = useState(false);
   const [emptyProductCategory, setEmptyProductCategory] = useState(false);
-  const [youHaveToEnterMinimum1img, setyouHaveToEnterMinimum1img] = useState(false);
+  const [youHaveToEnterMinimum1img, setyouHaveToEnterMinimum1img] =
+    useState(false);
   const [linksAreNotValid, setlinksAreNotValid] = useState(false);
   const [ProductPriceShouldBeNumeric, setProductPriceShouldBeNumeric] =
     useState(false);
@@ -107,28 +108,37 @@ export default function AddProduct() {
             ) {
               if (productDescription.length > 200) {
                 let images = [...imagesLink];
-                let resultForEmpty = images.every(item => item === '')
-                if(!resultForEmpty){
+                let resultForEmpty = images.every((item) => item === "");
+                if (!resultForEmpty) {
                   //empty values will be out here
-                  let onlyValues = images.filter((item) => item !== '');
-                  if(onlyValues.length >= 1 && onlyValues.every((item)=> /^(http|https):\/\/[\w\-]+(\.[\w\-]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?$/.test(item))){
-                    const sellerToken = JSON.parse(localStorage.getItem('sellerToken'));
+                  let onlyValues = images.filter((item) => item !== "");
+                  if (
+                    onlyValues.length >= 1 &&
+                    onlyValues.every((item) =>
+                      /^(http|https):\/\/[\w\-]+(\.[\w\-]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?$/.test(
+                        item
+                      )
+                    )
+                  ) {
+                    const sellerToken = JSON.parse(
+                      localStorage.getItem("sellerToken")
+                    );
                     // sending data
                     const final_Data = {
-                      product:{
-                        ...productData
+                      product: {
+                        ...productData,
                       },
-                      sellerAuthInfo:{
-                        sellerToken:sellerToken,
-                        sellerId:productData.sellerId
-                      }
-                    }
+                      sellerAuthInfo: {
+                        sellerToken: sellerToken,
+                        sellerId: productData.sellerId,
+                      },
+                    };
                     // console.log(final_Data);
                     dispatch(addProductStart(final_Data));
-                  }else{
+                  } else {
                     setlinksAreNotValid(true);
                   }
-                }else{
+                } else {
                   setyouHaveToEnterMinimum1img(true);
                 }
               } else {
@@ -151,21 +161,47 @@ export default function AddProduct() {
     }
   };
 
-
-  if(addproductError !== ''){
+  if (addproductError !== "") {
     setInterval(() => {
-      navigate('/sellerPanel');
+      navigate("/sellerPanel");
       window.location.reload();
     }, 4000);
     clearInterval();
-    return (<>
-    <h1>{addproductError} Redirecting to Your Panel in 4 seconds</h1>
-    </>)
+    return (
+      <>
+        <h1>{addproductError} Redirecting to Your Panel in 4 seconds</h1>
+      </>
+    );
+  } else if (addProductResponseLoading) {
+    return (
+      <>
+        <div className="container pt-5 mt-5">
+          <div className="row justify-content-center ">
+            <div className="col col-12">
+              <h3
+                className="text-center"
+                style={{ color: "#5c0431", fontSize: "2rem" }}
+              >
+                Adding!
+              </h3>
+            </div>
+          </div>
+        </div>
+        <Loading />
+      </>
+    );
   }
   return (
     <>
       {/* header */}
       <div className="container pt-5 mt-5">
+        <Link
+          to={"/sellerpanel"}
+          className="btn btn-outline-dark"
+          style={{ position: "absolute", top: "1rem", left: "1rem" }}
+        >
+          Back to Panel
+        </Link>
         <div className="row justify-content-center ">
           <div className="col col-12">
             <h3
@@ -363,13 +399,13 @@ export default function AddProduct() {
                 />
               </div>
             ))}
-            {
-              youHaveToEnterMinimum1img && <p className="text-danger">You have to enter minimum 1 image</p>
-            }
-            {
-              linksAreNotValid && <p className="text-danger">Links are not Valid...</p>
-            }
-           
+            {youHaveToEnterMinimum1img && (
+              <p className="text-danger">You have to enter minimum 1 image</p>
+            )}
+            {linksAreNotValid && (
+              <p className="text-danger">Links are not Valid...</p>
+            )}
+
             {removebutton && (
               <button
                 id="addmore"

@@ -12,6 +12,15 @@ export default function SellerPanel() {
   const verifySellerResponse = useSelector(
     (state) => state.verifySellerResponse
   );
+  const verifySellerResponseLoading = useSelector(
+    (state) => state.verifySellerResponseLoading
+  );
+  const createSellerResponseLoading = useSelector(
+    (state) => state.createSellerResponseLoading
+  );
+  const loginSellerResponseLoading = useSelector(
+    (state) => state.loginSellerResponseLoading
+  );
   // console.log(verifySellerResponse.verificationSuccess);
 
   const [notHasSellerToken, setNotHasSellerToken] = useState(false);
@@ -35,6 +44,29 @@ export default function SellerPanel() {
       </>
     );
   }
+
+  if (
+    loginSellerResponseLoading ||
+    createSellerResponseLoading ||
+    verifySellerResponseLoading
+  ) {
+    return (
+      <>
+        <div className="container pt-3">
+          <div className="row justify-content-center">
+            <div className="col col-12">
+              <h3
+                className="text-center"
+                style={{ color: "#5c0431", fontSize: "2rem" }}
+              >
+                Your Panel
+              </h3>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
   switch (verifySellerResponse.verificationSuccess) {
     case false:
       setNotHasSellerToken(true);
@@ -44,7 +76,13 @@ export default function SellerPanel() {
         <>
           {/* header */}
           <div className="container pt-3">
-        <Link to={'/'} className="btn btn-outline-dark" style={{position:"absolute",top:'1rem',left:'1rem'}}>Back to Home</Link>
+            <Link
+              to={"/"}
+              className="btn btn-outline-dark"
+              style={{ position: "absolute", top: "1rem", left: "1rem" }}
+            >
+              Back to Home
+            </Link>
             <div className="row justify-content-center">
               <div className="col col-12">
                 <h3
@@ -131,13 +169,5 @@ export default function SellerPanel() {
           </div>
         </>
       );
-
-    default: {
-      return (
-        <h1 className="text-center h1 text-primary mt-5 pt-5">
-          Unable to fetch data, Please try again Later
-        </h1>
-      );
-    }
   }
 }

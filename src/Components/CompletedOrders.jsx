@@ -1,46 +1,64 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { verifySellerStart } from '../Redux/Actions';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { verifySellerStart } from "../Redux/Actions";
+import Loading from "./Loading";
 
 export default function CompletedOrders() {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [status, setStatus] = useState("Order Placed");
   const [currentOrder, setCurrentOrder] = useState({});
-  const [completedOrders,setCompletedOrders] = useState([]);
-    const verifySellerResponse = useSelector(
-        (state) => state.verifySellerResponse
-      );
+  const [completedOrders, setCompletedOrders] = useState([]);
+  const verifySellerResponse = useSelector(
+    (state) => state.verifySellerResponse
+  );
+  const verifySellerResponseLoading = useSelector(
+    (state) => state.verifySellerResponseLoading
+  );
 
+  useEffect(() => {
+    const sellerToken = JSON.parse(localStorage.getItem("sellerToken"));
+    if (sellerToken) {
+      dispatch(verifySellerStart(sellerToken));
+    } else {
+      navigate("/sellerpanel");
+    }
+  }, []);
+  useEffect(() => {
+    if (verifySellerResponse.hasOwnProperty("verificationSuccess")) {
+      if (verifySellerResponse.verificationSuccess) {
+        setCompletedOrders(verifySellerResponse.completedOrders);
+      } else {
+        navigate("/sellerpanel");
+      }
+    }
+  }, [verifySellerResponse]);
 
-    useEffect(() => {
-        const sellerToken = JSON.parse(localStorage.getItem("sellerToken"));
-        if (sellerToken) {
-          dispatch(verifySellerStart(sellerToken));
-        } else {
-          navigate("/sellerpanel");
-        }
-      }, []);
-      useEffect(() => {
-        if (verifySellerResponse.hasOwnProperty("verificationSuccess")) {
-          if (verifySellerResponse.verificationSuccess) {
-            setCompletedOrders(verifySellerResponse.completedOrders);
-          } else {
-            navigate("/sellerpanel");
-          }
-        }
-      }, [verifySellerResponse]);
-
-
-
-
-
+  if (verifySellerResponseLoading) {
+    return (
+      <>
+        <div className="container pt-3">
+          <div className="row justify-content-center">
+            <div className="col col-12">
+              <h3
+                className="text-center"
+                style={{ color: "#5c0431", fontSize: "2rem" }}
+              >
+                Your Completed or Delivered Orders
+              </h3>
+            </div>
+          </div>
+        </div>
+        <Loading />
+      </>
+    );
+  }
 
   return (
     <>
-        {/* header */}
-        <div className="container pt-3">
+      {/* header */}
+      <div className="container pt-3">
         <Link
           to={"/sellerpanel"}
           className="btn btn-outline-dark"
@@ -76,7 +94,8 @@ export default function CompletedOrders() {
                     className="w-75 card-top-image"
                   />
                   <h1 className="card-title">
-                    {item.product.productTitle.split(" ").slice(0, 6).join(" ")} ...
+                    {item.product.productTitle.split(" ").slice(0, 6).join(" ")}{" "}
+                    ...
                   </h1>
                   <button
                     className="btn btn-outline-secondary"
@@ -94,11 +113,12 @@ export default function CompletedOrders() {
               </div>
             ))
           ) : (
-            <>No Completed Orders</>
+            <>
+              <Loading />
+            </>
           )}
         </div>
       </div>
-    
 
       <div
         className="modal fade"
@@ -139,7 +159,8 @@ export default function CompletedOrders() {
                     {currentOrder.product.productTitle
                       .split(" ")
                       .slice(0, 6)
-                      .join(" ")} ...
+                      .join(" ")}{" "}
+                    ...
                   </h5>
                   <h5 className="modal-title" id="staticBackdropLabel">
                     Quantity: {currentOrder.quantity}
@@ -159,7 +180,6 @@ export default function CompletedOrders() {
                   <h6>Landmark: {currentOrder.userAddress.landmark}</h6>
 
                   <h4 className="h4 mt-5">Status: {status}</h4>
-                  
                 </>
               )}
             </div>
@@ -176,5 +196,5 @@ export default function CompletedOrders() {
         </div>
       </div>
     </>
-  )
+  );
 }

@@ -2,23 +2,27 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createSellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 export default function Signup({ setShowLogin }) {
   const navigate = useNavigate();
   const createSellerResponse = useSelector(
     (state) => state.createSellerResponse
   );
+  const createSellerResponseLoading = useSelector(
+    (state) => state.createSellerResponseLoading
+  );
   // console.log(createSellerResponse);
   useEffect(() => {
     if (createSellerResponse) {
       if (createSellerResponse.emailAlreadyinUse) {
         setAlreadyUsedEmailError(true);
-      }else if(createSellerResponse.userCreated){
-        alert('Congratulations! Your Seller Account is Ready...');
+      } else if (createSellerResponse.userCreated) {
+        alert("Congratulations! Your Seller Account is Ready...");
         setPassword1("");
         setSignupData(initialSignup);
         setInterval(() => {
-          navigate('/sellerpanel');
+          navigate("/sellerpanel");
           window.location.reload();
         }, 30);
         clearInterval();
@@ -88,11 +92,36 @@ export default function Signup({ setShowLogin }) {
     }
   };
 
+  if (createSellerResponseLoading) {
+    return (
+      <>
+        <div className="container pt-3">
+          <div className="row justify-content-center">
+            <div className="col col-12">
+              <h3
+                className="text-center"
+                style={{ color: "#5c0431", fontSize: "2rem" }}
+              >
+                Sign Up
+              </h3>
+            </div>
+          </div>
+        </div>
+        <Loading />
+      </>
+    );
+  }
   return (
     <>
       {/* header */}
       <div className="container pt-3">
-      <Link to={'/'} className="btn btn-outline-dark" style={{position:"absolute",top:'1rem',left:'1rem'}}>Back to Home</Link>
+        <Link
+          to={"/"}
+          className="btn btn-outline-dark"
+          style={{ position: "absolute", top: "1rem", left: "1rem" }}
+        >
+          Back to Home
+        </Link>
         <div className="row justify-content-center">
           <div className="col col-12">
             <h3
@@ -171,7 +200,7 @@ export default function Signup({ setShowLogin }) {
         <div className="row d-flex justify-content-center">
           <div className="mb-3 col-4 ">
             <input
-            value={password1}
+              value={password1}
               type="password"
               onChange={(e) => {
                 setPassword1(e.target.value);
@@ -226,7 +255,7 @@ export default function Signup({ setShowLogin }) {
               <button
                 onClick={() => {
                   setShowLogin(true);
-                  document.getElementById("login__").style.display='none';
+                  document.getElementById("login__").style.display = "none";
                 }}
                 className="btn btn-outline-primary"
               >

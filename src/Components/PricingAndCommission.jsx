@@ -10,8 +10,22 @@ import securepayment from '../Media/securepayment.png';
 import paymentcycle from '../Media/paymentcycle.png';
 import SellProductsOnline from "./SellProductsOnline";
 import SupplySupport from "./SupplySupport";
+import { useSelector } from "react-redux";
+import Loading from "./Loading";
 
 export default function PricingAndCommission() {
+  const verifySellerResponseLoading = useSelector(
+    (s) => s.verifySellerResponseLoading
+  );
+
+  if (verifySellerResponseLoading) {
+    return (
+      <>
+        <Header />
+        <Loading />
+      </>
+    );
+  } else
   return (
     <>
       <Header />

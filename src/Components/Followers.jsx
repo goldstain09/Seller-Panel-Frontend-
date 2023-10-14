@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { verifySellerStart } from "../Redux/Actions";
+import Loading from "./Loading";
 
 export default function Followers() {
   const navigate = useNavigate();
@@ -9,6 +10,9 @@ export default function Followers() {
   const [followers, setFollowers] = useState([]);
   const verifySellerResponse = useSelector(
     (state) => state.verifySellerResponse
+  );
+  const verifySellerResponseLoading = useSelector(
+    (state) => state.verifySellerResponseLoading
   );
 
   useEffect(() => {
@@ -29,6 +33,25 @@ export default function Followers() {
     }
   }, [verifySellerResponse]);
 
+  if (verifySellerResponseLoading) {
+    return (
+      <>
+        <div className="container pt-3">
+          <div className="row justify-content-center">
+            <div className="col col-12">
+              <h3
+                className="text-center"
+                style={{ color: "#5c0431", fontSize: "2rem" }}
+              >
+                Your Followers
+              </h3>
+            </div>
+          </div>
+        </div>
+        <Loading />
+      </>
+    );
+  }
   return (
     <>
       {/* header */}
@@ -54,16 +77,19 @@ export default function Followers() {
 
       <div className="container">
         <div className="row d-flex">
-            <h4>Users List</h4>
+          <h4>Users List</h4>
           {followers.length > 0 ? (
             followers.map((item, index) => (
-              <div className="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+              <div
+                className="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                key={index}
+              >
                 <h1>{item.userName}</h1>
               </div>
             ))
           ) : (
             <>
-              <h1>No Followers</h1>
+              <Loading />
             </>
           )}
         </div>

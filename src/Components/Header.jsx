@@ -7,7 +7,7 @@ import { verifySellerStart } from "../Redux/Actions";
 
 export default function Header() {
   const dispatch = useDispatch();
-  
+
   const verifySellerResponse = useSelector(
     (state) => state.verifySellerResponse
   );
@@ -19,20 +19,18 @@ export default function Header() {
       setLoginned(false);
     }
   }, []);
-  useEffect(()=>{
-    if(verifySellerResponse.hasOwnProperty('verificationSuccess')){
-      if(verifySellerResponse.verificationSuccess){
+  useEffect(() => {
+    if (verifySellerResponse.hasOwnProperty("verificationSuccess")) {
+      if (verifySellerResponse.verificationSuccess) {
         setLoginned(true);
-      }else{
+      } else {
         setLoginned(false);
       }
     }
-  },[verifySellerResponse])
+  }, [verifySellerResponse]);
 
-  const [loginned,setLoginned] = useState(false);
+  const [loginned, setLoginned] = useState(false);
 
-
-  
   return (
     <>
       <header className="p-3 mb-3  fixed-top Headerr">
@@ -57,38 +55,48 @@ export default function Header() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/pricingandcommission"} className="nav-link px-2 link-dark">
+                <NavLink
+                  to={"/pricingandcommission"}
+                  className="nav-link px-2 link-dark"
+                >
                   Price & Commission
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/shippingandreturns"} className="nav-link px-2 link-dark">
+                <NavLink
+                  to={"/shippingandreturns"}
+                  className="nav-link px-2 link-dark"
+                >
                   Shipping & Returns
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/growbusiness"} className="nav-link px-2 link-dark">
+                <NavLink
+                  to={"/growbusiness"}
+                  className="nav-link px-2 link-dark"
+                >
                   Grow Business
                 </NavLink>
               </li>
             </ul>
 
             <div className="text-end">
-              {
-                loginned ? (<>
-                <Link to={"/sellerpanel"} className="btn btn-outline-primary">
-                  Your Panel
-                </Link>
-                </>) : (
-                  <><Link to={"/sellerpanel"} className="btn btn-outline-primary">
-                  Login
-                </Link>
-                <Link to={"/sellerpanel"} className="btn btn-primary">
-                  Create Account
-                </Link></>
-                )
-              }
-              
+              {loginned ? (
+                <>
+                  <Link to={"/sellerpanel"} className="btn btn-outline-primary">
+                    Your Panel
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to={"/sellerpanel"} className="btn btn-outline-primary">
+                    Login
+                  </Link>
+                  <Link to={"/sellerpanel"} className="btn btn-primary">
+                    Create Account
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

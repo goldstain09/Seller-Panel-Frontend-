@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { deleteProductStart, editProductStart } from "../Redux/Actions";
+import Loading from "./Loading";
 
 export default function EditProduct() {
   const params = useParams();
@@ -12,30 +13,30 @@ export default function EditProduct() {
   );
   const editProductResponse = useSelector((state) => state.editProductResponse);
   const editProductError = useSelector((state) => state.editProductError);
-  const deleteProductResponse = useSelector((state) => state.deleteProductResponse);
+  const editProductResponseLoading = useSelector(
+    (state) => state.editProductResponseLoading
+  );
+  const deleteProductResponse = useSelector(
+    (state) => state.deleteProductResponse
+  );
   const deleteProductError = useSelector((state) => state.deleteProductError);
+  const deleteProductResponseLoading = useSelector(
+    (state) => state.deleteProductResponseLoading
+  );
 
   useEffect(() => {
     if (editProductResponse.hasOwnProperty("productUpdated")) {
       if (editProductResponse.productUpdated) {
-        alert("Your Product is Updated Successfully");
-        setInterval(() => {
-          navigate("/sellerpanel");
-          window.location.reload();
-        }, 30);
-        clearInterval();
+        window.location.reload();
+        navigate("/sellerpanel");
       }
     }
   }, [editProductResponse]);
   useEffect(() => {
     if (deleteProductResponse.hasOwnProperty("productDeleted")) {
       if (deleteProductResponse.productDeleted) {
-        alert("Your Product is Deleted Successfully");
-        setInterval(() => {
-          navigate("/sellerpanel");
-          window.location.reload();
-        }, 30);
-        clearInterval();
+        window.location.reload();
+        navigate("/sellerpanel");
       }
     }
   }, [deleteProductResponse]);
@@ -143,9 +144,7 @@ export default function EditProduct() {
 
   const deleteF = (e) => {
     e.preventDefault();
-    const sellerToken = JSON.parse(
-        localStorage.getItem("sellerToken")
-      );
+    const sellerToken = JSON.parse(localStorage.getItem("sellerToken"));
     dispatch(
       deleteProductStart({
         id: params.id,
@@ -181,6 +180,26 @@ export default function EditProduct() {
       </>
     );
   }
+  if (deleteProductResponseLoading || editProductResponseLoading) {
+    return (
+      <>
+        <div className="container pt-5 mt-5">
+          <div className="row justify-content-center ">
+            <div className="col col-12">
+              <h3
+                className="text-center"
+                style={{ color: "#5c0431", fontSize: "2rem" }}
+              >
+                {editProductResponseLoading && "Updating"}
+                {deleteProductResponseLoading && "Deleting"}
+              </h3>
+            </div>
+          </div>
+        </div>
+        <Loading />
+      </>
+    );
+  }
   return (
     <>
       <div
@@ -194,7 +213,7 @@ export default function EditProduct() {
           <div className="col-1">
             <button
               onClick={() => {
-                document.getElementById("note").remove();
+                document.getElementById("note").style.display = "none";
               }}
               style={{ border: "none" }}
               className="btn btn-outline-dark"

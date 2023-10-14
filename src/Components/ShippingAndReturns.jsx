@@ -8,8 +8,22 @@ import pincodeserved from '../Media/pincodeserved.png';
 import lowestshippingcharges from '../Media/lowestshippingcharge.png';
 import SellProductsOnline from "./SellProductsOnline";
 import SupplySupport from "./SupplySupport";
+import { useSelector } from "react-redux";
+import Loading from "./Loading";
 
 export default function ShippingAndReturns() {
+  const verifySellerResponseLoading = useSelector(
+    (s) => s.verifySellerResponseLoading
+  );
+
+  if (verifySellerResponseLoading) {
+    return (
+      <>
+        <Header />
+        <Loading />
+      </>
+    );
+  } else
   return (
     <>
       <Header />

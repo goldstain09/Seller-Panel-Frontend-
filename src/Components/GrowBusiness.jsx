@@ -9,8 +9,22 @@ import LowestShippingCosts from "../Media/LowestShippingCosts.png";
 import NextDayDispatchProgram from "../Media/NextDayDispatchProgram.png";
 import Adstogrowmore from "../Media/Adstogrowmore.png";
 import BusinessInsights from "../Media/BusinessInsights.png";
+import { useSelector } from "react-redux";
+import Loading from "./Loading";
 
 export default function GrowBusiness() {
+  const verifySellerResponseLoading = useSelector(
+    (s) => s.verifySellerResponseLoading
+  );
+
+  if (verifySellerResponseLoading) {
+    return (
+      <>
+        <Header />
+        <Loading />
+      </>
+    );
+  } else
   return (
     <>
       <Header />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateOrderStatusStart, verifySellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 export default function ActiveOrders() {
   const dispatch = useDispatch();
@@ -16,7 +17,13 @@ export default function ActiveOrders() {
   const orderStatusUpdationResponse = useSelector(
     (state) => state.orderStatusUpdationResponse
   );
-  
+  const verifySellerResponseLoading = useSelector(
+    (state) => state.verifySellerResponseLoading
+  );
+  const orderStatusUpdationResponseLoading = useSelector(
+    (state) => state.orderStatusUpdationResponseLoading
+  );
+
   useEffect(() => {
     const sellerToken = JSON.parse(localStorage.getItem("sellerToken"));
     if (sellerToken) {
@@ -41,18 +48,36 @@ export default function ActiveOrders() {
       ele.setAttribute("selected", "");
     }
   }, [status]);
-  useEffect(()=>{
-    if(orderStatusUpdationResponse.hasOwnProperty('statusUpdated')){
-      if(orderStatusUpdationResponse.orderDelivered){
-        navigate('/sellerpanel/completedOrders');
+  useEffect(() => {
+    if (orderStatusUpdationResponse.hasOwnProperty("statusUpdated")) {
+      if (orderStatusUpdationResponse.orderDelivered) {
+        navigate("/sellerpanel/completedOrders");
         window.location.reload();
-      }else{
-        alert('Status Updated!');
+      } else {
         window.location.reload();
       }
     }
-  },[orderStatusUpdationResponse])
+  }, [orderStatusUpdationResponse]);
 
+  if (orderStatusUpdationResponseLoading || verifySellerResponseLoading) {
+    return (
+      <>
+        <div className="container pt-3">
+          <div className="row justify-content-center">
+            <div className="col col-12">
+              <h3
+                className="text-center"
+                style={{ color: "#5c0431", fontSize: "2rem" }}
+              >
+                Your Active Order
+              </h3>
+            </div>
+          </div>
+        </div>
+        <Loading />
+      </>
+    );
+  }
   return (
     <>
       {/* header */}
@@ -110,7 +135,9 @@ export default function ActiveOrders() {
               </div>
             ))
           ) : (
-            <>No Orders</>
+            <>
+              <Loading />
+            </>
           )}
         </div>
       </div>
@@ -219,20 +246,23 @@ export default function ActiveOrders() {
               >
                 Close
               </button>
+
               <button
-                type="button"
+                // type="button"
                 className="btn btn-primary"
                 onClick={() => {
                   const sellerToken = JSON.parse(
                     localStorage.getItem("sellerToken")
                   );
-                //   console.log(currentOrder);
-                  dispatch(updateOrderStatusStart({
-                    orderStatus:status,
-                    sellerToken:sellerToken,
-                    sellerId:verifySellerResponse.id,
-                    orderDetails:currentOrder
-                  }))
+                  //   console.log(currentOrder);
+                  dispatch(
+                    updateOrderStatusStart({
+                      orderStatus: status,
+                      sellerToken: sellerToken,
+                      sellerId: verifySellerResponse.id,
+                      orderDetails: currentOrder,
+                    })
+                  );
                 }}
               >
                 Update Status

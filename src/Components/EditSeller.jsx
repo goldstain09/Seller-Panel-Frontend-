@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editSellerStart, loginSellerStart } from "../Redux/Actions";
 import { useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 export default function EditSeller() {
   const navigate = useNavigate();
@@ -11,18 +12,17 @@ export default function EditSeller() {
     (state) => state.verifySellerResponse
   );
   const editSellerResponse = useSelector((state) => state.editSellerResponse);
+  const editSellerResponseLoading = useSelector(
+    (state) => state.editSellerResponseLoading
+  );
   useEffect(() => {
     // if(editSellerResponse.res){  // both are usable conditions here and for future i have to see myself what to put there like situation properly
     if (editSellerResponse.hasOwnProperty("updated")) {
       switch (editSellerResponse.updated) {
         case true:
-          alert("Updated SuccessFully...");
           setEditData(initialEditData);
-          setInterval(() => {
-            navigate("/sellerpanel");
-            window.location.reload();
-          }, 30);
-          clearInterval();
+          navigate("/sellerpanel");
+          window.location.reload();
           break;
         case false:
           setIncorrectPasswordError(true);
@@ -95,6 +95,25 @@ export default function EditSeller() {
     });
   };
 
+  if (editSellerResponseLoading) {
+    return (
+      <>
+        <div className="container pt-5 mt-5">
+          <div className="row justify-content-center ">
+            <div className="col col-12">
+              <h3
+                className="text-center"
+                style={{ color: "#5c0431", fontSize: "2rem" }}
+              >
+                Edit Your Personal Information Carefully
+              </h3>
+            </div>
+          </div>
+        </div>
+        <Loading />
+      </>
+    );
+  }
   return (
     <>
       {/* header */}
