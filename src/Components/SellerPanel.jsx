@@ -5,12 +5,22 @@ import { Link } from "react-router-dom";
 import CardForPanel from "./CardForPanel";
 import { useDispatch, useSelector } from "react-redux";
 import { verifySellerStart } from "../Redux/Actions";
+import Error from "./Error";
 
 export default function SellerPanel() {
   const dispatch = useDispatch();
 
   const verifySellerResponse = useSelector(
     (state) => state.verifySellerResponse
+  );
+  const verifySellerResponseError = useSelector(
+    (state) => state.verifySellerResponseError
+  );
+  const createSellerResponseError = useSelector(
+    (state) => state.createSellerResponseError
+  );
+  const loginSellerResponseError = useSelector(
+    (state) => state.loginSellerResponseError
   );
   const verifySellerResponseLoading = useSelector(
     (state) => state.verifySellerResponseLoading
@@ -64,6 +74,24 @@ export default function SellerPanel() {
             </div>
           </div>
         </div>
+      </>
+    );
+  } else if (loginSellerResponseError!=="") {
+    return (
+      <>
+        <Error errorMessage={loginSellerResponseError} />
+      </>
+    );
+  } else if (verifySellerResponseError!=="") {
+    return (
+      <>
+        <Error errorMessage={verifySellerResponseError} />
+      </>
+    );
+  } else if (createSellerResponseError!=="") {
+    return (
+      <>
+        <Error errorMessage={createSellerResponseError} />
       </>
     );
   }

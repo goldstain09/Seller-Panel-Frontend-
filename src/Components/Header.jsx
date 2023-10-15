@@ -11,6 +11,9 @@ export default function Header() {
   const verifySellerResponse = useSelector(
     (state) => state.verifySellerResponse
   );
+  const verifySellerResponseLoading = useSelector(
+    (state) => state.verifySellerResponseLoading
+  );
   useEffect(() => {
     const sellerToken = JSON.parse(localStorage.getItem("sellerToken"));
     if (sellerToken) {
@@ -80,24 +83,34 @@ export default function Header() {
               </li>
             </ul>
 
-            <div className="text-end">
-              {loginned ? (
-                <>
-                  <Link to={"/sellerpanel"} className="btn btn-outline-primary">
-                    Your Panel
-                  </Link>
-                </>
-              ) : (
-                <>
-                  <Link to={"/sellerpanel"} className="btn btn-outline-primary">
-                    Login
-                  </Link>
-                  <Link to={"/sellerpanel"} className="btn btn-primary">
-                    Create Account
-                  </Link>
-                </>
-              )}
-            </div>
+            {verifySellerResponseLoading ? (
+              <>Loading...</>
+            ) : (
+              <div className="text-end">
+                {loginned ? (
+                  <>
+                    <Link
+                      to={"/sellerpanel"}
+                      className="btn btn-outline-primary"
+                    >
+                      Your Panel
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      to={"/sellerpanel"}
+                      className="btn btn-outline-primary"
+                    >
+                      Login
+                    </Link>
+                    <Link to={"/sellerpanel"} className="btn btn-primary">
+                      Create Account
+                    </Link>
+                  </>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </header>

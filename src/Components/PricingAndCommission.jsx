@@ -6,18 +6,21 @@ import { Link } from "react-router-dom";
 import penalty from "../Media/penalty.png";
 import collection from "../Media/collection.png";
 import registration from "../Media/registration.png";
-import securepayment from '../Media/securepayment.png';
-import paymentcycle from '../Media/paymentcycle.png';
+import securepayment from "../Media/securepayment.png";
+import paymentcycle from "../Media/paymentcycle.png";
 import SellProductsOnline from "./SellProductsOnline";
 import SupplySupport from "./SupplySupport";
 import { useSelector } from "react-redux";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function PricingAndCommission() {
   const verifySellerResponseLoading = useSelector(
     (s) => s.verifySellerResponseLoading
   );
-
+  const verifySellerResponseError = useSelector(
+    (s) => s.verifySellerResponseError
+  );
   if (verifySellerResponseLoading) {
     return (
       <>
@@ -25,7 +28,13 @@ export default function PricingAndCommission() {
         <Loading />
       </>
     );
-  } else
+  } else if (verifySellerResponseError) {
+    return (
+      <>
+        <Error errorMessage={verifySellerResponseError} />
+      </>
+    );
+  }
   return (
     <>
       <Header />
@@ -38,7 +47,9 @@ export default function PricingAndCommission() {
               categories making it the most profitable platform for you to sell
               online.
             </h1>
-            <Link to={'/sellerpanel'} className="btn btn-outline-danger">Start Selling</Link>
+            <Link to={"/sellerpanel"} className="btn btn-outline-danger">
+              Start Selling
+            </Link>
           </div>{" "}
           <div className="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
         </div>

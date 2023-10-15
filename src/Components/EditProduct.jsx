@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { deleteProductStart, editProductStart } from "../Redux/Actions";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function EditProduct() {
   const params = useParams();
@@ -157,30 +158,18 @@ export default function EditProduct() {
   };
 
   if (editProductError !== "") {
-    setInterval(() => {
-      navigate("/sellerPanel");
-      window.location.reload();
-    }, 4000);
-    clearInterval();
     return (
       <>
-        <h1>{editProductError} Redirecting to Your Panel in 4 seconds</h1>
+        <Error errorMessage={deleteProductError} />
       </>
     );
-  }
-  if (deleteProductError !== "") {
-    setInterval(() => {
-      navigate("/sellerPanel");
-      window.location.reload();
-    }, 4000);
-    clearInterval();
+  } else if (deleteProductError !== "") {
     return (
       <>
-        <h1>{deleteProductError} Redirecting to Your Panel in 4 seconds</h1>
+        <Error errorMessage={deleteProductError} />
       </>
     );
-  }
-  if (deleteProductResponseLoading || editProductResponseLoading) {
+  } else if (deleteProductResponseLoading || editProductResponseLoading) {
     return (
       <>
         <div className="container pt-5 mt-5">

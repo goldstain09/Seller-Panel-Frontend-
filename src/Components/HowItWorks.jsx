@@ -6,12 +6,15 @@ import { Link } from "react-router-dom";
 import SupplySupport from "./SupplySupport";
 import { useSelector } from "react-redux";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function HowItWorks() {
   const verifySellerResponseLoading = useSelector(
     (s) => s.verifySellerResponseLoading
   );
-
+  const verifySellerResponseError = useSelector(
+    (s) => s.verifySellerResponseError
+  );
   if (verifySellerResponseLoading) {
     return (
       <>
@@ -19,7 +22,13 @@ export default function HowItWorks() {
         <Loading />
       </>
     );
-  } else
+  } else if(verifySellerResponseError){
+    return(
+      <>
+      <Error errorMessage={verifySellerResponseError}/>
+      </>
+    )
+  }
   return (
     <>
       <Header />

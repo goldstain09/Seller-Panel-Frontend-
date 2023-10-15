@@ -11,10 +11,14 @@ import Adstogrowmore from "../Media/Adstogrowmore.png";
 import BusinessInsights from "../Media/BusinessInsights.png";
 import { useSelector } from "react-redux";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function GrowBusiness() {
   const verifySellerResponseLoading = useSelector(
     (s) => s.verifySellerResponseLoading
+  );
+  const verifySellerResponseError = useSelector(
+    (s) => s.verifySellerResponseError
   );
 
   if (verifySellerResponseLoading) {
@@ -24,7 +28,13 @@ export default function GrowBusiness() {
         <Loading />
       </>
     );
-  } else
+  } else if (verifySellerResponseError) {
+    return (
+      <>
+        <Error errorMessage={verifySellerResponseError} />
+      </>
+    );
+  }
   return (
     <>
       <Header />
@@ -39,7 +49,9 @@ export default function GrowBusiness() {
               <span>crores of customers</span> through Seesho’s selling tools
               for suppliers.
             </h1>
-            <Link to={'/sellerpanel'} className="btn btn-outline-danger">Start Selling</Link>
+            <Link to={"/sellerpanel"} className="btn btn-outline-danger">
+              Start Selling
+            </Link>
           </div>{" "}
           <div className="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
         </div>

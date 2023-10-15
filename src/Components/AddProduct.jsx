@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { addProductStart } from "../Redux/Actions";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function AddProduct() {
   const navigate = useNavigate();
@@ -162,14 +163,9 @@ export default function AddProduct() {
   };
 
   if (addproductError !== "") {
-    setInterval(() => {
-      navigate("/sellerPanel");
-      window.location.reload();
-    }, 4000);
-    clearInterval();
     return (
       <>
-        <h1>{addproductError} Redirecting to Your Panel in 4 seconds</h1>
+        <Error errorMessage={addproductError}/>
       </>
     );
   } else if (addProductResponseLoading) {

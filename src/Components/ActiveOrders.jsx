@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateOrderStatusStart, verifySellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function ActiveOrders() {
   const dispatch = useDispatch();
@@ -22,6 +23,12 @@ export default function ActiveOrders() {
   );
   const orderStatusUpdationResponseLoading = useSelector(
     (state) => state.orderStatusUpdationResponseLoading
+  );
+  const verifySellerResponseError = useSelector(
+    (state) => state.verifySellerResponseError
+  );
+  const orderStatusUpdationResponseError = useSelector(
+    (state) => state.orderStatusUpdationResponseError
   );
 
   useEffect(() => {
@@ -75,6 +82,18 @@ export default function ActiveOrders() {
           </div>
         </div>
         <Loading />
+      </>
+    );
+  } else if (orderStatusUpdationResponseError !== "") {
+    return (
+      <>
+        <Error errorMessage={orderStatusUpdationResponseError} />
+      </>
+    );
+  } else if (verifySellerResponseError !== "") {
+    return (
+      <>
+        <Error errorMessage={verifySellerResponseError} />
       </>
     );
   }

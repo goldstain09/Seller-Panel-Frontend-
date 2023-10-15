@@ -3,11 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { createSellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function Signup({ setShowLogin }) {
   const navigate = useNavigate();
   const createSellerResponse = useSelector(
     (state) => state.createSellerResponse
+  );
+  const createSellerResponseError = useSelector(
+    (state) => state.createSellerResponseError
   );
   const createSellerResponseLoading = useSelector(
     (state) => state.createSellerResponseLoading
@@ -108,6 +112,12 @@ export default function Signup({ setShowLogin }) {
           </div>
         </div>
         <Loading />
+      </>
+    );
+  } else if (createSellerResponseError !== "") {
+    return (
+      <>
+        <Error errorMessage={createSellerResponseError} />
       </>
     );
   }

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { editSellerStart, loginSellerStart } from "../Redux/Actions";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function EditSeller() {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ export default function EditSeller() {
     (state) => state.verifySellerResponse
   );
   const editSellerResponse = useSelector((state) => state.editSellerResponse);
+  const editSellerResponseError = useSelector((state) => state.editSellerResponseError);
   const editSellerResponseLoading = useSelector(
     (state) => state.editSellerResponseLoading
   );
@@ -113,6 +115,12 @@ export default function EditSeller() {
         <Loading />
       </>
     );
+  } else if(editSellerResponseError!==""){
+    return (
+      <>
+      <Error errorMessage={editSellerResponseError}/>
+      </>
+    )
   }
   return (
     <>

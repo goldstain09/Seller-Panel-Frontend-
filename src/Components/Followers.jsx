@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { verifySellerStart } from "../Redux/Actions";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function Followers() {
   const navigate = useNavigate();
@@ -13,6 +14,9 @@ export default function Followers() {
   );
   const verifySellerResponseLoading = useSelector(
     (state) => state.verifySellerResponseLoading
+  );
+  const verifySellerResponseError = useSelector(
+    (state) => state.verifySellerResponseError
   );
 
   useEffect(() => {
@@ -49,6 +53,12 @@ export default function Followers() {
           </div>
         </div>
         <Loading />
+      </>
+    );
+  } else if (verifySellerResponseError !== "") {
+    return (
+      <>
+        <Error errorMessage={verifySellerResponseError} />
       </>
     );
   }

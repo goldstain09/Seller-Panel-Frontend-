@@ -3,10 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginSellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function Login() {
   // abcd@gmail.com
   const loginSellerResponse = useSelector((state) => state.loginSellerResponse);
+  const loginSellerResponseError = useSelector(
+    (state) => state.loginSellerResponseError
+  );
   const loginSellerResponseLoading = useSelector(
     (state) => state.loginSellerResponseLoading
   );
@@ -88,6 +92,12 @@ export default function Login() {
           </div>
         </div>
         <Loading />
+      </>
+    );
+  } else if (loginSellerResponseError !== "") {
+    return (
+      <>
+        <Error errorMessage={loginSellerResponseError} />
       </>
     );
   }
