@@ -1,5 +1,16 @@
 $main: #5c0431;
 
+.mnvbarrr {
+  font-family: "Quicksand", sans-serif;
+  > .row {
+    > .col {
+      h3 {
+        font-size: 3rem;
+        color: $main;
+      }
+    }
+  }
+}
 .homePage {
   height: 45rem;
   background: url("./MediaSCSS/homeTopbg.jpg");
@@ -32,7 +43,7 @@ $main: #5c0431;
   }
 }
 .HomeCardTop {
-    margin-top: 8rem;
+  margin-top: 8rem;
   > .row {
     > .col {
       > div {
@@ -50,26 +61,50 @@ $main: #5c0431;
   }
 }
 
-.WhySuppliersLoveSeesho{
-    margin-top: 7rem;
-    >.row{
-        >.col:first-child{
-            padding-top: 13rem;
-            height: 35rem;
-            padding-left: 2rem;
-            h1{
-                font-size: 1.7rem;
-                font-weight: 700;
-            }
-            p{
-                width: 70%;
-            }
-        }
-        >.col:last-child{
-            border: 2px solid rgba(128, 128, 128, 0.193);
-            height: 37rem;
-            border-radius: 10px;
-
-        }
+.WhySuppliersLoveSeesho {
+  margin-top: 7rem;
+  > .row {
+    > .col:first-child {
+      padding-top: 13rem;
+      height: 35rem;
+      padding-left: 2rem;
+      h1 {
+        font-size: 1.7rem;
+        font-weight: 700;
+      }
+      p {
+        width: 70%;
+      }
     }
+    > .col:last-child {
+      border: 2px solid rgba(128, 128, 128, 0.193);
+      height: 37rem;
+      border-radius: 10px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .mnvbarrr {
+    > .row {
+      > .col {
+        h3 {
+          font-size: 2rem;
+          color: $main;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 394px) {
+  .mnvbarrr {
+    > .row {
+      > .col {
+        h3 {
+          font-size: 1.5rem;
+          color: $main;
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,85 @@
+$main: #5c0431;
+
+
+.sellerPanel{
+  font-family: "Quicksand", sans-serif;
+
+    .row{
+        .col-9{
+            .row{
+                .col-4{
+                    h4{
+                        font-size: 1.5rem;
+                        color: grey;
+                    }
+                    h3{
+                        font-size: 1.5rem;
+                        color: $main;
+                    }
+                }
+            }
+        }
+        .col-3{
+            .editSeller{
+                border: none;
+                font-size: 1.8rem;
+                width: 50%;
+            }
+            .editSeller:hover{
+                background: none;
+                border: none;
+                color: $main;
+            }
+            .logout{
+                border-radius: 0;
+                font-size: 1.8rem;
+            }
+            .logout:hover{
+                background: $main;
+                color: white;
+                border: 1px solid $main;
+            }
+        }
+    }
+    .activities{
+        .col{
+            text-align: end;
+            a{
+                font-size: 1.7rem;
+                color: grey;
+                border: none;
+                border-bottom: 1px solid $main;
+                border-radius: 0;
+
+            }
+            a:hover{
+                background: none;
+                transform: scale(1.02);
+                transition: all .3s;
+                border-radius: 0;
+                color: $main;
+            }
+        }
+    }
+    .yourProducts{
+        .col{
+            a{
+                font-size: 1.7rem;
+                color: grey;
+                background: none;
+                border: none;
+                border-bottom: 1px solid $main;
+                border-radius: 0;
+
+            }
+            a:hover{
+                background: none;
+                transform: scale(1.02);
+                transition: all .3s;
+                border-radius: 0;
+                color: $main;
+            }
+        }
+    }
+
+}

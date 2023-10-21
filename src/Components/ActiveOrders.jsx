@@ -69,15 +69,10 @@ export default function ActiveOrders() {
   if (orderStatusUpdationResponseLoading || verifySellerResponseLoading) {
     return (
       <>
-        <div className="container pt-3">
+        <div className="container pt-3  pt-5 mt-5 mnvbarrr">
           <div className="row justify-content-center">
             <div className="col col-12">
-              <h3
-                className="text-center"
-                style={{ color: "#5c0431", fontSize: "2rem" }}
-              >
-                Your Active Order
-              </h3>
+              <h3 className="text-center">Active Order</h3>
             </div>
           </div>
         </div>
@@ -100,22 +95,24 @@ export default function ActiveOrders() {
   return (
     <>
       {/* header */}
-      <div className="container pt-3">
+      <div className="container pt-3 pt-5 mt-5 mnvbarrr">
         <Link
           to={"/sellerpanel"}
           className="btn btn-outline-dark"
-          style={{ position: "absolute", top: "1rem", left: "1rem" }}
+          style={{
+            position: "absolute",
+            top: "1rem",
+            left: "1rem",
+            border: "none",
+            fontSize: "1.4rem",
+            zIndex: "1",
+          }}
         >
-          Back to Panel
+          <i className="bi bi-box-arrow-left"></i>{" "}
         </Link>
         <div className="row justify-content-center">
           <div className="col col-12">
-            <h3
-              className="text-center"
-              style={{ color: "#5c0431", fontSize: "2rem" }}
-            >
-              Your Active Order
-            </h3>
+            <h3 className="text-center">Active Order</h3>
           </div>
         </div>
       </div>

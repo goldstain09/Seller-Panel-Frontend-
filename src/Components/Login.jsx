@@ -79,12 +79,11 @@ export default function Login() {
   if (loginSellerResponseLoading) {
     return (
       <>
-        <div className="container pt-5 mt-5">
+        <div className="container pt-5 mt-5 mnvbarrr">
           <div className="row justify-content-center ">
             <div className="col col-12">
               <h3
                 className="text-center"
-                style={{ color: "#5c0431", fontSize: "2rem" }}
               >
                 Login
               </h3>
@@ -104,19 +103,25 @@ export default function Login() {
   return (
     <>
       {/* header */}
-      <div className="container pt-5 mt-5">
-        <Link
+      <div className="container pt-5 mt-5 mnvbarrr">
+      <Link
           to={"/"}
           className="btn btn-outline-dark"
-          style={{ position: "absolute", top: "1rem", left: "1rem" }}
+          style={{
+            position: "absolute",
+            top: "1rem",
+            left: "1rem",
+            border: "none",
+            fontSize: "1.4rem",
+            zIndex: "1",
+          }}
         >
-          Back to Home
+          <i className="bi bi-box-arrow-left"></i>{" "}
         </Link>
         <div className="row justify-content-center ">
           <div className="col col-12">
             <h3
               className="text-center"
-              style={{ color: "#5c0431", fontSize: "2rem" }}
             >
               Login
             </h3>

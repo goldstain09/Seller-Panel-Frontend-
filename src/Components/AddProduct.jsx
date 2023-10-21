@@ -165,21 +165,16 @@ export default function AddProduct() {
   if (addproductError !== "") {
     return (
       <>
-        <Error errorMessage={addproductError}/>
+        <Error errorMessage={addproductError} />
       </>
     );
   } else if (addProductResponseLoading) {
     return (
       <>
-        <div className="container pt-5 mt-5">
+        <div className="container pt-5 mt-5 mnvbarrr">
           <div className="row justify-content-center ">
             <div className="col col-12">
-              <h3
-                className="text-center"
-                style={{ color: "#5c0431", fontSize: "2rem" }}
-              >
-                Adding!
-              </h3>
+              <h3 className="text-center">Adding!</h3>
             </div>
           </div>
         </div>
@@ -190,22 +185,24 @@ export default function AddProduct() {
   return (
     <>
       {/* header */}
-      <div className="container pt-5 mt-5">
+      <div className="container pt-5 mt-5 mnvbarrr">
         <Link
           to={"/sellerpanel"}
           className="btn btn-outline-dark"
-          style={{ position: "absolute", top: "1rem", left: "1rem" }}
+          style={{
+            position: "absolute",
+            top: "1rem",
+            left: "1rem",
+            border: "none",
+            fontSize: "1.4rem",
+            zIndex: "1",
+          }}
         >
-          Back to Panel
+          <i className="bi bi-box-arrow-left"></i>{" "}
         </Link>
         <div className="row justify-content-center ">
           <div className="col col-12">
-            <h3
-              className="text-center"
-              style={{ color: "#5c0431", fontSize: "2rem" }}
-            >
-              Add Product to Your Shop!
-            </h3>
+            <h3 className="text-center">Add Product to Your Shop!</h3>
           </div>
         </div>
       </div>

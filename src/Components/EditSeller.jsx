@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editSellerStart, loginSellerStart } from "../Redux/Actions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
 
@@ -13,7 +13,9 @@ export default function EditSeller() {
     (state) => state.verifySellerResponse
   );
   const editSellerResponse = useSelector((state) => state.editSellerResponse);
-  const editSellerResponseError = useSelector((state) => state.editSellerResponseError);
+  const editSellerResponseError = useSelector(
+    (state) => state.editSellerResponseError
+  );
   const editSellerResponseLoading = useSelector(
     (state) => state.editSellerResponseLoading
   );
@@ -100,40 +102,44 @@ export default function EditSeller() {
   if (editSellerResponseLoading) {
     return (
       <>
-        <div className="container pt-5 mt-5">
+        <div className="container pt-5 mt-5 mnvbarrr">
           <div className="row justify-content-center ">
             <div className="col col-12">
-              <h3
-                className="text-center"
-                style={{ color: "#5c0431", fontSize: "2rem" }}
-              >
-                Edit Your Personal Information Carefully
-              </h3>
+              <h3 className="text-center">Personal Info!</h3>
             </div>
           </div>
         </div>
         <Loading />
       </>
     );
-  } else if(editSellerResponseError!==""){
+  } else if (editSellerResponseError !== "") {
     return (
       <>
-      <Error errorMessage={editSellerResponseError}/>
+        <Error errorMessage={editSellerResponseError} />
       </>
-    )
+    );
   }
   return (
     <>
       {/* header */}
-      <div className="container pt-5 mt-5">
+      <div className="container pt-5 mt-5 mnvbarrr">
+        <Link
+          to={"/sellerpanel"}
+          className="btn btn-outline-dark"
+          style={{
+            position: "absolute",
+            top: "1rem",
+            left: "1rem",
+            border: "none",
+            fontSize: "1.4rem",
+            zIndex: "1",
+          }}
+        >
+          <i className="bi bi-box-arrow-left"></i>{" "}
+        </Link>
         <div className="row justify-content-center ">
           <div className="col col-12">
-            <h3
-              className="text-center"
-              style={{ color: "#5c0431", fontSize: "2rem" }}
-            >
-              Edit Your Personal Information Carefully
-            </h3>
+            <h3 className="text-center">Personal Info!</h3>
           </div>
         </div>
       </div>

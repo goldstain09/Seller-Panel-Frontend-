@@ -1,0 +1,251 @@
+$main: #5c0431;
+.errorr {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  background: url("../SCSS/MediaSCSS/errorbg.jpg");
+  background-size: 100% 100%;
+  height: 57rem;
+  > .msg {
+    position: absolute;
+    top: 30rem;
+    border-radius: 1.2rem;
+    border: $main 1px solid;
+    background: #5c043144;
+    text-align: center;
+    padding: 5rem 3rem 9rem 3rem !important;
+    width: 40%;
+    margin-left: 50%;
+    -webkit-clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 84%,
+      75% 86%,
+      75% 100%,
+      48% 86%,
+      0 86%
+    );
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 84%,
+      75% 86%,
+      75% 100%,
+      48% 86%,
+      0 86%
+    );
+    h1 {
+        word-wrap: break-word;
+      font-size: 1.3rem;
+      color: #5c0431d6;
+      font-family: "Montserrat", sans-serif;
+    }
+  }
+  .btns {
+    position: absolute;
+    top: 47rem;
+    left: 50.6%;
+    .btn-outline-danger {
+      background: none;
+      padding: 1.4rem;
+      border: 1px solid $main;
+      color: $main;
+      font-size: 1.5rem;
+    }
+    .btn-outline-danger:hover {
+      background: $main;
+      border: 1px solid $main;
+      color: white;
+    }
+    .btn-danger {
+      margin-left: 1rem;
+      background: $main;
+      padding: 1.4rem;
+      border: 1px solid $main;
+      color: white;
+      font-size: 1.5rem;
+    }
+    .btn-danger:hover {
+      background: $main;
+      border: 1px solid $main;
+      color: white;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .errorr {
+    height: 50rem;
+    > .msg {
+      top: 25rem;
+      padding: 3rem 4rem 4rem 4rem !important;
+      width: 40%;
+      margin-left: 50%;
+      h1 {
+        font-size: 1.2rem;
+      }
+    }
+    .btns {
+      top: 37rem;
+      left: 50.6%;
+      .btn-outline-danger {
+        padding: 1rem;
+        font-size: 1.2rem;
+      }
+      .btn-danger {
+        margin-left: 1rem;
+        padding: 1rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 1200px) {
+  .errorr {
+    height: 40rem;
+    > .msg {
+      top: 20rem;
+      padding: 1rem 2rem 2rem 2rem !important;
+      width: 40%;
+      margin-left: 50%;
+      h1 {
+        font-size: 1.2rem;
+      }
+    }
+    .btns {
+      top: 29rem;
+      left: 50.6%;
+      .btn-outline-danger {
+        padding: 1rem;
+        font-size: 1rem;
+      }
+      .btn-danger {
+        margin-left: 1rem;
+        padding: 1rem;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 992px) {
+  .errorr {
+    height: 30rem;
+    > .msg {
+      top: 15rem;
+      padding: .7rem 1.2rem 1.7rem 1.2rem !important;
+      width: 40%;
+      margin-left: 50%;
+      h1 {
+        font-size: 1.2rem;
+      }
+    }
+    .btns {
+      top: 24rem;
+      left: 50.6%;
+      .btn-outline-danger {
+        padding: .5rem;
+        font-size: .9rem;
+      }
+      .btn-danger {
+        margin-left: 1rem;
+        padding: .5rem;
+        font-size: .9rem;
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .errorr {
+    height: 24rem;
+    > .msg {
+      top: 12rem;
+      padding: .7rem .5rem 1.7rem .5rem !important;
+      width: 40%;
+      margin-left: 50%;
+      h1 {
+        font-size: .9rem;
+      }
+    }
+    .btns {
+      top: 19rem;
+      left: 52%;
+      .btn-outline-danger {
+        padding: .3rem;
+        font-size: .8rem;
+      }
+      .btn-danger {
+        margin-left: 1rem;
+        padding: .3rem;
+        font-size: .8rem;
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 576px) {
+  .errorr {
+    height: 17rem;
+    > .msg {
+      top: 9rem;
+      padding: .3rem .1rem 1.2rem .1rem !important;
+      width: 40%;
+      margin-left: 50%;
+      h1 {
+        font-size: .65rem;
+      }
+    }
+    .btns {
+      top: 13.4rem;
+      left: 52%;
+      .btn-outline-danger {
+        padding: .3rem;
+        font-size: .6rem;
+      }
+      .btn-danger {
+        margin-left: .4rem;
+        padding: .3rem;
+        font-size: .6rem;
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 394px) {
+  .errorr {
+    height: 13rem;
+    > .msg {
+      top: 12rem;
+      padding: .3rem .6rem 1.2rem .6rem!important;
+      width: 80%;
+      margin-left: 10%;
+      h1 {
+        font-size: .76rem;
+      }
+    }
+    .btns {
+      top: 8.4rem;
+      left: 47%;
+      .btn-outline-danger {
+        padding: .3rem;
+        font-size: .6rem;
+      }
+      .btn-danger {
+        margin-left: .4rem;
+        padding: .3rem;
+        font-size: .6rem;
+      }
+    }
+  }
+}
