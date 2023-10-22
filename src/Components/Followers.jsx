@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { verifySellerStart } from "../Redux/Actions";
 import Loading from "./Loading";
 import Error from "./Error";
+import "./SCSS/Followers.scss";
 
 export default function Followers() {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ export default function Followers() {
   if (verifySellerResponseLoading) {
     return (
       <>
-        <div className="container pt-3 pt-5 mt-5  mnvbarrr">
+        <div className="container pt-3   mnvbarrr">
           <div className="row justify-content-center">
             <div className="col col-12">
               <h3 className="text-center">Followers</h3>
@@ -60,7 +61,7 @@ export default function Followers() {
   return (
     <>
       {/* header */}
-      <div className="container pt-3  pt-5 mt-5 mnvbarrr">
+      <div className="container pt-3   mnvbarrr">
         <Link
           to={"/sellerpanel"}
           className="btn btn-outline-dark"
@@ -82,21 +83,25 @@ export default function Followers() {
         </div>
       </div>
 
-      <div className="container">
+      <div className="container followers">
         <div className="row d-flex">
-          <h4>Users List</h4>
+          {followers.length > 0 && <h4 className="h4">Users List</h4>}
           {followers.length > 0 ? (
             followers.map((item, index) => (
-              <div
-                className="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
-                key={index}
-              >
-                <h1>{item.userName}</h1>
+              <div className="col col-12 col-sm-12 " key={index}>
+                <h1 className="h1">{`${index + 1}*  ${item.userName}`}</h1>
               </div>
             ))
           ) : (
             <>
-              <Loading />
+              <div className="noFollowers">
+                <div>
+                  <h2 className="h2">No Followers</h2>
+                  <Link to={"/sellerpanel"} className="btn btn-primary">
+                    Return to Dashboard
+                  </Link>
+                </div>
+              </div>
             </>
           )}
         </div>

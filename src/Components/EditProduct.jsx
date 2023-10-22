@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { deleteProductStart, editProductStart } from "../Redux/Actions";
 import Loading from "./Loading";
 import Error from "./Error";
+import './SCSS/EditProduct.scss';
 
 export default function EditProduct() {
   const params = useParams();
@@ -193,7 +194,7 @@ export default function EditProduct() {
         id="note"
       >
         <div className="row d-flex">
-          <div className="col-11">
+          <div className="col-9">
             <h2 className="text-danger">Note</h2>
           </div>
           <div className="col-1">
@@ -240,7 +241,7 @@ export default function EditProduct() {
         </div>
       </div>
 
-      <form className="container mt-5" onSubmit={update}>
+      <form className="container mt-5 editproduct" onSubmit={update}>
         <div className="row d-flex">
           <div className="mb-3 col-4 ">
             <h6 className="card-title">Title</h6>
@@ -393,7 +394,7 @@ export default function EditProduct() {
             {removeBtn && (
               <button
                 id="addmore"
-                className="btn btn-outline-secondary mt-2"
+                className="btn btn-secondary mt-2"
                 onClick={(event) => {
                   event.preventDefault();
                   let values = [...imagesLink];
@@ -416,12 +417,12 @@ export default function EditProduct() {
         </div>
 
         <div className="row d-flex justify-content-center my-5 py-5">
-          <div className="col-3">
+          <div className="col-3 editproductbtndiv">
             <button onClick={deleteF} className="w-100 btn btn-danger">
               Delete
             </button>
           </div>
-          <div className="col-3">
+          <div className="col-3 editproductbtndiv">
             <button type="submit" className="w-100 btn btn-success">
               Update
             </button>

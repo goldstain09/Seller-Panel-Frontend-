@@ -4,6 +4,7 @@ import { updateOrderStatusStart, verifySellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
+import './SCSS/ActiveOrders.scss';
 
 export default function ActiveOrders() {
   const dispatch = useDispatch();
@@ -69,7 +70,7 @@ export default function ActiveOrders() {
   if (orderStatusUpdationResponseLoading || verifySellerResponseLoading) {
     return (
       <>
-        <div className="container pt-3  pt-5 mt-5 mnvbarrr">
+        <div className="container pt-3 activeHeading  mnvbarrr">
           <div className="row justify-content-center">
             <div className="col col-12">
               <h3 className="text-center">Active Order</h3>
@@ -95,7 +96,7 @@ export default function ActiveOrders() {
   return (
     <>
       {/* header */}
-      <div className="container pt-3 pt-5 mt-5 mnvbarrr">
+      <div className="container pt-3 activeHeading mnvbarrr">
         <Link
           to={"/sellerpanel"}
           className="btn btn-outline-dark"
@@ -117,7 +118,7 @@ export default function ActiveOrders() {
         </div>
       </div>
 
-      <div className="container">
+      <div className="container activeOrders">
         <div className="row d-flex">
           {openOrders.length > 0 ? (
             openOrders.map((item, index) => (
@@ -130,7 +131,7 @@ export default function ActiveOrders() {
                   <img
                     src={item.product.productImages[0]}
                     alt="sads"
-                    className="w-75 card-top-image"
+                    className="w-100 card-top-image"
                   />
                   <h1 className="card-title">
                     {item.product.productTitle.split(" ").slice(0, 6).join(" ")}
@@ -152,7 +153,14 @@ export default function ActiveOrders() {
             ))
           ) : (
             <>
-              <Loading />
+              <div className="noOrders">
+                <div>
+                  <h2 className="h2">No Orders</h2>
+                  <Link to={"/sellerpanel"} className="btn btn-primary">
+                    Return to Dashboard
+                  </Link>
+                </div>
+              </div>
             </>
           )}
         </div>
@@ -265,7 +273,7 @@ export default function ActiveOrders() {
 
               <button
                 // type="button"
-                className="btn btn-primary"
+                className="btn btn-primary updateStatus"
                 onClick={() => {
                   const sellerToken = JSON.parse(
                     localStorage.getItem("sellerToken")

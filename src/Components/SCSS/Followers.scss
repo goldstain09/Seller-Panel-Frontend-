@@ -1,0 +1,141 @@
+$main: #5c0431;
+
+
+.followers{
+  font-family: "Quicksand", sans-serif!important;
+    .row{
+        padding: 2rem;
+        h4{
+            color: $main;
+            margin-bottom: 3rem;
+        }
+        .col{
+            
+            h1{
+                color: grey;
+            }
+        }
+    }
+}
+
+.noFollowers {
+    font-family: "Quicksand", sans-serif !important;
+    background: url("./MediaSCSS/errorbg.jpg");
+    background-size: 100% 100%;
+    height: 50rem;
+  
+    div {
+      position: absolute;
+      left: 58%;
+      top: 34rem;
+      h2 {
+        color: $main;
+      }
+      .btn {
+        background: $main;
+        border: 1px solid $main;
+      }
+    }
+  }
+
+
+  
+@media (max-width: 1200px) {
+    .noFollowers {
+      height: 40rem;
+  
+      div {
+        position: absolute;
+        left: 58%;
+        top: 27rem;
+        h2 {
+          color: $main;
+        }
+        .btn {
+          background: $main;
+          border: 1px solid $main;
+        }
+      }
+    }
+  }
+  
+  
+  @media (max-width: 992px) {
+    .noFollowers {
+      height: 30rem;
+  
+      div {
+        position: absolute;
+        left: 58%;
+        top: 21rem;
+        h2 {
+          color: $main;
+        }
+        .btn {
+          background: $main;
+          border: 1px solid $main;
+        }
+      }
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .noFollowers {
+      height: 20rem;
+  
+      div {
+        position: absolute;
+        left: 58%;
+        top: 17rem;
+        h2 {
+          color: $main;
+        }
+        .btn {
+          background: $main;
+          border: 1px solid $main;
+        }
+      }
+    }
+  }
+  
+  
+  @media (max-width: 576px) {
+    .noFollowers {
+      height: 18rem;
+  
+      div {
+        position: absolute;
+        left: 54%;
+        top: 15rem;
+        h2 {
+          color: $main;
+        }
+        .btn {
+          background: $main;
+          border: 1px solid $main;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 394px) {
+    .noFollowers {
+      height: 15rem;
+  
+      div {
+        position: absolute;
+        left: 28%;
+        top: 20rem;
+        h2 {
+          color: $main;
+        }
+        .btn {
+          background: $main;
+          border: 1px solid $main;
+        }
+      }
+    }
+  }
+  
+  

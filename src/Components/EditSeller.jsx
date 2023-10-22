@@ -4,6 +4,7 @@ import { editSellerStart, loginSellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
+import './SCSS/EditSeller.scss';
 
 export default function EditSeller() {
   const navigate = useNavigate();
@@ -145,7 +146,7 @@ export default function EditSeller() {
       </div>
 
       {/* form */}
-      <form className="container  pt-5" onSubmit={update}>
+      <form className="container  pt-5 editSeller" onSubmit={update}>
         <div className="row d-flex justify-content-center">
           <div className="mb-3 col-4 ">
             <input

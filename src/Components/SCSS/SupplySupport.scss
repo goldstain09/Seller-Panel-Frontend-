@@ -13,17 +13,120 @@ $main: #5c0431;
           .col-1 {
             i {
               font-size: 3rem;
-              color: red;
+              color: $main;
             }
           }
           .col-4 {
             padding-top: .9rem;
             span{
-                color: red;
+                color: $main;
             }
           }
         }
       }
     }
   }
+}
+
+
+@media (max-width:768px) {
+  
+.support {
+  background: #0000000a;
+  > .container {
+    > .row {
+      > .col {
+        h1 {
+          font-size: 1.2rem;
+        }
+        p{
+          font-size: .9rem;
+        }
+
+        > .row {
+          .col-1 {
+            margin-top: .5rem!important;
+            i {
+              font-size: 2rem;
+            }
+          }
+          .col-4 {
+            padding-top: .9rem;
+           
+          }
+        }
+      }
+    }
+  }
+}
+
+}
+
+
+@media (max-width:576px) {
+  
+.support {
+  background: #0000000a;
+  > .container {
+    > .row {
+      > .col {
+        h1 {
+          font-size: 1.2rem;
+        }
+        p{
+          font-size: .9rem;
+        }
+
+        > .row {
+          .col-1 {
+            margin-top: .4rem!important;
+            i {
+              font-size: 1.5rem;
+            }
+          }
+          .col-4 {
+            width: 80%;
+            padding-top: .9rem;
+           
+          }
+        }
+      }
+    }
+  }
+}
+
+}
+
+
+@media (max-width:394px) {
+  
+.support {
+  > .container {
+    > .row {
+      > .col {
+        h1 {
+          font-size: 1rem;
+        }
+        p{
+          font-size: .8rem;
+        }
+
+        > .row {
+          .col-1 {
+            margin-top: .8rem!important;
+            i {
+              font-size: 1.4rem;
+            }
+          }
+          .col-4 {
+            width: 90%;
+            padding-top: .9rem;
+           
+          }
+        }
+      }
+    }
+  }
+}
+
 }

@@ -49,6 +49,13 @@ export default function SellerPanel() {
   //for showing Login--
   const [showLogin, setShowLogin] = useState(false);
   if (notHasSellerToken) {
+    if(loginSellerResponseLoading || createSellerResponseLoading){
+      return(
+        <>
+        <Loading />
+        </>
+      )
+    }else
     return (
       <>
         <Signup setShowLogin={setShowLogin} />
@@ -67,14 +74,15 @@ export default function SellerPanel() {
         <div className="container pt-3 mnvbarrr">
           <div className="row justify-content-center">
             <div className="col col-12">
-              <h3 className="text-center">Your Panel</h3>
+              <h3 className="text-center">Dashboard</h3>
             </div>
           </div>
         </div>
         <Loading />
       </>
     );
-  } else if (loginSellerResponseError !== "") {
+  }
+  if (loginSellerResponseError !== "") {
     return (
       <>
         <Error errorMessage={loginSellerResponseError} />
@@ -118,7 +126,7 @@ export default function SellerPanel() {
             </Link>
             <div className="row justify-content-center">
               <div className="col col-12">
-                <h3 className="text-center">Your Panel</h3>
+                <h3 className="text-center">Dashboard</h3>
               </div>
             </div>
           </div>

@@ -92,8 +92,9 @@ export default function Header() {
                     <Link
                       to={"/sellerpanel"}
                       className="btn btn-outline-primary"
+                      style={{ borderRadius: "0" }}
                     >
-                      Your Panel
+                      Dashboard
                     </Link>
                   </>
                 ) : (
@@ -101,10 +102,15 @@ export default function Header() {
                     <Link
                       to={"/sellerpanel"}
                       className="btn btn-outline-primary"
+                      style={{ borderRadius: "0" }}
                     >
                       Login
                     </Link>
-                    <Link to={"/sellerpanel"} className="btn btn-primary">
+                    <Link
+                      to={"/sellerpanel"}
+                      className="btn btn-primary"
+                      style={{ borderRadius: "0" }}
+                    >
                       Create Account
                     </Link>
                   </>
@@ -114,6 +120,109 @@ export default function Header() {
           </div>
         </div>
       </header>
+
+      <header className="container-fluid offcanvasHeader fixed-top">
+        <div className="row d-flex">
+          <div className="col-3">
+            {" "}
+            <a
+              href="/"
+              className="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
+            >
+              <img src={logo} alt="Logo" />
+            </a>
+          </div>
+          <div className="col-6"></div>
+          <div className="col-3">
+            <button
+              type="button"
+              className="btn btn-primary"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+            >
+              <i class="bi bi-caret-right"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* canvas */}
+      <div
+        className="offcanvas offcanvasH offcanvas-start"
+        tabIndex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="offcanvasExampleLabel">
+            <img src={logo} alt="Logo" className="w-75" />
+          </h5>
+          <button
+            type="button"
+            className="bi bi-caret-left text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div className="offcanvas-body">
+          <NavLink to={"/sellonline"} className="nav-link px-2 link-dark">
+            Sell Online
+          </NavLink>
+          <NavLink to={"/howitworks"} className="nav-link px-2 link-dark">
+            How it Works
+          </NavLink>
+          <NavLink
+            to={"/pricingandcommission"}
+            className="nav-link px-2 link-dark"
+          >
+            Price & Commission
+          </NavLink>
+          <NavLink
+            to={"/shippingandreturns"}
+            className="nav-link px-2 link-dark"
+          >
+            Shipping & Returns
+          </NavLink>
+          <NavLink to={"/growbusiness"} className="nav-link px-2 link-dark">
+            Grow Business
+          </NavLink>
+          {verifySellerResponseLoading ? (
+            <>Loading...</>
+          ) : (
+            <div className="text-end">
+              {loginned ? (
+                <>
+                  <Link
+                    to={"/sellerpanel"}
+                    className="btn btn-outline-primary"
+                    style={{ borderRadius: "0" }}
+                  >
+                    Dashboard
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to={"/sellerpanel"}
+                    className="btn btn-outline-primary"
+                    style={{ borderRadius: "0" }}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to={"/sellerpanel"}
+                    className="btn btn-primary"
+                    style={{ borderRadius: "0" }}
+                  >
+                    Create Account
+                  </Link>
+                </>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
     </>
   );
 }

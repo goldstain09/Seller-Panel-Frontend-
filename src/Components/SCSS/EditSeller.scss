@@ -1,0 +1,60 @@
+$main: #5c0431;
+
+
+.editSeller{
+  font-family: "Quicksand", sans-serif;
+
+    .row{
+        .col-2{
+            button{
+                background: $main;
+                color: white;
+                border: $main 1px solid;
+                border-radius: 0;
+            }
+        }
+    }
+}
+
+@media (max-width:992px) {
+    
+.editSeller{
+    .row{
+        .col-4{
+            width: 70%;
+        }
+        .col-2{
+            width: 30%;
+
+        }
+    }
+}
+}
+
+@media (max-width:576px) {
+    
+.editSeller{
+    .row{
+        .col-4{
+            width: 90%;
+        }
+        .col-2{
+            width: 50%;
+        }
+    }
+}
+}
+
+@media (max-width:394px) {
+    
+.editSeller{
+    .row{
+        .col-4{
+            width: 95%;
+        }
+        .col-2{
+            width: 70%;
+        }
+    }
+}
+}

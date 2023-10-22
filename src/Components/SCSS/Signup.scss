@@ -1,0 +1,65 @@
+$main: #5c0431;
+
+.signup {
+  font-family: "Quicksand", sans-serif;
+
+  .row {
+    .col-2 {
+      button {
+        background: $main;
+        border: $main 1px solid;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .signup {
+    .row {
+      .col-4 {
+        width: 70%;
+      }
+      .col-2 {
+        width: 30%;
+        button {
+          background: $main;
+          border: $main 1px solid;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .signup {
+    .row {
+      .col-4 {
+        width: 80%;
+      }
+      .col-2 {
+        width: 30%;
+        button {
+          background: $main;
+          border: $main 1px solid;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 394px) {
+  .signup {
+    .row {
+      .col-4 {
+        width: 95%;
+      }
+      .col-2 {
+        width: 30%;
+        button {
+          background: $main;
+          border: $main 1px solid;
+        }
+      }
+    }
+  }
+}

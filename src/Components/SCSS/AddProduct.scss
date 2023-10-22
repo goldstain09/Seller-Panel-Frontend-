@@ -1,0 +1,83 @@
+$main: #5c0431;
+
+.addproduct {
+  font-family: "Quicksand", sans-serif;
+
+  .row {
+    .col-4 {
+      button {
+        background: $main;
+        border: $main 1px solid;
+        border-radius: 0;
+      }
+    }
+    .col-8 {
+      #addmore {
+        background: $main;
+        border: $main 1px solid;
+        border-radius: 0;
+        font-size: 0.6rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .addproduct {
+    .row {
+      .col-4 {
+        margin-left: 15%;
+        width: 70%;
+      }
+      .addproductbtndiv {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+      }
+      .col-8 {
+        margin-left: 15%;
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .addproduct {
+    .row {
+      .col-4 {
+        margin-left: 5%;
+        width: 90%;
+      }
+      .addproductbtndiv {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+      }
+      .col-8 {
+        margin-left: 5%;
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media (max-width: 394px) {
+  .addproduct {
+    .row {
+      .col-4 {
+        margin-left: 2%;
+        width: 96%;
+      }
+      .addproductbtndiv {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+      }
+      .col-8 {
+        margin-left: 2%;
+        width: 96%;
+      }
+    }
+  }
+}

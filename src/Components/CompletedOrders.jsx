@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { verifySellerStart } from "../Redux/Actions";
 import Loading from "./Loading";
 import Error from "./Error";
+import "./SCSS/CompletedOrders.scss";
 
 export default function CompletedOrders() {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ export default function CompletedOrders() {
   if (verifySellerResponseLoading) {
     return (
       <>
-        <div className="container pt-3 pt-5 mt-5  mnvbarrr">
+        <div className="container pt-3 completedHeading  mnvbarrr">
           <div className="row justify-content-center">
             <div className="col col-12">
               <h3 className="text-center">Delivered Orders</h3>
@@ -63,7 +64,7 @@ export default function CompletedOrders() {
   return (
     <>
       {/* header */}
-      <div className="container pt-3  pt-5 mt-5 mnvbarrr">
+      <div className="container pt-3  mnvbarrr completedHeading">
         <Link
           to={"/sellerpanel"}
           className="btn btn-outline-dark"
@@ -85,7 +86,7 @@ export default function CompletedOrders() {
         </div>
       </div>
 
-      <div className="container">
+      <div className="container completedOrders">
         <div className="row d-flex">
           {completedOrders.length > 0 ? (
             completedOrders.map((item, index) => (
@@ -97,8 +98,8 @@ export default function CompletedOrders() {
                 <div className="card-body" style={{ border: "1px solid grey" }}>
                   <img
                     src={item.product.productImages[0]}
-                    alt="sads"
-                    className="w-75 card-top-image"
+                    alt="Preview"
+                    className="card-top-image"
                   />
                   <h1 className="card-title">
                     {item.product.productTitle.split(" ").slice(0, 6).join(" ")}{" "}
@@ -121,7 +122,14 @@ export default function CompletedOrders() {
             ))
           ) : (
             <>
-              <Loading />
+              <div className="noOrders">
+                <div>
+                  <h2 className="h2">No Orders</h2>
+                  <Link to={"/sellerpanel"} className="btn btn-primary">
+                    Return to Dashboard
+                  </Link>
+                </div>
+              </div>
             </>
           )}
         </div>

@@ -48,7 +48,7 @@ export default function HowItWorks() {
       </div>
 
       
-      <h1 className="text-center mt-5 pt-5">Become a seller on Seesho in simple steps</h1>
+      <h1 className="text-center mt-5 pt-5 h1">Become a seller on Seesho in simple steps</h1>
       <div className="container howItWorksCartTop">
         <div className="row d-flex">
           <div className="col col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">

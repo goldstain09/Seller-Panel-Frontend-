@@ -4,6 +4,7 @@ import { loginSellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
+import './SCSS/Login.scss';
 
 export default function Login() {
   // abcd@gmail.com
@@ -76,24 +77,9 @@ export default function Login() {
     }
   };
 
-  if (loginSellerResponseLoading) {
-    return (
-      <>
-        <div className="container pt-5 mt-5 mnvbarrr">
-          <div className="row justify-content-center ">
-            <div className="col col-12">
-              <h3
-                className="text-center"
-              >
-                Login
-              </h3>
-            </div>
-          </div>
-        </div>
-        <Loading />
-      </>
-    );
-  } else if (loginSellerResponseError !== "") {
+
+  
+  if (loginSellerResponseError !== "") {
     return (
       <>
         <Error errorMessage={loginSellerResponseError} />
@@ -130,7 +116,7 @@ export default function Login() {
       </div>
 
       {/* form */}
-      <form className="container  pt-5" onSubmit={login}>
+      <form className="container loginn pt-5" onSubmit={login}>
         <div className="row d-flex justify-content-center">
           <div className="mb-3 col-4 ">
             <input

@@ -1,39 +1,200 @@
 $main: #5c0431;
 
-.Headerr{
-    background: #ffffff48;
-    .container{
-        >.d-flex{
-            >a{
-                img{
-                    height: 40px;
-                }
-            }
-            >ul{
-                li{
-                    .active{
-                        color: $main!important;
-                    }
-                }
-            }
-            >.text-end{
-                gap: 1rem;
-                display: flex;
-                .btn-outline-primary{
-                    background: none;
-                    color: $main;
-                    border: $main 1px solid;
-                }
-                .btn-outline-primary:hover{
-                    background: $main;
-                    color: white;
-                }
-                .btn-primary{
-                    background: $main;
-                    border: $main 1px solid;
-                    color: white;
-                }
-            }
+.offcanvasHeader {
+  display: none;
+}
+.Headerr {
+  background: #ffffff48;
+  font-family: "Quicksand", sans-serif;
+
+  .container {
+    > .d-flex {
+      > a {
+        img {
+          height: 40px;
         }
+      }
+      > ul {
+        li {
+          .active {
+            color: $main !important;
+          }
+        }
+      }
+      > .text-end {
+        gap: 1rem;
+        display: flex;
+        .btn-outline-primary {
+          background: none;
+          color: $main;
+          border: $main 1px solid;
+        }
+        .btn-outline-primary:hover {
+          background: $main;
+          color: white;
+        }
+        .btn-primary {
+          background: $main;
+          border: $main 1px solid;
+          color: white;
+        }
+      }
     }
+  }
+}
+
+@media (max-width: 992px) {
+  .Headerr {
+    background: #ffffff48;
+    font-family: "Quicksand", sans-serif;
+
+    .container {
+      > .d-flex {
+        > a {
+          width: 10%;
+          img {
+            height: 20px;
+          }
+        }
+        > ul {
+          width: 80%;
+          li {
+            .active {
+              color: $main !important;
+            }
+            a {
+              font-size: 0.8rem;
+            }
+          }
+        }
+        > .text-end {
+          width: 10%;
+          gap: 1rem;
+          .btn-outline-primary {
+            font-size: 0.8rem !important;
+          }
+          .btn-primary {
+            font-size: 0.8rem !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .Headerr {
+    display: none;
+  }
+
+  .offcanvasHeader {
+    display: block;
+    background: rgba(255, 255, 255, 0.595);
+    padding: 1rem 0.5rem;
+    .row {
+      .col-3 {
+        img{
+            width: 120px;
+        }
+        button {
+          padding: 0;
+          margin: 0;
+          background: none;
+          border: none;
+          color: $main;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  .offcanvasH {
+    .offcanvas-header {
+      .offcanvas-title {
+        img {
+          width: 7rem !important;
+        }
+      }
+      button {
+        border: none;
+        font-size: 2rem;
+        background: none;
+        color: $main !important;
+      }
+    }
+    .offcanvas-body {
+      .nav-link {
+        font-family: "Quicksand", sans-serif;
+        margin-top: 2rem;
+        color: grey!important;
+        font-size: 1.2rem;
+      }
+      .nav-link:hover {
+        color: $main !important;
+        transform: scale(1.03);
+        transition: all 0.3s;
+      }
+      > .text-end {
+        font-family: "Quicksand", sans-serif;
+        margin-top: 3rem;
+        gap: 1rem;
+        display: flex;
+        .btn-outline-primary {
+          background: none;
+          color: $main;
+          border: $main 1px solid;
+        }
+        .btn-outline-primary:hover {
+          background: $main;
+          color: white;
+        }
+        .btn-primary {
+          background: $main;
+          border: $main 1px solid;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+ 
+  .offcanvasHeader {
+    padding: .7rem 0.5rem;
+    .row {
+      .col-3 {
+        img{
+            width: 100px;
+        }
+        button {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .offcanvasH {
+    .offcanvas-header {
+      .offcanvas-title {
+        img {
+          width: 100px !important;
+        }
+      }
+      button {
+        font-size: 1.5rem;
+      }
+    }
+    .offcanvas-body {
+      .nav-link {
+        margin-top: 2rem;
+        font-size: 1.2rem;
+      }
+      > .text-end {
+        margin-top: 3rem;
+        gap: 1rem;
+      }
+    }
+  }
 }

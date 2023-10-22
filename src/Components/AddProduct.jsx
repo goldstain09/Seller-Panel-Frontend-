@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { addProductStart } from "../Redux/Actions";
 import Loading from "./Loading";
 import Error from "./Error";
+import './SCSS/AddProduct.scss';
 
 export default function AddProduct() {
   const navigate = useNavigate();
@@ -208,7 +209,7 @@ export default function AddProduct() {
       </div>
 
       {/* form */}
-      <form className="container mt-5" onSubmit={addProduct}>
+      <form className="container mt-5 addproduct" onSubmit={addProduct}>
         <div className="row d-flex">
           <div className="mb-3 col-4 ">
             <input
@@ -402,7 +403,7 @@ export default function AddProduct() {
             {removebutton && (
               <button
                 id="addmore"
-                className="btn btn-outline-secondary mt-2"
+                className="btn btn-secondary mt-2"
                 onClick={(event) => {
                   event.preventDefault();
 
@@ -419,14 +420,14 @@ export default function AddProduct() {
                   }
                 }}
               >
-                Add more...
+               <i class="bi bi-plus-square">{' '}</i> Add more...
               </button>
             )}
           </div>
         </div>
-        <div className="row d-flex justify-content-center mt-5 pt-5">
-          <div className="col-4">
-            <button type="submit">Add Product</button>
+        <div className="row d-flex justify-content-center mt-5 pt-5 ">
+          <div className="col-4 addproductbtndiv">
+            <button type="submit" className="btn btn-primary">Add Product</button>
           </div>
         </div>
       </form>

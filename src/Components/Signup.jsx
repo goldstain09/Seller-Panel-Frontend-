@@ -4,6 +4,7 @@ import { createSellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
+import "./SCSS/Signup.scss";
 
 export default function Signup({ setShowLogin }) {
   const navigate = useNavigate();
@@ -96,24 +97,8 @@ export default function Signup({ setShowLogin }) {
     }
   };
 
-  if (createSellerResponseLoading) {
-    return (
-      <>
-        <div className="container pt-3 mnvbarrr">
-          <div className="row justify-content-center">
-            <div className="col col-12">
-              <h3
-                className="text-center"
-              >
-                Sign Up
-              </h3>
-            </div>
-          </div>
-        </div>
-        <Loading />
-      </>
-    );
-  } else if (createSellerResponseError !== "") {
+
+  if (createSellerResponseError !== "") {
     return (
       <>
         <Error errorMessage={createSellerResponseError} />
@@ -146,7 +131,7 @@ export default function Signup({ setShowLogin }) {
       </div>
 
       {/* form */}
-      <form className="container mt-5" onSubmit={SignUp}>
+      <form className="container mt-5 signup" onSubmit={SignUp}>
         <div className="row d-flex justify-content-center">
           <div className="mb-3 col-4 ">
             <input
@@ -268,7 +253,8 @@ export default function Signup({ setShowLogin }) {
                   setShowLogin(true);
                   document.getElementById("login__").style.display = "none";
                 }}
-                className="btn btn-outline-primary"
+                className="btn btn-primary"
+                style={{ background: "#5c0431", border: "#5c0431 1px solid" }}
               >
                 Login
               </button>

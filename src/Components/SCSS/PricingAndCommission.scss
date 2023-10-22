@@ -1,8 +1,87 @@
+// $main: #5c0431;
+
+// .pricingandcommission {
+//   height: 45rem;
+//   background: url("./MediaSCSS/pricingandComissionTopbg.jpg");
+//   background-size: 100% 100%;
+
+//   > .row {
+//     > .col {
+//       padding: 16rem 0 7rem 10rem;
+
+//       h1:first-child {
+//         font-weight: 500;
+//         font-size: 3rem;
+//         color: black;
+//       }
+//       h1:nth-child(2) {
+//         font-weight: 500;
+//         font-size: 1.3rem;
+//         margin-top: 2rem;
+//         color: rgb(0, 0, 0);
+//         span {
+//           color: red;
+//         }
+//       }
+//       .btn {
+//         font-size: 2rem;
+//         margin-top: 2rem;
+//       }
+//     }
+//   }
+// }
+
+// .pricingCardTop {
+//   margin-top: 4rem;
+//   > .row {
+//     > .col {
+//       > div {
+//         border-radius: 15px;
+//         background: #b1919129;
+//         padding: 1.5rem;
+//         height: fit-content;
+
+//         h5 {
+//           margin-top: 1rem;
+//           color: black;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.paymentcycle {
+  margin-top: 8rem;
+  background: #00000021;
+  > .container {
+    > .row {
+      > .col:first-child {
+        padding: 13.5rem 0;
+        p {
+          width: 80%;
+        }
+      }
+      > .col:last-child {
+        padding: 10rem 0;
+        > .row {
+          border: solid 2px rgba(0, 0, 0, 0.037);
+          > .col-6 {
+            background: #ffffffbf;
+            padding: 2rem;
+            h5 {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 $main: #5c0431;
 
 .pricingandcommission {
   height: 45rem;
-  background: url("./MediaSCSS/pricingandComissionTopbg.jpg");
+  background: url("./MediaSCSS/howItWorksTopbg.jpg");
   background-size: 100% 100%;
 
   > .row {
@@ -11,21 +90,30 @@ $main: #5c0431;
 
       h1:first-child {
         font-weight: 500;
-        font-size: 3rem;
+        font-size: 1.8rem;
         color: black;
       }
       h1:nth-child(2) {
+        margin-top: 1rem;
         font-weight: 500;
-        font-size: 1.3rem;
-        margin-top: 2rem;
+        font-size: 2.4rem;
         color: rgb(0, 0, 0);
         span {
-          color: red;
+          color: $main;
         }
       }
+
       .btn {
         font-size: 2rem;
         margin-top: 2rem;
+        background: none;
+        color: $main;
+        border: $main 1px solid;
+      }
+      .btn:hover {
+        background: $main;
+        color: white;
+        border: $main 1px solid;
       }
     }
   }
@@ -36,13 +124,13 @@ $main: #5c0431;
   > .row {
     > .col {
       > div {
-        border-radius: 15px;
         background: #b1919129;
         padding: 1.5rem;
         height: fit-content;
-
+        h1 {
+          color: $main;
+        }
         h5 {
-          margin-top: 1rem;
           color: black;
         }
       }
@@ -50,27 +138,318 @@ $main: #5c0431;
   }
 }
 
-.paymentcycle {
-  margin-top: 8rem;
-  background: #00000021;
-  > .container {
+@media (max-width: 1400px) {
+  .pricingandcommission {
+    height: 40rem;
     > .row {
-      > .col:first-child {
-        padding: 13.5rem 0;
-        p{
-          width: 80%;
+      > .col {
+        padding: 15rem 0 7rem 10rem;
+
+        h1:first-child {
+          font-size: 1.5rem;
+        }
+        h1:nth-child(2) {
+          margin-top: 1rem;
+          font-size: 1.8rem;
+        }
+
+        .btn {
+          font-size: 1.5rem;
+          margin-top: 2rem;
         }
       }
-      > .col:last-child {
-          padding: 10rem 0;
-          >.row{
-            border: solid 2px rgba(0, 0, 0, 0.037);
-            >.col-6{
-            
-            background: #ffffffbf;
-            padding: 2rem;
-            h5{
+    }
+  }
 
+  .pricingCardTop {
+    margin-top: 4rem;
+    > .row {
+      > .col {
+        > div {
+          padding: 1.5rem;
+          h1 {
+            font-size: 1.7rem;
+          }
+          h5 {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .pricingandcommission {
+    height: 30rem;
+    > .row {
+      > .col {
+        padding: 12rem 0 7rem 4rem;
+
+        h1:first-child {
+          font-size: 1.2rem;
+        }
+        h1:nth-child(2) {
+          margin-top: 1rem;
+          font-size: 1.4rem;
+        }
+
+        .btn {
+          font-size: 1rem;
+          margin-top: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .pricingCardTop {
+    margin-top: 4rem;
+    > .row {
+      > .col {
+        > div {
+          padding: 1.2rem;
+          h1 {
+            font-size: 1.4rem;
+          }
+          h5 {
+            font-size: 1rem;
+          }
+          p {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .pricingandcommission {
+    height: 25rem;
+    > .row {
+      > .col {
+        padding: 9rem 0 7rem 2rem;
+
+        h1:first-child {
+          font-size: 1rem;
+        }
+        h1:nth-child(2) {
+          margin-top: 1rem;
+          font-size: 1.1rem;
+        }
+
+        .btn {
+          font-size: 0.8rem;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+  .pricingCardTop {
+    margin-top: 4rem;
+    > .row {
+      > .col {
+        margin-top: 0.4rem;
+        > div {
+          padding: 1.2rem;
+          h1 {
+            font-size: 1.2rem;
+          }
+          h5 {
+            font-size: 0.9rem;
+          }
+          p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  .paymentcycle {
+    margin-top: 2rem;
+    > .container {
+      > .row {
+        > .col:first-child {
+          padding: 1.5rem 0;
+          p {
+            width: 80%;
+          }
+        }
+        > .col:last-child {
+          padding: 1rem 0;
+          > .row {
+            > .col-6 {
+              padding: 2rem;
+              h5 {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .pricingandcommission {
+    height: 21rem;
+    > .row {
+      > .col {
+        padding: 8.5rem 0 7rem 2rem;
+
+        h1:first-child {
+          font-size: 0.9rem;
+        }
+        h1:nth-child(2) {
+          margin-top: 1rem;
+          font-size: 1rem;
+          width: 50%;
+        }
+
+        .btn {
+          font-size: 0.7rem;
+          margin-top: 0.8rem;
+        }
+      }
+    }
+  }
+
+  .pricingCardTop {
+    margin-top: 4rem;
+    > .row {
+      > .col {
+        margin-top: 0.4rem;
+        > div {
+          padding: 1.2rem;
+          h1 {
+            font-size: 1.1rem;
+          }
+          h5 {
+            font-size: 1rem;
+          }
+          p {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .pricingandcommission {
+    height: 18rem;
+    > .row {
+      > .col {
+        padding: 6.5rem 0 7rem 0.4rem;
+
+        h1:first-child {
+          font-size: 0.8rem;
+        }
+        h1:nth-child(2) {
+          margin-top: 1rem;
+          font-size: 0.9rem;
+          width: 50%;
+        }
+
+        .btn {
+          font-size: 0.6rem;
+          margin-top: 0.4rem;
+        }
+      }
+    }
+  }
+
+  .pricingCardTop {
+    margin-top: 2rem;
+    > .row {
+      > .col {
+        margin-top: 0.4rem;
+        > div {
+          padding: 1rem;
+          h1 {
+            font-size: 1rem;
+          }
+          h5 {
+            font-size: 0.9rem;
+          }
+          p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 394px) {
+  .pricingandcommission {
+    height: 15rem;
+    > .row {
+      > .col {
+        padding: 5rem 0 7rem 0.1rem;
+
+        h1:first-child {
+          font-size: 0.7rem;
+        }
+        h1:nth-child(2) {
+          margin-top: 0.6rem;
+          font-size: 0.7rem;
+          width: 50%;
+        }
+
+        .btn {
+          font-size: 0.6rem;
+          margin-top: 0.4rem;
+        }
+      }
+    }
+  }
+
+  .pricingCardTop {
+    margin-top: 2rem;
+    > .row {
+      > .col {
+        margin-top: 0.4rem;
+        > div {
+          padding: 1rem;
+          h1 {
+            font-size: 0.9rem;
+          }
+          h5 {
+            font-size: 0.8rem;
+          }
+          p {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+
+  .paymentcycle {
+    margin-top: 2rem;
+    > .container {
+      > .row {
+        > .col:first-child {
+          padding: 1.5rem 0;
+          p {
+            width: 99%;
+          }
+        }
+        > .col:last-child {
+          padding: 1rem 0;
+          > .row {
+            > .col-6 {
+              padding: 2rem;
+              h5 {
+                font-size: 0.9rem;
+              }
+              img {
+                width: 3.3rem;
+              }
             }
           }
         }
