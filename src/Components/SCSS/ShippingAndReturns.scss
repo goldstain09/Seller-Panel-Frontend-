@@ -1,17 +1,14 @@
 $main: #5c0431;
 
+.shippingandreturns {
+  height: 45rem;
+  background: url("./MediaSCSS/shippingAndReturnsTopbg.jpg");
+  background-size: 100% 100%;
 
-.shippingandreturns{
-    height: 45rem;
-    background: url('./MediaSCSS/shippingAndReturnsTopbg.jpg');
-    background-size: 100% 100%;
-
-    
   > .row {
     > .col {
       padding: 16rem 0 7rem 10rem;
 
-    
       h1:first-child {
         font-weight: 500;
         font-size: 3rem;
@@ -19,21 +16,28 @@ $main: #5c0431;
       }
       h1:nth-child(2) {
         font-weight: 500;
-        font-size:1.3rem;
+        font-size: 1.3rem;
         margin-top: 2rem;
         color: rgb(0, 0, 0);
-        span{
-          color: red;
+        span {
+          color: $main;
         }
       }
       .btn {
         font-size: 2rem;
         margin-top: 2rem;
+        background: none;
+        color: $main;
+        border: $main 1px solid;
+      }
+      .btn:hover {
+        background: $main;
+        color: white;
+        border: $main 1px solid;
       }
     }
   }
 }
-
 
 .shippingtop {
   margin-top: 8rem;
@@ -42,22 +46,225 @@ $main: #5c0431;
     > .row {
       > .col:first-child {
         padding: 13.5rem 0;
-        p{
+        p {
           width: 80%;
         }
       }
       > .col:last-child {
-          padding: 10rem 0;
-          >.row{
-            border: solid 2px rgba(0, 0, 0, 0.037);
-            >.col-4{
-            
+        padding: 10rem 0;
+        > .row {
+          border: solid 2px rgba(0, 0, 0, 0.037);
+          > .col-4 {
             background: #ffffffbf;
             padding: 2rem;
-            h5{
+          }
+        }
+      }
+    }
+  }
+}
 
+@media (max-width: 992px) {
+  .shippingtop {
+    margin-top: 2rem;
+    > .container {
+      > .row {
+        > .col:first-child {
+          padding: 1.5rem 0;
+          p {
+            width: 80%;
+          }
+        }
+        > .col:last-child {
+          padding: 1rem 0;
+          > .row {
+            
+            > .col-4 {
+              padding: 2rem;
+              h5 {
+                font-size: 1rem;
+              }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 394px) {
+  .shippingtop {
+    margin-top: 2rem;
+    > .container {
+      > .row {
+        > .col:first-child {
+          padding: 1.5rem 0;
+          p {
+            width: 99%;
+          }
+        }
+        > .col:last-child {
+          padding: 1rem 0;
+          > .row {
+            > .col-4 {
+              padding: 2rem;
+              h5 {
+                font-size: 0.7rem;
+              }
+              img {
+                width: 3.3rem !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .shippingandreturns {
+    height: 40rem;
+
+    > .row {
+      > .col {
+        padding: 14rem 0 7rem 10rem;
+
+        h1:first-child {
+          font-size: 1.8rem;
+        }
+        h1:nth-child(2) {
+          font-size: 1rem;
+          margin-top: 2rem;
+        }
+
+        .btn {
+          font-size: 1.5rem;
+          margin-top: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .shippingandreturns {
+    height: 34rem;
+
+    > .row {
+      > .col {
+        padding: 9rem 0 7rem 10rem;
+
+        h1:first-child {
+          font-size: 1.3rem;
+        }
+
+        h1:nth-child(2) {
+          font-size: 0.9rem;
+          margin-top: 1rem;
+        }
+        .btn {
+          font-size: 1.2rem;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .shippingandreturns {
+    height: 26rem;
+
+    > .row {
+      > .col {
+        padding: 8rem 0 7rem 10rem;
+
+        h1:first-child {
+          font-size: 1rem;
+        }
+        h1:nth-child(2) {
+          font-size: 0.7rem;
+          margin-top: 1rem;
+        }
+        .btn {
+          font-size: 0.8rem;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .shippingandreturns {
+    height: 23rem;
+
+    > .row {
+      > .col {
+        padding: 9rem 0 7rem 4rem;
+
+        h1:first-child {
+          font-size: 0.9rem;
+        }
+        h1:nth-child(2) {
+          font-size: 0.6rem;
+          margin-top: 1rem;
+        }
+
+        .btn {
+          font-size: 0.6rem;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .shippingandreturns {
+    height: 18rem;
+
+    > .row {
+      > .col {
+        padding: 6rem 0 7rem 0.6rem;
+
+        h1:first-child {
+          font-size: 0.8rem;
+        }
+        h1:nth-child(2) {
+          font-size: 0.6rem;
+          margin-top: 0.5rem;
+          width: 40% !important;
+        }
+        .btn {
+          font-size: 0.6rem;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 394px) {
+  .shippingandreturns {
+    height: 16rem;
+
+    > .row {
+      > .col {
+        padding: 5rem 0 7rem 0.2rem;
+
+        h1:first-child {
+          font-size: 0.7rem;
+        }
+        h1:nth-child(2) {
+          font-size: 0.6rem;
+          margin-top: 0.5rem;
+          width: 40% !important;
+        }
+
+        .btn {
+          font-size: 0.6rem;
+          margin-top: 0.5rem;
         }
       }
     }
