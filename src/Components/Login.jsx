@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
 import './SCSS/Login.scss';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
   // abcd@gmail.com
@@ -19,7 +21,13 @@ export default function Login() {
     if (loginSellerResponse.hasOwnProperty("loginSuccess")) {
       switch (loginSellerResponse.loginSuccess) {
         case true:
-          alert("Login SuccessFully...");
+          toast.success("Login SuccessFully!", {
+            theme: "dark",
+            autoClose: 7000,
+            position: "top-right",
+            draggable: true,
+            pauseOnHover: true,
+          });
           setLoginData(initialLoginData);
           setInterval(() => {
             navigate("/sellerpanel");
@@ -165,6 +173,8 @@ export default function Login() {
           </div>
         </div>
       </form>
+      <ToastContainer />
+
     </>
   );
 }

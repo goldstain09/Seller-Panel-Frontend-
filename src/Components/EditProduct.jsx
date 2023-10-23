@@ -4,7 +4,9 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { deleteProductStart, editProductStart } from "../Redux/Actions";
 import Loading from "./Loading";
 import Error from "./Error";
-import './SCSS/EditProduct.scss';
+import "./SCSS/EditProduct.scss";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function EditProduct() {
   const params = useParams();
@@ -29,16 +31,34 @@ export default function EditProduct() {
   useEffect(() => {
     if (editProductResponse.hasOwnProperty("productUpdated")) {
       if (editProductResponse.productUpdated) {
-        window.location.reload();
-        navigate("/sellerpanel");
+        toast.info("Product is updated successfully!", {
+          theme: "dark",
+          autoClose: 7000,
+          position: "top-right",
+          draggable: true,
+          pauseOnHover: true,
+        });
+        setInterval(() => {
+          navigate("/sellerpanel");
+          window.location.reload();
+        }, 1000);
       }
     }
   }, [editProductResponse]);
   useEffect(() => {
     if (deleteProductResponse.hasOwnProperty("productDeleted")) {
       if (deleteProductResponse.productDeleted) {
-        window.location.reload();
-        navigate("/sellerpanel");
+        toast.info("Product is deleted successfully!", {
+          theme: "dark",
+          autoClose: 7000,
+          position: "top-right",
+          draggable: true,
+          pauseOnHover: true,
+        });
+        setInterval(() => {
+          navigate("/sellerpanel");
+          window.location.reload();
+        }, 1000);
       }
     }
   }, [deleteProductResponse]);
@@ -429,6 +449,7 @@ export default function EditProduct() {
           </div>
         </div>
       </form>
+      <ToastContainer />
     </>
   );
 }

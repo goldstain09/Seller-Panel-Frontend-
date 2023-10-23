@@ -4,7 +4,9 @@ import { updateOrderStatusStart, verifySellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
-import './SCSS/ActiveOrders.scss';
+import "./SCSS/ActiveOrders.scss";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ActiveOrders() {
   const dispatch = useDispatch();
@@ -60,9 +62,27 @@ export default function ActiveOrders() {
     if (orderStatusUpdationResponse.hasOwnProperty("statusUpdated")) {
       if (orderStatusUpdationResponse.orderDelivered) {
         navigate("/sellerpanel/completedOrders");
-        window.location.reload();
+        toast.success("Status Updated!", {
+          theme: "dark",
+          autoClose: 7000,
+          position: "top-right",
+          draggable: true,
+          pauseOnHover: true,
+        });
+        setInterval(() => {
+          window.location.reload();
+        }, 1000);
       } else {
-        window.location.reload();
+        toast.success("Status Updated!", {
+          theme: "dark",
+          autoClose: 7000,
+          position: "top-right",
+          draggable: true,
+          pauseOnHover: true,
+        });
+        setInterval(() => {
+          window.location.reload();
+        }, 1000);
       }
     }
   }, [orderStatusUpdationResponse]);
@@ -295,6 +315,7 @@ export default function ActiveOrders() {
           </div>
         </div>
       </div>
+      <ToastContainer />
       {/*  */}
     </>
   );

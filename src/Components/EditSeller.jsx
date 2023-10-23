@@ -4,7 +4,9 @@ import { editSellerStart, loginSellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
-import './SCSS/EditSeller.scss';
+import "./SCSS/EditSeller.scss";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function EditSeller() {
   const navigate = useNavigate();
@@ -26,8 +28,17 @@ export default function EditSeller() {
       switch (editSellerResponse.updated) {
         case true:
           setEditData(initialEditData);
-          navigate("/sellerpanel");
-          window.location.reload();
+          toast.success("Info is Updated!", {
+            theme: "dark",
+            autoClose: 7000,
+            position: "top-right",
+            draggable: true,
+            pauseOnHover: true,
+          });
+          setInterval(() => {
+            navigate("/sellerpanel");
+            window.location.reload();
+          }, 1000);
           break;
         case false:
           setIncorrectPasswordError(true);
@@ -238,6 +249,7 @@ export default function EditSeller() {
           </div>
         </div>
       </form>
+      <ToastContainer />
     </>
   );
 }

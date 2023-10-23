@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { createSellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Error from "./Error";
 import "./SCSS/Signup.scss";
 
@@ -23,13 +25,19 @@ export default function Signup({ setShowLogin }) {
       if (createSellerResponse.emailAlreadyinUse) {
         setAlreadyUsedEmailError(true);
       } else if (createSellerResponse.userCreated) {
-        alert("Congratulations! Your Seller Account is Ready...");
+        toast.success("Congratulations! Your Seller Account is Ready...", {
+          theme: "dark",
+          autoClose: 7000,
+          position: "top-right",
+          draggable: true,
+          pauseOnHover: true,
+        });
         setPassword1("");
         setSignupData(initialSignup);
         setInterval(() => {
           navigate("/sellerpanel");
           window.location.reload();
-        }, 30);
+        }, 1000);
         clearInterval();
       }
     }
@@ -96,7 +104,6 @@ export default function Signup({ setShowLogin }) {
       setEmptyOwnerNameError(true);
     }
   };
-
 
   if (createSellerResponseError !== "") {
     return (
@@ -262,6 +269,7 @@ export default function Signup({ setShowLogin }) {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }

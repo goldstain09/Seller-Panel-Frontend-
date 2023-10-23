@@ -5,6 +5,8 @@ import { addProductStart } from "../Redux/Actions";
 import Loading from "./Loading";
 import Error from "./Error";
 import './SCSS/AddProduct.scss';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AddProduct() {
   const navigate = useNavigate();
@@ -28,11 +30,17 @@ export default function AddProduct() {
   useEffect(() => {
     if (addProductResponse.hasOwnProperty("itemSavedSuccessfully")) {
       if (addProductResponse.itemSavedSuccessfully) {
-        alert("Your Product is added Successfully");
+        toast.success("Product is added successfully!", {
+          theme: "dark",
+          autoClose: 7000,
+          position: "top-right",
+          draggable: true,
+          pauseOnHover: true,
+        });
         setInterval(() => {
           navigate("/sellerpanel");
           window.location.reload();
-        }, 30);
+        }, 1000);
         clearInterval();
       }
     }
@@ -431,6 +439,7 @@ export default function AddProduct() {
           </div>
         </div>
       </form>
+      <ToastContainer />
     </>
   );
 }

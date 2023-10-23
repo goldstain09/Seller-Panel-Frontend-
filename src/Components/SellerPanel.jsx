@@ -8,6 +8,8 @@ import { verifySellerStart } from "../Redux/Actions";
 import Error from "./Error";
 import "./SCSS/SellerPanel.scss";
 import Loading from "./Loading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SellerPanel() {
   const dispatch = useDispatch();
@@ -45,23 +47,36 @@ export default function SellerPanel() {
       setNotHasSellerToken(true);
     }
   }, []);
+  useEffect(()=>{
+    if(verifySellerResponse.hasOwnProperty('verificationSuccess')){
+      if(verifySellerResponse.verificationSuccess){
+        toast.success("Successfully Loginned!", {
+          theme: "dark",
+          autoClose: 1000,
+          position: "top-right",
+          draggable: true,
+          pauseOnHover: true,
+        });
+      }
+    }
+  },[verifySellerResponse]);
 
   //for showing Login--
   const [showLogin, setShowLogin] = useState(false);
   if (notHasSellerToken) {
-    if(loginSellerResponseLoading || createSellerResponseLoading){
-      return(
+    if (loginSellerResponseLoading || createSellerResponseLoading) {
+      return (
         <>
-        <Loading />
+          <Loading />
         </>
-      )
-    }else
-    return (
-      <>
-        <Signup setShowLogin={setShowLogin} />
-        {showLogin && <Login />}
-      </>
-    );
+      );
+    } else
+      return (
+        <>
+          <Signup setShowLogin={setShowLogin} />
+          {showLogin && <Login />}
+        </>
+      );
   }
 
   if (
@@ -221,6 +236,8 @@ export default function SellerPanel() {
               )}
             </div>
           </div>
+
+          <ToastContainer />
         </>
       );
   }

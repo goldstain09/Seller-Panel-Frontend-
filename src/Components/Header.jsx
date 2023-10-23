@@ -4,6 +4,7 @@ import "./SCSS/Header.scss";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { verifySellerStart } from "../Redux/Actions";
+import { SpinnerDotted } from "spinners-react";
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -84,7 +85,12 @@ export default function Header() {
             </ul>
 
             {verifySellerResponseLoading ? (
-              <>Loading...</>
+              <> <SpinnerDotted
+              size={40}
+              thickness={180}
+              speed={180}
+              color="#5c0431"
+            /></>
             ) : (
               <div className="text-end">
                 {loginned ? (
