@@ -22,7 +22,7 @@ export default function CardForPanel({ item }) {
             <i class="bi bi-pencil-square"></i> Edit
           </Link>
           <a
-            href={`http://localhost:3000/product/${item._id}`}
+            href={`https://ecommerce-project-yy9l.onrender.com/product/${item._id}`}
             className="btn col-6 btn-outline-primary"
           >
            <i class="bi bi-link"></i> View on website
