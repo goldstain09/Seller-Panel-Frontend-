@@ -253,8 +253,14 @@ export default function SellerPanel() {
                 ))
               ) : (
                 <>
-                  <h1 className="h1 text-primary mt-5 pt-5">
-                    No Products Added...
+                  <h1
+                    className="h1 text-center mt-5 bi bi-emoji-frown"
+                    style={{
+                      fontFamily: "'Quicksand', sans-serif",
+                      color: "#5c0431",
+                    }}
+                  >
+                    &nbsp;No Products Added!
                   </h1>
                 </>
               )}
