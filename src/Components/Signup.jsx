@@ -9,7 +9,10 @@ import Error from "./Error";
 import "./SCSS/Signup.scss";
 
 export default function Signup({ setShowLogin }) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const verifySellerResponse = useSelector(
+    (state) => state.verifySellerResponse
+  );
   const createSellerResponse = useSelector(
     (state) => state.createSellerResponse
   );
@@ -24,24 +27,23 @@ export default function Signup({ setShowLogin }) {
     if (createSellerResponse) {
       if (createSellerResponse.emailAlreadyinUse) {
         setAlreadyUsedEmailError(true);
-      } else if (createSellerResponse.userCreated) {
-        toast.success("Congratulations! Your Seller Account is Ready...", {
-          theme: "dark",
-          autoClose: 7000,
-          position: "top-right",
-          draggable: true,
-          pauseOnHover: true,
-        });
+      } else if (createSellerResponse.sellerCreated) {
         setPassword1("");
         setSignupData(initialSignup);
-        setInterval(() => {
-          navigate("/sellerpanel");
-          window.location.reload();
-        }, 1000);
-        clearInterval();
       }
     }
   }, [createSellerResponse]);
+  useEffect(()=>{
+    if(verifySellerResponse.hasOwnProperty('logout')){
+      toast.error("Successfully Logged-Out!", {
+        theme: "dark",
+        autoClose: 1000,
+        position: "top-right",
+        draggable: true,
+        pauseOnHover: true,
+      });
+    }
+  },[verifySellerResponse]);
 
   const dispatch = useDispatch();
   const initialSignup = {

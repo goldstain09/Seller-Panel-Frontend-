@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SCSS/Home.scss";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -13,6 +13,14 @@ import Loading from "./Loading";
 import Error from "./Error";
 
 export default function Home() {
+  const verifySellerResponse = useSelector(
+    (s) => s.verifySellerResponse
+  );
+  useEffect(()=>{
+    if(verifySellerResponse.hasOwnProperty('logout')){
+      window.location.reload();
+    }
+  },[verifySellerResponse]);
   const verifySellerResponseLoading = useSelector(
     (s) => s.verifySellerResponseLoading
   );
@@ -133,11 +141,11 @@ export default function Home() {
               <div className="col-10">
                 <h5 className="pt-4">Ease of Doing Businesss</h5>
                 <p>
-                  <i class="bi bi-check2-circle"></i> Easy Product Listing
+                  <i className="bi bi-check2-circle"></i> Easy Product Listing
                   &emsp; &emsp;
-                  <i class="bi bi-check2-circle"></i> Lowest Cost Shipping
+                  <i className="bi bi-check2-circle"></i> Lowest Cost Shipping
                   <br />
-                  <i class="bi bi-check2-circle"></i> 7-Day Payment Cycle from
+                  <i className="bi bi-check2-circle"></i> 7-Day Payment Cycle from
                   the delivery date
                 </p>
               </div>

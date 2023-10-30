@@ -53,28 +53,28 @@ export default function HowItWorks() {
         <div className="row d-flex">
           <div className="col col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
             <div>
-              <h1><i class="bi bi-1-square"></i>&emsp;__________</h1>
+              <h1><i className="bi bi-1-square"></i>&emsp;__________</h1>
               <h5>Sign up for free</h5>
               <p>Register as a Seesho Seller. All you need is an active bank account and your GSTIN number.</p>
             </div>
           </div>
           <div className="col col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
             <div>
-              <h1><i class="bi bi-2-square"></i>&emsp;__________</h1>
+              <h1><i className="bi bi-2-square"></i>&emsp;__________</h1>
               <h5>Upload your product & catalog</h5>
               <p>After completing the registration, upload your product catalog on the Seesho Supplier Panel.</p>
             </div>
           </div>
           <div className="col col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
             <div>
-              <h1><i class="bi bi-3-square"></i>&emsp;__________</h1>
+              <h1><i className="bi bi-3-square"></i>&emsp;__________</h1>
               <h5>Receive & Ship Orders</h5>
               <p>Seesho charges the lowest shipping cost for deliveries across India.</p>
             </div>
           </div>
           <div className="col col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
             <div>
-              <h1><i class="bi bi-4-square"></i></h1>
+              <h1><i className="bi bi-4-square"></i></h1>
               <h5>Receive Payments</h5>
               <p>Payment is securely deposited directly to your bank account on Seesho following a 7-day payment cycle from order delivery, including Cash on Delivery orders.</p>
             </div>

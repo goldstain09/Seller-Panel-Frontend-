@@ -17,6 +17,9 @@ import {
   LOGIN_SELLER_ERROR,
   LOGIN_SELLER_START,
   LOGIN_SELLER_SUCCESS,
+  LOGOUT_ERROR,
+  LOGOUT_START,
+  LOGOUT_SUCCESS,
   UPDATE_ORDER_STATUS_ERROR,
   UPDATE_ORDER_STATUS_START,
   UPDATE_ORDER_STATUS_SUCCESS,
@@ -70,9 +73,11 @@ const Reducerr = (state = initialData, action) => {
         createSellerResponseError: "",
       };
     case CREATE_SELLER_SUCCESS:
+      console.log(action.payload);
       return {
         ...state,
         createSellerResponse: action.payload,
+        verifySellerResponse: action.payload,
         createSellerResponseLoading: false,
         createSellerResponseError: "",
       };
@@ -114,6 +119,7 @@ const Reducerr = (state = initialData, action) => {
       return {
         ...state,
         loginSellerResponse: action.payload,
+        verifySellerResponse: action.payload,
         loginSellerResponseLoading: false,
         loginSellerResponseError: "",
       };
@@ -122,6 +128,29 @@ const Reducerr = (state = initialData, action) => {
         ...state,
         loginSellerResponseLoading: false,
         loginSellerResponseError: action.payload,
+      };
+    // --------------------------------------------------------------
+
+    case LOGOUT_START:
+      return {
+        ...state,
+        verifySellerResponseLoading: true,
+        verifySellerResponseError: "",
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        loginSellerResponse: {},
+        verifySellerResponse: { logout: true },
+        createSellerResponse: {},
+        verifySellerResponseLoading: false,
+        verifySellerResponseError: "",
+      };
+    case LOGOUT_ERROR:
+      return {
+        ...state,
+        verifySellerResponseLoading: false,
+        verifySellerResponseError: action.payload,
       };
     // --------------------------------------------------------------
 

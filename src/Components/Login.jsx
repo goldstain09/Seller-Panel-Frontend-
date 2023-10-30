@@ -21,19 +21,7 @@ export default function Login() {
     if (loginSellerResponse.hasOwnProperty("loginSuccess")) {
       switch (loginSellerResponse.loginSuccess) {
         case true:
-          toast.success("Login SuccessFully!", {
-            theme: "dark",
-            autoClose: 7000,
-            position: "top-right",
-            draggable: true,
-            pauseOnHover: true,
-          });
           setLoginData(initialLoginData);
-          setInterval(() => {
-            navigate("/sellerpanel");
-            window.location.reload();
-          }, 30);
-          clearInterval();
           break;
         case false:
           setEmailORpasswordIsIncorrect(true);
@@ -42,7 +30,7 @@ export default function Login() {
     }
   }, [loginSellerResponse]);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const initialLoginData = {

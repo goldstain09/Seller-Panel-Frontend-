@@ -6,6 +6,7 @@ import {
   EDIT_PRODUCT_START,
   EDIT_SELLER_START,
   LOGIN_SELLER_START,
+  LOGOUT_START,
   UPDATE_ORDER_STATUS_START,
   VERIFY_SELLER_START,
 } from "./Constants";
@@ -22,6 +23,8 @@ import {
   editSellerSuccess,
   loginSellerError,
   loginSellerSuccess,
+  logoutError,
+  logoutSuccess,
   updateOrderStatusError,
   updateOrderStatusSuccess,
   verifySellerError,
@@ -42,7 +45,7 @@ function* createSellerSaga({ payload }) {
   try {
     const res = yield createSeller(payload);
     if (res.res) {
-      switch (res.userCreated) {
+      switch (res.sellerCreated) {
         case true:
           yield localStorage.setItem(
             "sellerToken",
@@ -78,6 +81,15 @@ function* verifySellerSaga({ payload }) {
   } catch (error) {
     yield delay(2000);
     yield put(verifySellerError(error.message));
+  }
+}
+function* logoutSaga() {
+  try {
+    yield delay(2000);
+    yield put(logoutSuccess());
+  } catch (error) {
+    yield delay(2000);
+    yield put(logoutError(error.message));
   }
 }
 
@@ -250,6 +262,7 @@ function* Saga() {
   yield takeLatest(CREATE_SELLER_START, createSellerSaga);
   yield takeLatest(VERIFY_SELLER_START, verifySellerSaga);
   yield takeLatest(LOGIN_SELLER_START, loginSellerSaga);
+  yield takeLatest(LOGOUT_START, logoutSaga);
   yield takeLatest(EDIT_SELLER_START, editSellerSaga);
   //product
   yield takeLatest(ADD_PRODUCT_START, addProductSaga);

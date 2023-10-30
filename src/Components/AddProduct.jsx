@@ -428,7 +428,7 @@ export default function AddProduct() {
                   }
                 }}
               >
-               <i class="bi bi-plus-square">{' '}</i> Add more...
+               <i className="bi bi-plus-square">{' '}</i> Add more...
               </button>
             )}
           </div>

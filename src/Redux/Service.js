@@ -3,7 +3,7 @@ import axios from "axios";
 //seller
 export const createSeller = async (data) => {
   try {
-    const ress = await axios.post("/seller/create", data);
+    const ress = await axios.post("http://localhost:9000/seller/create", data);
     return ress.data;
   } catch (error) {
     throw Error(
@@ -14,7 +14,7 @@ export const createSeller = async (data) => {
 
 export const verifySeller = async (data) => {
   try {
-    const ress = await axios.get("/seller/verify", {
+    const ress = await axios.get("http://localhost:9000/seller/verify", {
       headers: {
         Authorization: `Bearer ${data}`,
       },
@@ -29,7 +29,7 @@ export const verifySeller = async (data) => {
 
 export const loginSeller = async (data) => {
   try {
-    const ress = await axios.post("/seller/login", data);
+    const ress = await axios.post("http://localhost:9000/seller/login", data);
     return ress.data;
   } catch (error) {
     throw Error("Failed to logginning into your Account! Please re-try!");
@@ -38,7 +38,7 @@ export const loginSeller = async (data) => {
 
 export const editSeller = async (data) => {
   try {
-    const ress = await axios.post("/seller/edit", data);
+    const ress = await axios.post("http://localhost:9000/seller/edit", data);
     return ress.data;
   } catch (error) {
     throw Error(
@@ -51,7 +51,7 @@ export const editSeller = async (data) => {
 
 export const addProduct = async (data) => {
   try {
-    const ress = await axios.post("/api/addproduct", data);
+    const ress = await axios.post("http://localhost:9000/api/addproduct", data);
     return ress.data;
   } catch (error) {
     throw Error(
@@ -62,7 +62,7 @@ export const addProduct = async (data) => {
 
 export const editProduct = async (data) => {
   try {
-    const ress = await axios.post("/api/editproduct", data);
+    const ress = await axios.post("http://localhost:9000/api/editproduct", data);
     return ress.data;
   } catch (error) {
     throw Error("Unable to Update your Product! Please try again!");
@@ -71,7 +71,7 @@ export const editProduct = async (data) => {
 
 export const deleteProduct = async (data) => {
   try {
-    const ress = await axios.post("/api/deleteproduct", data);
+    const ress = await axios.post("http://localhost:9000/api/deleteproduct", data);
     return ress.data;
   } catch (error) {
     throw Error(
@@ -82,7 +82,7 @@ export const deleteProduct = async (data) => {
 
 export const updateOrderStatus = async (data) => {
   try {
-    const ress = await axios.post("/seller/updateorderstatus", data);
+    const ress = await axios.post("http://localhost:9000/seller/updateorderstatus", data);
     return ress.data;
   } catch (error) {
     throw Error(

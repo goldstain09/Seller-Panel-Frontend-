@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Login from "./Login";
 import Signup from "./Signup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CardForPanel from "./CardForPanel";
 import { useDispatch, useSelector } from "react-redux";
-import { verifySellerStart } from "../Redux/Actions";
+import { logoutStart, verifySellerStart } from "../Redux/Actions";
 import Error from "./Error";
 import "./SCSS/SellerPanel.scss";
 import Loading from "./Loading";
@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function SellerPanel() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const verifySellerResponse = useSelector(
     (state) => state.verifySellerResponse
@@ -47,19 +48,45 @@ export default function SellerPanel() {
       setNotHasSellerToken(true);
     }
   }, []);
-  useEffect(()=>{
-    if(verifySellerResponse.hasOwnProperty('verificationSuccess')){
-      if(verifySellerResponse.verificationSuccess){
-        toast.success("Successfully Loginned!", {
-          theme: "dark",
-          autoClose: 1000,
-          position: "top-right",
-          draggable: true,
-          pauseOnHover: true,
-        });
+  useEffect(() => {
+    if (verifySellerResponse.hasOwnProperty("verificationSuccess")) {
+      if (verifySellerResponse.verificationSuccess) {
+        if (verifySellerResponse.hasOwnProperty("loginSuccess")) {
+          toast.success("Successfully LoggedIn!", {
+            theme: "dark",
+            autoClose: 1000,
+            position: "top-right",
+            draggable: true,
+            pauseOnHover: true,
+          });
+          setNotHasSellerToken(false);
+        }
+        if (verifySellerResponse.hasOwnProperty("verifiedANDLoggedIn")) {
+          toast.success("Successfully LoggedIn!", {
+            theme: "dark",
+            autoClose: 1000,
+            position: "top-right",
+            draggable: true,
+            pauseOnHover: true,
+          });
+          setNotHasSellerToken(false);
+        }
+        if (verifySellerResponse.hasOwnProperty("sellerCreated")) {
+          toast.success("Your Seller Account is Ready!", {
+            theme: "dark",
+            autoClose: 1000,
+            position: "top-right",
+            draggable: true,
+            pauseOnHover: true,
+          });
+          setNotHasSellerToken(false);
+        }
       }
     }
-  },[verifySellerResponse]);
+    if (verifySellerResponse.hasOwnProperty("logout")) {
+      setNotHasSellerToken(true);
+    }
+  }, [verifySellerResponse]);
 
   //for showing Login--
   const [showLogin, setShowLogin] = useState(false);
@@ -164,16 +191,13 @@ export default function SellerPanel() {
                   to={"/sellerpanel/edit"}
                   className=" btn btn-outline-secondary editSeller"
                 >
-                  <i class="bi bi-pencil-square"></i>
+                  <i className="bi bi-pencil-square"></i>
                 </Link>
                 <button
                   title="Danger Operation"
                   onClick={() => {
                     localStorage.removeItem("sellerToken");
-                    setInterval(() => {
-                      window.location.reload();
-                    }, 10);
-                    clearInterval();
+                    dispatch(logoutStart());
                   }}
                   className="btn btn-danger logout"
                 >

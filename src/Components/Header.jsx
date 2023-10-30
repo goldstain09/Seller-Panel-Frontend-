@@ -147,7 +147,7 @@ export default function Header() {
               data-bs-target="#offcanvasExample"
               aria-controls="offcanvasExample"
             >
-              <i class="bi bi-caret-right"></i>
+              <i className="bi bi-caret-right"></i>
             </button>
           </div>
         </div>

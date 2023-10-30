@@ -19,13 +19,13 @@ export default function CardForPanel({ item }) {
             className="btn col-6 btn-warning"
             to={`/sellerpanel/editproduct/${item._id}`}
           >
-            <i class="bi bi-pencil-square"></i> Edit
+            <i className="bi bi-pencil-square"></i> Edit
           </Link>
           <a
             href={`https://ecommerce-project-yy9l.onrender.com/product/${item._id}`}
             className="btn col-6 btn-outline-primary"
           >
-           <i class="bi bi-link"></i> View on website
+           <i className="bi bi-link"></i> View on website
           </a>
         </div>
       </div>
