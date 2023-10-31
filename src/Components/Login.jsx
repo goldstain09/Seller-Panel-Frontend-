@@ -153,7 +153,7 @@ export default function Login() {
             )}
           </div>
         </div>
-        <div className="row d-flex justify-content-center">
+        <div className="row d-flex justify-content-center mb-5">
           <div className="mb-3 col-2 mt-5">
             <button type="submit" className="btn btn-success w-100">
               Login
