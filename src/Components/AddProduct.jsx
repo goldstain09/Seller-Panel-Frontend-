@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { addProductStart } from "../Redux/Actions";
 import Loading from "./Loading";
 import Error from "./Error";
-import './SCSS/AddProduct.scss';
+import "./SCSS/AddProduct.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -428,14 +428,16 @@ export default function AddProduct() {
                   }
                 }}
               >
-               <i className="bi bi-plus-square">{' '}</i> Add more...
+                <i className="bi bi-plus-square"> </i> Add more...
               </button>
             )}
           </div>
         </div>
         <div className="row d-flex justify-content-center mt-5 pt-5 ">
           <div className="col-4 addproductbtndiv">
-            <button type="submit" className="btn btn-primary">Add Product</button>
+            <button type="submit" className="btn btn-primary">
+              Add Product
+            </button>
           </div>
         </div>
       </form>
