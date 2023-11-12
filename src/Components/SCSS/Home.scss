@@ -92,9 +92,6 @@ $main: #5c0431;
   }
 }
 
-
-
-
 @media (max-width: 1400px) {
   .homePage {
     height: 40rem;
@@ -127,10 +124,10 @@ $main: #5c0431;
         > div {
           padding: 1.5rem;
           height: 10rem;
-          h1{
+          h1 {
             font-size: 1.7rem;
           }
-          h5{
+          h5 {
             font-size: 1.2rem;
           }
         }
@@ -159,9 +156,6 @@ $main: #5c0431;
   }
 }
 
-
-
-
 @media (max-width: 1200px) {
   .homePage {
     height: 34rem;
@@ -177,7 +171,7 @@ $main: #5c0431;
           font-size: 1.4rem;
         }
         p {
-          font-size: .9rem;
+          font-size: 0.9rem;
           margin-top: 1rem;
         }
         .btn {
@@ -194,10 +188,10 @@ $main: #5c0431;
         > div {
           padding: 1.5rem;
           height: 9rem;
-          h1{
+          h1 {
             font-size: 1.4rem;
           }
-          h5{
+          h5 {
             font-size: 1rem;
           }
         }
@@ -216,19 +210,19 @@ $main: #5c0431;
           font-size: 1.1rem;
         }
         p {
-          font-size: .9rem;
+          font-size: 0.9rem;
           width: 70%;
         }
       }
       > .col:last-child {
         height: 37rem;
-        .row{
-          .col-10{
-            h5{
+        .row {
+          .col-10 {
+            h5 {
               font-size: 1rem;
             }
-            p{
-              font-size: .9rem;
+            p {
+              font-size: 0.9rem;
             }
           }
         }
@@ -236,8 +230,6 @@ $main: #5c0431;
     }
   }
 }
-
-
 
 @media (max-width: 992px) {
   .homePage {
@@ -254,11 +246,11 @@ $main: #5c0431;
           font-size: 1rem;
         }
         p {
-          font-size: .7rem;
+          font-size: 0.7rem;
           margin-top: 1rem;
         }
         .btn {
-          font-size: .8rem;
+          font-size: 0.8rem;
           margin-top: 1rem;
         }
       }
@@ -269,14 +261,14 @@ $main: #5c0431;
     > .row {
       > .col {
         > div {
-          margin-top: .5rem;
+          margin-top: 0.5rem;
           padding: 1rem;
           height: 6rem;
-          h1{
+          h1 {
             font-size: 1.2rem;
           }
-          h5{
-            font-size: .9rem;
+          h5 {
+            font-size: 0.9rem;
           }
         }
       }
@@ -294,19 +286,19 @@ $main: #5c0431;
           font-size: 1rem;
         }
         p {
-          font-size: .7rem;
+          font-size: 0.7rem;
           width: 90%;
         }
       }
       > .col:last-child {
         height: 37rem;
-        .row{
-          .col-10{
-            h5{
-              font-size: .8rem;
+        .row {
+          .col-10 {
+            h5 {
+              font-size: 0.8rem;
             }
-            p{
-              font-size: .65rem;
+            p {
+              font-size: 0.65rem;
             }
           }
         }
@@ -314,11 +306,6 @@ $main: #5c0431;
     }
   }
 }
-
-
-
-
-
 
 @media (max-width: 768px) {
   .homePage {
@@ -329,17 +316,17 @@ $main: #5c0431;
         padding: 9rem 0 7rem 4rem;
 
         h1:first-child {
-          font-size: .9rem;
+          font-size: 0.9rem;
         }
         h1:nth-child(2) {
-          font-size: .9rem;
+          font-size: 0.9rem;
         }
         p {
-          font-size: .6rem;
+          font-size: 0.6rem;
           margin-top: 1rem;
         }
         .btn {
-          font-size: .6rem;
+          font-size: 0.6rem;
           margin-top: 1rem;
         }
       }
@@ -350,14 +337,14 @@ $main: #5c0431;
     > .row {
       > .col {
         > div {
-          margin-top: .5rem;
+          margin-top: 0.5rem;
           padding: 1rem;
           height: 5rem;
-          h1{
+          h1 {
             font-size: 1rem;
           }
-          h5{
-            font-size: .8rem;
+          h5 {
+            font-size: 0.8rem;
           }
         }
       }
@@ -375,19 +362,19 @@ $main: #5c0431;
           font-size: 1rem;
         }
         p {
-          font-size: .7rem;
+          font-size: 0.7rem;
           width: 90%;
         }
       }
       > .col:last-child {
         height: 28rem;
-        .row{
-          .col-10{
-            h5{
-              font-size: .8rem;
+        .row {
+          .col-10 {
+            h5 {
+              font-size: 0.8rem;
             }
-            p{
-              font-size: .75rem;
+            p {
+              font-size: 0.75rem;
             }
           }
         }
@@ -395,10 +382,6 @@ $main: #5c0431;
     }
   }
 }
-
-
-
-
 
 @media (max-width: 576px) {
   .mnvbarrr {
@@ -416,22 +399,22 @@ $main: #5c0431;
 
     > .row {
       > .col {
-        padding: 6rem 0 7rem .6rem;
+        padding: 6rem 0 7rem 0.6rem;
 
         h1:first-child {
-          font-size: .8rem;
+          font-size: 0.8rem;
         }
         h1:nth-child(2) {
-          font-size: .8rem;
+          font-size: 0.8rem;
         }
         p {
-          font-size: .6rem;
-          margin-top: .5rem;
-          width: 40%!important;
+          font-size: 0.6rem;
+          margin-top: 0.5rem;
+          width: 40% !important;
         }
         .btn {
-          font-size: .6rem;
-          margin-top: .5rem;
+          font-size: 0.6rem;
+          margin-top: 0.5rem;
         }
       }
     }
@@ -441,16 +424,16 @@ $main: #5c0431;
     > .row {
       > .col {
         > div {
-          margin-top: .5rem;
+          margin-top: 0.5rem;
           padding: 1rem;
           height: 5rem;
           width: 60%;
           margin-left: 20%;
-          h1{
-            font-size: .9rem;
+          h1 {
+            font-size: 0.9rem;
           }
-          h5{
-            font-size: .7rem;
+          h5 {
+            font-size: 0.7rem;
           }
         }
       }
@@ -470,19 +453,19 @@ $main: #5c0431;
           font-size: 1rem;
         }
         p {
-          font-size: .7rem;
+          font-size: 0.7rem;
           width: 100%;
         }
       }
       > .col:last-child {
         height: 30rem;
-        .row{
-          .col-10{
-            h5{
-              font-size: .8rem;
+        .row {
+          .col-10 {
+            h5 {
+              font-size: 0.8rem;
             }
-            p{
-              font-size: .75rem;
+            p {
+              font-size: 0.75rem;
             }
           }
         }
@@ -506,22 +489,22 @@ $main: #5c0431;
 
     > .row {
       > .col {
-        padding: 5rem 0 7rem .2rem;
+        padding: 5rem 0 7rem 0.2rem;
 
         h1:first-child {
-          font-size: .7rem;
+          font-size: 0.7rem;
         }
         h1:nth-child(2) {
-          font-size: .7rem;
+          font-size: 0.7rem;
         }
         p {
-          font-size: .6rem;
-          margin-top: .5rem;
-          width: 40%!important;
+          font-size: 0.6rem;
+          margin-top: 0.5rem;
+          width: 40% !important;
         }
         .btn {
-          font-size: .6rem;
-          margin-top: .5rem;
+          font-size: 0.6rem;
+          margin-top: 0.5rem;
         }
       }
     }
@@ -531,16 +514,16 @@ $main: #5c0431;
     > .row {
       > .col {
         > div {
-          margin-top: .5rem;
+          margin-top: 0.5rem;
           padding: 1rem;
           height: 5rem;
           width: 80%;
           margin-left: 10%;
-          h1{
-            font-size: .8rem;
+          h1 {
+            font-size: 0.8rem;
           }
-          h5{
-            font-size: .6rem;
+          h5 {
+            font-size: 0.6rem;
           }
         }
       }
@@ -557,22 +540,22 @@ $main: #5c0431;
         width: 90%;
         margin-left: 5%;
         h1 {
-          font-size: .9rem;
+          font-size: 0.9rem;
         }
         p {
-          font-size: .7rem;
+          font-size: 0.7rem;
           width: 100%;
         }
       }
       > .col:last-child {
         height: fit-content;
-        .row{
-          .col-10{
-            h5{
-              font-size: .8rem;
+        .row {
+          .col-10 {
+            h5 {
+              font-size: 0.8rem;
             }
-            p{
-              font-size: .75rem;
+            p {
+              font-size: 0.75rem;
             }
           }
         }

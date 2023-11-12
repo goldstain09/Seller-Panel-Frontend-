@@ -33,8 +33,8 @@ export default function Signup({ setShowLogin }) {
       }
     }
   }, [createSellerResponse]);
-  useEffect(()=>{
-    if(verifySellerResponse.hasOwnProperty('logout')){
+  useEffect(() => {
+    if (verifySellerResponse.hasOwnProperty("logout")) {
       toast.error("Successfully Logged-Out!", {
         theme: "dark",
         autoClose: 1000,
@@ -43,7 +43,7 @@ export default function Signup({ setShowLogin }) {
         pauseOnHover: true,
       });
     }
-  },[verifySellerResponse]);
+  }, [verifySellerResponse]);
 
   const dispatch = useDispatch();
   const initialSignup = {

@@ -4,7 +4,7 @@ import { loginSellerStart } from "../Redux/Actions";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
-import './SCSS/Login.scss';
+import "./SCSS/Login.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -73,8 +73,6 @@ export default function Login() {
     }
   };
 
-
-  
   if (loginSellerResponseError !== "") {
     return (
       <>
@@ -86,7 +84,7 @@ export default function Login() {
     <>
       {/* header */}
       <div className="container pt-5 mt-5 mnvbarrr">
-      <Link
+        <Link
           to={"/"}
           className="btn btn-outline-dark"
           style={{
@@ -102,11 +100,7 @@ export default function Login() {
         </Link>
         <div className="row justify-content-center ">
           <div className="col col-12">
-            <h3
-              className="text-center"
-            >
-              Login
-            </h3>
+            <h3 className="text-center">Login</h3>
           </div>
         </div>
       </div>
@@ -162,7 +156,6 @@ export default function Login() {
         </div>
       </form>
       <ToastContainer />
-
     </>
   );
 }

@@ -13,14 +13,12 @@ import Loading from "./Loading";
 import Error from "./Error";
 
 export default function Home() {
-  const verifySellerResponse = useSelector(
-    (s) => s.verifySellerResponse
-  );
-  useEffect(()=>{
-    if(verifySellerResponse.hasOwnProperty('logout')){
+  const verifySellerResponse = useSelector((s) => s.verifySellerResponse);
+  useEffect(() => {
+    if (verifySellerResponse.hasOwnProperty("logout")) {
       window.location.reload();
     }
-  },[verifySellerResponse]);
+  }, [verifySellerResponse]);
   const verifySellerResponseLoading = useSelector(
     (s) => s.verifySellerResponseLoading
   );
@@ -145,8 +143,8 @@ export default function Home() {
                   &emsp; &emsp;
                   <i className="bi bi-check2-circle"></i> Lowest Cost Shipping
                   <br />
-                  <i className="bi bi-check2-circle"></i> 7-Day Payment Cycle from
-                  the delivery date
+                  <i className="bi bi-check2-circle"></i> 7-Day Payment Cycle
+                  from the delivery date
                 </p>
               </div>
             </div>

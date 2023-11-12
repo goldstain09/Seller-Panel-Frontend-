@@ -17,9 +17,9 @@ $main: #5c0431;
             }
           }
           .col-4 {
-            padding-top: .9rem;
-            span{
-                color: $main;
+            padding-top: 0.9rem;
+            span {
+              color: $main;
             }
           }
         }
@@ -28,31 +28,29 @@ $main: #5c0431;
   }
 }
 
-
-@media (max-width:768px) {
-  
-.support {
-  background: #0000000a;
-  > .container {
-    > .row {
-      > .col {
-        h1 {
-          font-size: 1.2rem;
-        }
-        p{
-          font-size: .9rem;
-        }
-
-        > .row {
-          .col-1 {
-            margin-top: .5rem!important;
-            i {
-              font-size: 2rem;
-            }
+@media (max-width: 768px) {
+  .support {
+    background: #0000000a;
+    > .container {
+      > .row {
+        > .col {
+          h1 {
+            font-size: 1.2rem;
           }
-          .col-4 {
-            padding-top: .9rem;
-           
+          p {
+            font-size: 0.9rem;
+          }
+
+          > .row {
+            .col-1 {
+              margin-top: 0.5rem !important;
+              i {
+                font-size: 2rem;
+              }
+            }
+            .col-4 {
+              padding-top: 0.9rem;
+            }
           }
         }
       }
@@ -60,34 +58,30 @@ $main: #5c0431;
   }
 }
 
-}
-
-
-@media (max-width:576px) {
-  
-.support {
-  background: #0000000a;
-  > .container {
-    > .row {
-      > .col {
-        h1 {
-          font-size: 1.2rem;
-        }
-        p{
-          font-size: .9rem;
-        }
-
-        > .row {
-          .col-1 {
-            margin-top: .4rem!important;
-            i {
-              font-size: 1.5rem;
-            }
+@media (max-width: 576px) {
+  .support {
+    background: #0000000a;
+    > .container {
+      > .row {
+        > .col {
+          h1 {
+            font-size: 1.2rem;
           }
-          .col-4 {
-            width: 80%;
-            padding-top: .9rem;
-           
+          p {
+            font-size: 0.9rem;
+          }
+
+          > .row {
+            .col-1 {
+              margin-top: 0.4rem !important;
+              i {
+                font-size: 1.5rem;
+              }
+            }
+            .col-4 {
+              width: 80%;
+              padding-top: 0.9rem;
+            }
           }
         }
       }
@@ -95,38 +89,32 @@ $main: #5c0431;
   }
 }
 
-}
-
-
-@media (max-width:394px) {
-  
-.support {
-  > .container {
-    > .row {
-      > .col {
-        h1 {
-          font-size: 1rem;
-        }
-        p{
-          font-size: .8rem;
-        }
-
-        > .row {
-          .col-1 {
-            margin-top: .8rem!important;
-            i {
-              font-size: 1.4rem;
-            }
+@media (max-width: 394px) {
+  .support {
+    > .container {
+      > .row {
+        > .col {
+          h1 {
+            font-size: 1rem;
           }
-          .col-4 {
-            width: 90%;
-            padding-top: .9rem;
-           
+          p {
+            font-size: 0.8rem;
+          }
+
+          > .row {
+            .col-1 {
+              margin-top: 0.8rem !important;
+              i {
+                font-size: 1.4rem;
+              }
+            }
+            .col-4 {
+              width: 90%;
+              padding-top: 0.9rem;
+            }
           }
         }
       }
     }
   }
-}
-
 }

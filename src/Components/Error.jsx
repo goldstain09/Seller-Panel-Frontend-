@@ -7,7 +7,9 @@ export default function Error({ errorMessage }) {
   return (
     <div className="container-fluid errorr">
       <div align="center" className="msg">
-        <h1 align="center"><i className="bi bi-exclamation-triangle-fill"></i> {errorMessage}</h1>
+        <h1 align="center">
+          <i className="bi bi-exclamation-triangle-fill"></i> {errorMessage}
+        </h1>
       </div>
       <div className="btns">
         <button

@@ -15,7 +15,7 @@ $main: #5c0431;
     padding: 5rem 3rem 9rem 3rem !important;
     width: 40%;
     margin-left: 50%;
-    -webkit-clip-path: polygon(
+    -webkit-clip-path: polygons(
       0% 0%,
       100% 0%,
       100% 84%,
@@ -34,7 +34,7 @@ $main: #5c0431;
       0 86%
     );
     h1 {
-        word-wrap: break-word;
+      word-wrap: break-word;
       font-size: 1.3rem;
       color: #5c0431d6;
       font-family: "Montserrat", sans-serif;
@@ -100,8 +100,6 @@ $main: #5c0431;
   }
 }
 
-
-
 @media (max-width: 1200px) {
   .errorr {
     height: 40rem;
@@ -130,14 +128,12 @@ $main: #5c0431;
   }
 }
 
-
-
 @media (max-width: 992px) {
   .errorr {
     height: 30rem;
     > .msg {
       top: 15rem;
-      padding: .7rem 1.2rem 1.7rem 1.2rem !important;
+      padding: 0.7rem 1.2rem 1.7rem 1.2rem !important;
       width: 40%;
       margin-left: 50%;
       h1 {
@@ -148,103 +144,97 @@ $main: #5c0431;
       top: 24rem;
       left: 50.6%;
       .btn-outline-danger {
-        padding: .5rem;
-        font-size: .9rem;
+        padding: 0.5rem;
+        font-size: 0.9rem;
       }
       .btn-danger {
         margin-left: 1rem;
-        padding: .5rem;
-        font-size: .9rem;
+        padding: 0.5rem;
+        font-size: 0.9rem;
       }
     }
   }
 }
-
-
 
 @media (max-width: 768px) {
   .errorr {
     height: 24rem;
     > .msg {
       top: 12rem;
-      padding: .7rem .5rem 1.7rem .5rem !important;
+      padding: 0.7rem 0.5rem 1.7rem 0.5rem !important;
       width: 40%;
       margin-left: 50%;
       h1 {
-        font-size: .9rem;
+        font-size: 0.9rem;
       }
     }
     .btns {
       top: 19rem;
       left: 52%;
       .btn-outline-danger {
-        padding: .3rem;
-        font-size: .8rem;
+        padding: 0.3rem;
+        font-size: 0.8rem;
       }
       .btn-danger {
         margin-left: 1rem;
-        padding: .3rem;
-        font-size: .8rem;
+        padding: 0.3rem;
+        font-size: 0.8rem;
       }
     }
   }
 }
-
-
 
 @media (max-width: 576px) {
   .errorr {
     height: 17rem;
     > .msg {
       top: 9rem;
-      padding: .3rem .1rem 1.2rem .1rem !important;
+      padding: 0.3rem 0.1rem 1.2rem 0.1rem !important;
       width: 40%;
       margin-left: 50%;
       h1 {
-        font-size: .65rem;
+        font-size: 0.65rem;
       }
     }
     .btns {
       top: 13.4rem;
       left: 52%;
       .btn-outline-danger {
-        padding: .3rem;
-        font-size: .6rem;
+        padding: 0.3rem;
+        font-size: 0.6rem;
       }
       .btn-danger {
-        margin-left: .4rem;
-        padding: .3rem;
-        font-size: .6rem;
+        margin-left: 0.4rem;
+        padding: 0.3rem;
+        font-size: 0.6rem;
       }
     }
   }
 }
-
-
 
 @media (max-width: 394px) {
   .errorr {
     height: 13rem;
     > .msg {
       top: 12rem;
-      padding: .3rem .6rem 1.2rem .6rem!important;
+      padding: 0.3rem 0.6rem 1.2rem 0.6rem !important;
       width: 80%;
       margin-left: 10%;
       h1 {
-        font-size: .76rem;
+        font-size: 0.76rem;
       }
     }
     .btns {
       top: 8.4rem;
       left: 47%;
       .btn-outline-danger {
-        padding: .3rem;
-        font-size: .6rem;
+        padding: 0.3rem;
+        font-size: 0.6rem;
       }
       .btn-danger {
-        margin-left: .4rem;
-        padding: .3rem;
-        font-size: .6rem;
+        margin-left: 0.4rem;
+        padding: 0.3rem;
+        font-size: 0.6rem;
       }
     }
   }

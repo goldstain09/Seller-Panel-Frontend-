@@ -82,7 +82,6 @@ $main: #5c0431;
   }
 }
 
-
 @media (max-width: 768px) {
   .Headerr {
     display: none;
@@ -94,8 +93,8 @@ $main: #5c0431;
     padding: 1rem 0.5rem;
     .row {
       .col-3 {
-        img{
-            width: 120px;
+        img {
+          width: 120px;
         }
         button {
           padding: 0;
@@ -127,7 +126,7 @@ $main: #5c0431;
       .nav-link {
         font-family: "Quicksand", sans-serif;
         margin-top: 2rem;
-        color: grey!important;
+        color: grey !important;
         font-size: 1.2rem;
       }
       .nav-link:hover {
@@ -160,13 +159,12 @@ $main: #5c0431;
 }
 
 @media (max-width: 576px) {
- 
   .offcanvasHeader {
-    padding: .7rem 0.5rem;
+    padding: 0.7rem 0.5rem;
     .row {
       .col-3 {
-        img{
-            width: 100px;
+        img {
+          width: 100px;
         }
         button {
           font-size: 1.5rem;

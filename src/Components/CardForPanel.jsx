@@ -25,7 +25,7 @@ export default function CardForPanel({ item }) {
             href={`https://ecommerce-project-yy9l.onrender.com/product/${item._id}`}
             className="btn col-6 btn-outline-primary"
           >
-           <i className="bi bi-link"></i> View on website
+            <i className="bi bi-link"></i> View on website
           </a>
         </div>
       </div>

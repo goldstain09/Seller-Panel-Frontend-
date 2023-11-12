@@ -21,18 +21,30 @@ export default function Router() {
         <Routes>
           <Route element={<Home />} path="/" />
           <Route element={<SellOnline />} path="/sellonline" />
-          <Route element={<HowItWorks/>} path="/howitworks" />
-          <Route element={<PricingAndCommission />} path="/pricingandcommission" />
-          <Route element={<ShippingAndReturns/>} path="/shippingandreturns" />
+          <Route element={<HowItWorks />} path="/howitworks" />
+          <Route
+            element={<PricingAndCommission />}
+            path="/pricingandcommission"
+          />
+          <Route element={<ShippingAndReturns />} path="/shippingandreturns" />
           <Route element={<GrowBusiness />} path="/growbusiness" />
           <Route path="/sellerpanel">
             <Route index={true} element={<SellerPanel />} />
-            <Route element={<EditSeller/>} path="/sellerpanel/edit"/>
-            <Route element={<ActiveOrders/>} path="/sellerpanel/activeOrders"/>
-            <Route element={<CompletedOrders/>} path="/sellerpanel/completedOrders"/>
-            <Route element={<Followers/>} path="/sellerpanel/followers"/>
-            <Route element={<AddProduct/>} path="/sellerpanel/addproduct"/>
-            <Route element={<EditProduct/>} path="/sellerpanel/editproduct/:id"/>
+            <Route element={<EditSeller />} path="/sellerpanel/edit" />
+            <Route
+              element={<ActiveOrders />}
+              path="/sellerpanel/activeOrders"
+            />
+            <Route
+              element={<CompletedOrders />}
+              path="/sellerpanel/completedOrders"
+            />
+            <Route element={<Followers />} path="/sellerpanel/followers" />
+            <Route element={<AddProduct />} path="/sellerpanel/addproduct" />
+            <Route
+              element={<EditProduct />}
+              path="/sellerpanel/editproduct/:id"
+            />
           </Route>
         </Routes>
       </BrowserRouter>

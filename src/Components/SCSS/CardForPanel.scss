@@ -1,41 +1,38 @@
 $main: #5c0431;
 
-
-.card{
+.card {
   font-family: "Quicksand", sans-serif;
   border: 1px solid rgba(0, 0, 0, 0.067);
 
-    .card-body{
-        img{
-            width: 100%;
-        }
-        .card-title{
-            margin-top: 1rem;
-            color: grey;
-            font-size: 1.3rem;
-        }
-        .btn-warning{
-            border: none;
-            text-align: left;
-            margin-top: 1rem;
-            font-size: 1.5rem!important;
-            width: 60%;
-            background: none;
-            color: $main;
-        }
-        .btn-outline-primary{
-            text-align: left;
-            border: none;
-            margin-top: 1rem;
-            font-size: 1rem!important;
-            width: 80%;
-            background: none;
-        }
-        .btn-outline-primary:hover{
-            background: none;
-            color: $main!important;
-        }
+  .card-body {
+    img {
+      width: 100%;
     }
-
-
+    .card-title {
+      margin-top: 1rem;
+      color: grey;
+      font-size: 1.3rem;
+    }
+    .btn-warning {
+      border: none;
+      text-align: left;
+      margin-top: 1rem;
+      font-size: 1.5rem !important;
+      width: 60%;
+      background: none;
+      color: $main;
+    }
+    .btn-outline-primary {
+      text-align: left;
+      border: none;
+      margin-top: 1rem;
+      font-size: 1rem !important;
+      width: 80%;
+      background: none;
+    }
+    .btn-outline-primary:hover {
+      background: none;
+      color: $main !important;
+    }
+  }
 }

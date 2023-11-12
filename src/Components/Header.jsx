@@ -85,12 +85,15 @@ export default function Header() {
             </ul>
 
             {verifySellerResponseLoading ? (
-              <> <SpinnerDotted
-              size={40}
-              thickness={180}
-              speed={180}
-              color="#5c0431"
-            /></>
+              <>
+                {" "}
+                <SpinnerDotted
+                  size={40}
+                  thickness={180}
+                  speed={180}
+                  color="#5c0431"
+                />
+              </>
             ) : (
               <div className="text-end">
                 {loginned ? (
