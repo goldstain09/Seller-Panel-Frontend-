@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+Project Name - "ECOMMERCE's Seller Panel"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend (ReactJS):
 
-## Available Scripts
+Description:
+The Seller Panel of our e-commerce platform is a robust tool designed to empower sellers in efficiently managing their products and orders. Developed using React, this panel streamlines order handling, providing sellers with a seamless experience.
 
-In the project directory, you can run:
+Key Features:
+Efficient Order Handling:
+Sellers can efficiently manage and process orders, ensuring a streamlined and organized workflow.
 
-### `npm start`
+Product Management:
+Easily add, update, or remove products, giving sellers full control over their inventory.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Order Tracking:
+Sellers have real-time visibility into order statuses, enhancing transparency and facilitating quick responses.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Intuitive Interface:
+The Seller Panel features an intuitive interface, making it user-friendly and accessible for sellers of all levels.
 
-### `npm test`
+Installation & Usage Steps:
+cd seller-panel
+npm install
+npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+but before this you need to start backend server OR
+create build by using "npm run build", and set it in backend's /build;
 
-### `npm run build`
+Folder Structure:
+└── /src
+├── /components- Contains reusable React components, Pages and their corresponding SCSS files.
+| ├──/SCSS- Holds SCSS files for styling.
+| | ├──Component1.scss
+| | ├──Component2.scss
+| | └── ...
+│ ├── Component1.jsx
+│ ├── Component2.jsx
+│ └── ...
+├── /media- Stores main images and logos used in the application.
+│ ├── image1.jpg
+│ ├── image2.png
+│ └── ...
+├── /redux- Manages state using Redux and Redux Saga.
+│ ├── actions- Contains Redux action creators.
+│ ├── constants- Defines action types and constants.
+│ ├── reducers- Implements Redux reducers.
+│ ├── sagas- Manages Redux Sagas for asynchronous actions.
+│ ├── services- Contains service files for API interactions.
+│ └── store.js- Configures the Redux store.
+├── index.js- Main entry point for React application.
+└── router.js- Manages all routes within application.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Technologies used (Frontend)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React
+- React-Redux
+- Redux Saga {Toolkit}
+- React Router Dom
+- Bootstrap
+- Axios
+- SCSS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Dependencies:
+"axios": "^1.6.0",
+"react": "^18.2.0",
+"react-dom": "^18.2.0",
+"react-redux": "^8.1.3",
+"react-router-dom": "^6.17.0",
+"react-scripts": "5.0.1",
+"react-spinners": "^0.13.8",
+"redux": "^4.2.1",
+"redux-saga": "^1.2.3",
+"sass": "^1.69.5"
+"react-toastify": "^9.1.3",
